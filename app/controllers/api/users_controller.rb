@@ -5,9 +5,9 @@ class Api::UsersController < ApplicationController
     if @user.save
       login!(@user)
 
-      # Once a user has successfully created their account and logged in,
-      # redirect to the Boards index page
-      # redirect to '/' 
+      # # Once a user has successfully created their account and logged in,
+      # # redirect to the Boards index page
+      # render 'api/boards/index'
     else
       render @user.errors.full_messages, status: 422
     end
