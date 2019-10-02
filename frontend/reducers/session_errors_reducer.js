@@ -1,0 +1,15 @@
+import { RECEIVE_SESSION_ERRORS, RECEIVE_CURRENT_USER } from '../actions/session_actions';
+
+const sessionErrorsReducer = (state = [], action) {
+  Object.freeze(state);
+  switch(action.type) {
+    case RECEIVE_SESSION_ERRORS:
+      return action.errors;
+    case RECEIVE_CURRENT_USER:
+      return []; // clear errors if RECEIVE_CURRENT_USER action is dispatched
+    default:
+      return state;
+  }
+};
+
+export default sessionErrorsReducer;
