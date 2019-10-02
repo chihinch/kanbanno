@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class SessionForm extends React.Component {
         </li>
       );
     });
-    
+
     return(
       <ul className="session-errors">
         {errorList}
@@ -81,6 +82,7 @@ class SessionForm extends React.Component {
             <input type="submit" className="session-submit" value={this.props.submitLabel} />
           </div>
         </form>
+        <Link to="/" className="session-form-return-home">Return to Homepage</Link>
       </div>
     );
   }
