@@ -4,7 +4,7 @@
 import { connect } from 'react-redux';
 
 import { logout } from '../../actions/session_actions';
-import Dashboard from './greeting';
+import Dashboard from './dashboard';
 
 const mapStateToProps = ({ session, users }) => {
   return {
