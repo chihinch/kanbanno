@@ -8,7 +8,9 @@ const mapStateToProps = ({ errors }) => {
   return {
     errors: errors.session,
     formType: 'signup',
-    navLink: <Link to="/login">or sign in to your account</Link>
+    formHeadingText: 'Create a Kanbanno Account',
+    navLink: <Link to="/login">or sign in to your account</Link>,
+    submitLabel: "Create a New Account"
   };
 };
 

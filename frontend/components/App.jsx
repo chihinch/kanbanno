@@ -11,8 +11,6 @@ import { AuthRoute, ProtectedRoute, AuthProtectedRoute } from '../util/route_uti
 const App = () => {
   return (
     <div>
-      <GreetingContainer />
-      {/* <SignUpFormContainer /> */}
       <Switch>
         <AuthRoute exact path="/login" component={LogInFormContainer} />
         <AuthRoute exact path="/signup" component={SignUpFormContainer} />
