@@ -13,7 +13,7 @@ class SessionController < ApplicationController
       # # redirect to the Boards index page
       # render 'api/boards/index' 
     else
-      render json: ['Invalid email and/or password'], status: 422
+      render json: ['Invalid email and/or password'], status: 401
     end
   end
 
