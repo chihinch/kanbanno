@@ -1,3 +1,5 @@
+// AJAX request creators to api/session (for login/logout) and api/users (for account creation)
+
 export const signup = (user) => {
   return $.ajax({
     method: "POST",
