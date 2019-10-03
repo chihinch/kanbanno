@@ -1,0 +1,72 @@
+.session-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 2em 1em;
+}
+
+.session-errors-div {
+  color: red;
+  border: 1px solid black;
+}
+
+.session-form-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form-heading-text {
+  font-size: 40px;
+  font-weight: bold;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.session-alt-link {
+  font-size: 18px;
+  padding-bottom: 1rem;
+}
+
+.session-form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.session-form label {
+  margin-bottom: 0.5rem;
+  font-size: 18px;
+}
+
+.session-form input {
+  margin-bottom: 0.5rem;
+  font-size: 18px;
+}
+
+.session-form input[type=submit] {
+  margin-top: 1.5rem;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #e2e4e6;
+  color: #8c8c8c;
+  border-radius: 0.25rem;
+  padding: 12px 5px;
+}
+
+.session-form input[type=submit]:hover {
+  background-color: #61bd4f;
+  color: white;
+}
+
+.session-form-return-home {
+  margin-top: 1rem;
+}
+
+
+
