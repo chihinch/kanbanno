@@ -16,6 +16,17 @@ export const login = (user) => {
   });
 };
 
+const demoUser = {
+  name: "Wise Old Man",
+  email: "wiseoldman@kanbanno.com",
+  password: "DionysiusDraynorVillage"
+};
+
+export const demoLogin = () => {
+  return login(demoUser);
+};
+
+
 export const logout = () => {
   return $.ajax({
     method: "DELETE",

@@ -50,6 +50,12 @@ export const login = (user) => (dispatch) => {
     });
 };
 
+export const demoLogin = () => (dispatch) => {
+  return SessionAPIUtil.demoLogin().then((demoUser) => {
+    dispatch(receiveCurrentUser(demoUser))
+  });
+};
+
 export const logout = () => (dispatch) => {
   return SessionAPIUtil.logout().then((user) => {
       dispatch(logoutCurrentUser())

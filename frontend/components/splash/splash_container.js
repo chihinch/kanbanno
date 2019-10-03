@@ -2,7 +2,8 @@
 
 import { connect } from 'react-redux';
 
-import Greeting from './splash';
+import Splash from './splash';
+import { demoLogin } from '../../actions/session_actions';
 
 const mapStateToProps = ({ session, users }) => {
   return {
@@ -10,4 +11,10 @@ const mapStateToProps = ({ session, users }) => {
   };
 };
 
-export default connect(mapStateToProps, null)(Greeting);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    demoLogin: () => dispatch(demoLogin())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Splash);
