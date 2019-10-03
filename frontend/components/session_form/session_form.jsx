@@ -29,65 +29,74 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    const errorList = this.props.errors.map((error, idx) => {
-      return (
-        <li key={`session-error-${idx}`}>
-          {error}
-        </li>
-      );
-    });
-
-    return(
-      <ul className="session-errors">
-        {errorList}
-      </ul>
-    );
-  }
+    let errorList;
+    if (this.props.errors === undefined || this.props.errors.length == 0) {
+      errorList = null;
+    } else {
+        errorList = this.props.errors.map((error, idx) => {
+          return (
+            <li key={`session-error-${idx}`}>
+              {error}
+            </li>
+          );
+        });
+        
+        return (
+          <ul className="session-errors">
+            {errorList}
+          </ul>
+        );
+      }
+    }
 
   render() {
     return (
-      <div className = "session-form-container">
-        <div className="session-errors-div">
-          {this.renderErrors()}
-        </div>
-        <form onSubmit={this.handleSubmit} className="session-form-box">
-
-          <h1 className="form-heading-text">{this.props.formHeadingText}</h1>
-          {this.props.navLink}
-
-          <div className="session-form">
-            {this.props.formType === "signup" ? (<><label>Name</label>
-            <input type="text"
-              value={this.state.name}
-              onChange={this.update('name')}
-              className="session-input"
-              placeholder="Wise Old Man"
-            />
-            <br/></>) : null}
-
-            <label>Email</label>
-            <input type="text"
-              value={this.state.email}
-              onChange={this.update('email')}
-              className="session-input"
-              placeholder="wiseoldman@kanbanno.com" 
-            />
-            <br/>
-
-            <label>Password</label>
-            <input type="password"
-              value={this.state.password}
-              onChange={this.update('password')}
-              className="session-input"
-              placeholder="At least 6 characters"
-            />
-            <br/>
-
-            <input type="submit" value={this.props.submitLabel} />
+      <section className="session-form-main">
+        <div className="session-form-container">
+          <div className="session-form-heading">
+            <h1>{this.props.formHeadingText}</h1>
+            {this.props.navLink}
           </div>
-        </form>
-        <Link to="/" className="session-form-return-home">Return to Homepage</Link>
-      </div>
+          <div className="session-errors-div">
+            {this.renderErrors()}
+          </div>
+          <div className="session-form-container">
+            <form onSubmit={this.handleSubmit}>
+              <div className="session-form-inputs">
+                {this.props.formType === "signup" ? (<><label>Name</label>
+                <input type="text"
+                  value={this.state.name}
+                  onChange={this.update('name')}
+                  className="session-input"
+                  placeholder="Wise Old Man"
+                />
+                <br/></>) : null}
+
+                <label>Email</label>
+                <input type="text"
+                  value={this.state.email}
+                  onChange={this.update('email')}
+                  className="session-input"
+                  placeholder="wiseoldman@kanbanno.com" 
+                />
+                <br/>
+
+                <label>Password</label>
+                <input type="password"
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                  className="session-input"
+                  placeholder="At least 6 characters"
+                />
+                <br/>
+
+                <input type="submit" value={this.props.submitLabel} />
+              </div>
+            </form>
+          </div>
+          <Link to="/" className="session-form-return-home">Return to Homepage</Link>
+        </div>
+      </section>
     );
   }
 }

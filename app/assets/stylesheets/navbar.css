@@ -1,0 +1,15 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #026aa7;
+  padding: 4px; 
+}
+
+.navbar .navbar-logo {
+  opacity: 0.5;
+}
+
+.navbar .navbar-logo:hover {
+  opacity: 1;
+}
