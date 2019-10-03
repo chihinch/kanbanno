@@ -2,7 +2,7 @@
 
 import { connect } from 'react-redux';
 
-import Greeting from './greeting';
+import Greeting from './splash';
 
 const mapStateToProps = ({ session, users }) => {
   return {
