@@ -14,22 +14,13 @@
   padding: 16px;
 }
 
-.splash-header a {
-  text-decoration: none;
-  color: white;
-}
-
-.navbar-logo {
-  font-family: "Pacifico", cursive;
-  font-size: 40px;
-}
-
 .splash-session-buttons {
   display: flex;
   justify-content: space-between;
   align-items: center;
   float: right;
   width: 200px;
+  color: white;
 }
 
 .splash-session-buttons > a {
@@ -37,6 +28,7 @@
   font-weight: bold;
   border: 1px transparent;
   padding: 12px 5px;
+  text-decoration: none;
 }
 
 .splash-login-button {
@@ -106,6 +98,11 @@ div#splash-1-container {
   background-color: #61bd4f;
   color: white;
   border-radius: 0.25rem;
+}
+
+.splash-1-button:hover {
+  background-color: #50a73f;
+  transition: 0.25s;
 }
 
 .splash-1-img img{
