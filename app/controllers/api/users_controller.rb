@@ -4,10 +4,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login!(@user)
-
-      # # Once a user has successfully created their account and logged in,
-      # # redirect to the Boards index page
-      # render 'api/users/_user.json.jbuilder'
+      render :show
     else
       render @user.errors.full_messages, status: 422
     end

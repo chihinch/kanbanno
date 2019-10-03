@@ -7,11 +7,8 @@ class Api::SessionsController < ApplicationController
     )
 
     if @user
-      login!(user)
-
-      # # Once a user has successfully logged in,
-      # # redirect to the Boards index page
-      # render 'api/users/_user.json.jbuilder' 
+      login!(@user)
+      render :show
     else
       render json: ['Invalid email and/or password'], status: 401
     end

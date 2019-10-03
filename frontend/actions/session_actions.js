@@ -53,6 +53,8 @@ export const login = (user) => (dispatch) => {
 export const logout = () => (dispatch) => {
   return SessionAPIUtil.logout().then((user) => {
       dispatch(logoutCurrentUser())
+    }, (error) => {
+      dispatch(receiveErrors(error.responseJSON))
     });
 };
 
