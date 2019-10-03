@@ -8,23 +8,28 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 80%;
+  max-width: 540px;
 }
 
 .session-form-heading {
   display: flex;
   flex-direction: column;
   float: left;
+  padding-bottom: 1rem;
 }
 
 .session-form-heading h1 {
   font-size: 2.5rem;
   font-weight: bold;
-  padding-bottom: 0.5rem;
+  color: #333333;
+  padding-bottom: 0.55rem;
 }
 
-.session-alt-link {
-  font-size: 1.2rem;
+.session-form-link {
+  font-size: 1.25rem;
   padding-bottom: 1rem;
+  color: #298fca;
 }
 
 /* .session-errors-div {
@@ -37,14 +42,14 @@
   padding: 4px;
 } */
 
-.session-form-container {
+.session-form-box {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-sizing: inherit;
 }
 
 .session-form-inputs {
-  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -53,37 +58,39 @@
 
 .session-form-inputs label {
   margin-bottom: 0.5rem;
-  font-size: 18px;
+  font-size: 1.25rem;
+  color: #4d4d4d;
 }
 
 .session-form-inputs input {
-  margin-bottom: 0.5rem;
-  font-size: 20px;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
   border-radius: 0.25rem;
-  background-color: #e2e4e6;
+  background-color: #edeff0;
+  padding: 0.25rem;
+  /* width: available; */
+  max-width: 528px;
+}
+
+.session-form-inputs::placeholder {
+  color: #979898;
+  opacity: 1;
+}
+
+.session-form-inputs:focus {
+  color: #4d4d4d;
 }
 
 .session-form-inputs input[type=submit] {
-  margin-top: 1.5rem;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 1rem;
   background-color: #e2e4e6;
   color: #8c8c8c;
-  border-radius: 0.25rem;
-  padding: 12px 5px;
+  box-sizing: inherit;
   text-align: center;
-  font-size: 14px;
 }
 
-.session-form input[type=submit]:hover {
+.session-form-inputs input[type=submit]:hover {
   background-color: #61bd4f;
+  border-color: #61bd4f;
   color: white;
 }
-
-.session-form-return-home {
-  margin-top: 1rem;
-}
-
-
-

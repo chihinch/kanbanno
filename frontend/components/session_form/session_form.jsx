@@ -51,7 +51,7 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <section className="session-form-main">
+      <div className="session-form-main">
         <div className="session-form-container">
           <div className="session-form-heading">
             <h1>{this.props.formHeadingText}</h1>
@@ -60,18 +60,18 @@ class SessionForm extends React.Component {
           <div className="session-errors-div">
             {this.renderErrors()}
           </div>
-          <div className="session-form-container">
+          <div className="session-form-box">
             <form onSubmit={this.handleSubmit}>
               <div className="session-form-inputs">
-                {this.props.formType === "signup" ? (<><label>Name</label>
+                {this.props.formType === "signup" ? (<>
+                <label>Name</label>
                 <input type="text"
                   value={this.state.name}
                   onChange={this.update('name')}
                   className="session-input"
-                  placeholder="Wise Old Man"
-                />
-                <br/></>) : null}
-
+                  placeholder="Wise Old Man" />
+                </>) : null}
+                
                 <label>Email</label>
                 <input type="text"
                   value={this.state.email}
@@ -79,7 +79,6 @@ class SessionForm extends React.Component {
                   className="session-input"
                   placeholder="wiseoldman@kanbanno.com" 
                 />
-                <br/>
 
                 <label>Password</label>
                 <input type="password"
@@ -88,15 +87,14 @@ class SessionForm extends React.Component {
                   className="session-input"
                   placeholder="At least 6 characters"
                 />
-                <br/>
 
                 <input type="submit" value={this.props.submitLabel} />
               </div>
             </form>
           </div>
-          <Link to="/" className="session-form-return-home">Return to Homepage</Link>
+          <Link to="/" className="session-form-link">Return to Homepage</Link>
         </div>
-      </section>
+      </div>
     );
   }
 }
