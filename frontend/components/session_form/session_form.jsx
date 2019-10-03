@@ -24,6 +24,10 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
   renderErrors() {
     const errorList = this.props.errors.map((error, idx) => {
       return (
@@ -79,7 +83,7 @@ class SessionForm extends React.Component {
             />
             <br/>
 
-            <input type="submit" className="session-submit" value={this.props.submitLabel} />
+            <input type="submit" value={this.props.submitLabel} />
           </div>
         </form>
         <Link to="/" className="session-form-return-home">Return to Homepage</Link>

@@ -1,10 +1,7 @@
-// The first thing a user sees upon logging in
-// Or if a user returns to home
-
 import { connect } from 'react-redux';
 
 import { logout } from '../../actions/session_actions';
-import Dashboard from './dashboard';
+import Navbar from './navbar';
 
 const mapStateToProps = ({ session, users }) => {
   return {
@@ -18,4 +15,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

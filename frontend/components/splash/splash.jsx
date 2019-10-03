@@ -21,7 +21,7 @@ const Splash = ({ currentUser }) => {
 
     <section id="splash-1">
       <div id="splash-1-container">
-        <div class="splash-1-pitch">
+        <div className="splash-1-pitch">
           <h1>
             Kanbanno helps you streamline your workflow and get stuff done.
           </h1>
@@ -30,12 +30,12 @@ const Splash = ({ currentUser }) => {
           </p>
         </div>
 
-        <div class="splash-1-buttons">
+        <div className="splash-1-buttons">
           <Link to="/signup" className="splash-1-button">Sign Up - It's Free!</Link>
           <Link to="/" className="splash-1-button">See How It Works!</Link>
         </div>
 
-        <div class="splash-1-img">
+        <div className="splash-1-img">
           <img src="https://cdn.pixabay.com/photo/2019/06/18/05/46/kanban-4281474_960_720.jpg" alt="kanban-example"/>
         </div>
       </div>
