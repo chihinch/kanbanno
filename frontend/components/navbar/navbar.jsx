@@ -5,6 +5,7 @@ const Navbar = ({ currentUser, logout }) => {
   return (
     <div id="navbar">
       {/* Will also have a logo enclosed in an <a> tag go back to root */}
+      <h1>Hello, {currentUser.name}</h1>
       <div className="dashboard-session-buttons">
         <button id="logout-button" onClick={logout}>Logout</button>
       </div>
