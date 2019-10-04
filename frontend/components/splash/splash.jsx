@@ -3,6 +3,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Footer from '../footer/footer';
+
 export default class Splash extends React.Component {
   
   render() {
@@ -42,6 +44,8 @@ export default class Splash extends React.Component {
           </div>
         </div>
       </section>
+
+      <Footer />
     </>);
   }
 };
