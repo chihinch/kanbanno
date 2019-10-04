@@ -57,8 +57,19 @@ footer ul li a:hover {
    text-decoration: underline;
 }
 
-footer h1 {
+footer div {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
    margin-top: 1rem;
+}
+
+footer h1 {
    font-size: 1.5rem;
    font-weight: bold;
+   cursor: default;
+}
+
+footer p {
+   margin-top: 1rem;
 }
