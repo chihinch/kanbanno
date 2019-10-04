@@ -98,7 +98,7 @@ class SessionForm extends React.Component {
         </div>
       </div>
       
-      <Footer />
+      <Footer demoLogin={this.props.demoLogin} />
     </>);
   }
 }
