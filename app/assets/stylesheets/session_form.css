@@ -69,6 +69,7 @@
   padding: 0.25rem;
   box-sizing: border-box;
   width: 100%;
+  font-family: "Work Sans", sans-serif;
 }
 
 .session-form-inputs::placeholder {
