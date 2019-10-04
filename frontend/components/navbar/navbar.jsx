@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faChalkboard, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faChalkboard, faSearch, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = ({ currentUser, logout }) => {
   return (<>
@@ -10,7 +10,7 @@ const Navbar = ({ currentUser, logout }) => {
         <Link to="/" className="navbar-button">
           <FontAwesomeIcon icon={faHome} />
         </Link>
-        <Link to="#" className="navbar-button" id="board-button">
+        <Link to="#" className="navbar-button long-button">
           <FontAwesomeIcon icon={faChalkboard} />
           Boards
         </Link>
@@ -25,24 +25,28 @@ const Navbar = ({ currentUser, logout }) => {
       </Link>
 
       <div className="navbar-right">
-        <h1>Hi, this is the right side</h1>
+        <Link to="#" onClick={logout} className="navbar-button long-button">
+          <FontAwesomeIcon icon={faDoorOpen} />
+          Log Out
+        </Link>
       </div>
     </div>
 
     <div className="app-main-interface">
-      You should see this if you're logged in!
-      <br/>
-      Board index UI will go here.
-      <br/>
-      Click on your initials on the top-right to logout.
+      <p>
+        Welcome, {currentUser.name}
+        <br/>
+        {currentUser.email}
+        <br/><br/>
+        You should see this if you're logged in!
+        <br/>
+        Board index UI will go here.
+        <br/>
+        Click on the button on the top-right to logout.
+        <br/>
+        Thanks for visiting!
+      </p>
     </div>
-
-    <br/>
-
-    <footer>
-      <h1>Welcome, {currentUser.name}</h1>
-      <button id="logout-button" onClick={logout}>Logout</button>
-    </footer>
   </>);
 };
 
