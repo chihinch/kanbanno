@@ -1,15 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faChalkboard, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = ({ currentUser, logout }) => {
   return (<>
     <div className="navbar">
       <div className="navbar-left">
-        <h1>Hi, this is the left side</h1>
+        <Link to="/" className="navbar-button">
+          <FontAwesomeIcon icon={faHome} />
+        </Link>
+        <Link to="#" className="navbar-button" id="board-button">
+          <FontAwesomeIcon icon={faChalkboard} />
+          Boards
+        </Link>
+        <form className="navbar-search">
+          <input type="text" placeholder="Search" />
+          <Link to="#"><FontAwesomeIcon icon={faSearch} /></Link>
+        </form>
       </div>
+
       <Link to="/" className="navbar-logo">
         Kanbanno
       </Link>
+
       <div className="navbar-right">
         <h1>Hi, this is the right side</h1>
       </div>
@@ -20,7 +34,7 @@ const Navbar = ({ currentUser, logout }) => {
       <br/>
       Board index UI will go here.
       <br/>
-      Hover over icon on the top-right to logout.
+      Click on your initials on the top-right to logout.
     </div>
 
     <br/>
