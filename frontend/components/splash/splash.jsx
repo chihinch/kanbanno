@@ -24,7 +24,7 @@ export default class Splash extends React.Component {
       </header>
 
       <section id="splash-1">
-        <div id="splash-1-container">
+        <div id="splash-1-container" className="splash-container">
           <div>
             <div className="splash-1-pitch">
               <h1>
@@ -46,6 +46,22 @@ export default class Splash extends React.Component {
             <Link to="/" className="splash-1-button" onClick={this.props.demoLogin}>See How It Works!</Link>
           </div>
 
+        </div>
+      </section>
+
+      <section id="splash-2">
+        <div id="splash-2-container" className="splash-container">
+          <div>
+            <div className="splash-2-pitch">
+              <h3>Work with any team</h3>
+              <p>Whether it's for work, a side project, or even the next family vacation, Kanbanno helps your team stay organized.</p>
+              <Link to="/signup" className="grey-button">Start doing →</Link>
+            </div>
+
+            <div className="splash-2-img">
+              <img src="https://cdn.pixabay.com/photo/2018/06/13/10/30/african-descent-3472462_960_720.jpg" alt="kanban-teamwork"/>
+            </div>
+          </div>
         </div>
       </section>
 
