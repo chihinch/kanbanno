@@ -11,7 +11,7 @@
   display: flex;
   justify-content: space-between;
   background-color: #1574c1;
-  padding: 16px;
+  padding: 1rem;
 }
 
 .splash-session-buttons {
@@ -19,21 +19,25 @@
   justify-content: space-between;
   align-items: center;
   float: right;
-  width: 200px;
+  box-sizing: border-box;
   color: white;
 }
 
 .splash-session-buttons > a {
-  font-size: 16px;
-  font-weight: bold;
-  border: 1px transparent;
-  padding: 12px 5px;
+  display: inline-block;
+  font-size: 1.09375rem;
+  text-align: center;
   text-decoration: none;
+  line-height: 1.5;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 0.2rem;
 }
 
 .splash-login-button {
   color: white !important;
   background-color: transparent;
+  font-weight: 400;
 }
 
 .splash-login-button:hover {
@@ -43,7 +47,11 @@
 .splash-white-button {
   color: #1574c1 !important;
   background-color: white !important;
-  border-radius: 0.25rem;
+  font-weight: 500 !important;
+}
+
+.splash-white-button#signup {
+  margin-right: 0.25rem;
 }
 
 section#splash-1 {

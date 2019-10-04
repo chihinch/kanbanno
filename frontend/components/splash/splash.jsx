@@ -17,7 +17,7 @@ export default class Splash extends React.Component {
 
           <div className="splash-session-buttons">
             <Link to="/login" className="splash-login-button">Log In</Link>
-            <Link to="/signup" className="splash-white-button ">Sign Up</Link>
+            <Link to="/signup" className="splash-white-button " id="signup">Sign Up</Link>
             <Link to="/" className="splash-white-button" onClick={this.props.demoLogin}>Demo</Link>
           </div>
         </nav>
