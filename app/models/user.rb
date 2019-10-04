@@ -8,6 +8,11 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
   attr_reader :password
+
+  has_many :boards,
+    class_name: :Board,
+    primary_key: :id,
+    foreign_key: :admin_id
   
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
