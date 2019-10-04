@@ -44,7 +44,7 @@ class SessionForm extends React.Component {
         });
         
         return (
-          <ul className="session-errors">
+          <ul className="errors">
             {errorList}
           </ul>
         );

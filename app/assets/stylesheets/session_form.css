@@ -32,15 +32,14 @@
   color: #298fca;
 }
 
-/* .session-errors-div {
+.errors {
+  max-width: 540px;
+  padding: 0 0 1rem 0;
 }
 
-.session-errors {
-  color: red;
-  border: 1px solid black;
-  max-width: 540px;
-  padding: 4px;
-} */
+.errors li {
+  color: #ff2424;
+}
 
 .session-form-box {
   display: flex;
