@@ -32,21 +32,24 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     let errorList;
+    let errorsClass;
     if (this.props.errors === undefined || this.props.errors.length == 0) {
       errorList = null;
+      errorsClass = "no-errors"
     } else {
+        errorsClass = "errors"
         errorList = this.props.errors.map((error, idx) => {
           return (
-            <li key={`session-error-${idx}`}>
+            <p key={`session-error-${idx}`}>
               {error}
-            </li>
+            </p>
           );
         });
         
         return (
-          <ul className="errors">
+          <div className={errorsClass}>
             {errorList}
-          </ul>
+          </div>
         );
       }
     }
@@ -73,13 +76,11 @@ class SessionForm extends React.Component {
     return (<>
       <section className="session-form-section">
         <div className="session-form-container">
+          {this.renderErrors()}
           <div className="session-form-content">
-            <h1>{formType ==="login" ? "Log in to Kanbanno" : "Create a Kanbanno Account"}</h1>
+            <h1>{formHeader}</h1>
             <div id="session-form-link-div">
               {navLink}
-            </div>
-            <div className="session-errors-div">
-              {this.renderErrors()}
             </div>
             <div className="session-form-box">
               <form onSubmit={this.handleSubmit}>

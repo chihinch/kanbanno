@@ -33,19 +33,25 @@
 
 .errors {
   max-width: 540px;
-  padding: 0 0 1rem 0;
+  padding: 1rem 0;
+  display: inline-flex;
+  flex-direction: column;
 }
 
-.errors li {
-  color: #ff2424;
+.errors p {
+  background-color: #eb5a46;
+  border-radius: 0.25rem;
+  color: #fbedeb;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.44em;
+  padding: 0.5em 1em;
+  margin-bottom: 0.5em;
 }
 
 .session-form-box {
   margin-top: 1.2em;
   display: block;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between; */
 }
 
 .session-form-inputs {
