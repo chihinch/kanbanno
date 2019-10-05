@@ -97,7 +97,6 @@ class SessionForm extends React.Component {
           <Link to="/" className="session-form-link">Return to Homepage</Link>
         </div>
       </div>
-      
       <Footer demoLogin={this.props.demoLogin} />
     </>);
   }

@@ -18,6 +18,24 @@
     font-family: "Work Sans", sans-serif;
  }
 
+ h3 {
+  font-size: 2.1875rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+
+p {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
  .navbar-logo {
   font-family: "Pacifico", cursive;
   font-size: 2.5rem;

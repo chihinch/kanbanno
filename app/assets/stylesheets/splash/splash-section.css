@@ -1,0 +1,249 @@
+.splash-section {
+  display: block;
+  text-align: left;
+}
+
+section#splash-1 {
+  background: linear-gradient(135deg, #0079bf, #5067c5);
+}
+
+@media (min-width:768px) {
+  .splash-container {
+    max-width: 720px;
+  }
+}
+@media (min-width:992px) {
+  .splash-container {
+    max-width: 960px;
+  }
+}
+@media (min-width:1200px) {
+  .splash-container {
+    max-width: 1140px;
+  }
+}
+
+.splash-container {
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  color: #172b4d;
+}
+
+#splash-1-container {
+  padding-top: 7rem;
+  padding-bottom: 5rem;
+}
+
+.splash-container div:first-of-type {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.splash-1-pitch {
+  color: white;
+  width: 100%;
+  flex: 0 0 41.66666667%;
+  max-width: 41.66666667%;
+  padding-right: 15px;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+
+.splash-1-pitch h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.splash-1-pitch p {
+  font-size: 1.5625rem;
+  font-weight: 300;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.splash-img {
+  margin-left: 8.33333333%;
+  flex: 0 0 50%;
+  max-width: 50%;
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.splash-img img{
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.splash-1-buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.splash-1-button {
+  width: 30%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  text-align: center;
+  text-decoration: none;
+  background-color: #61bd4f;
+  color: white;
+  font-size: 1.5625rem;
+  line-height: 1.5;
+}
+
+.splash-1-button:hover {
+  background-color: #50a73f;
+  transition: 0.15s;
+}
+
+.splash-container.minor {
+  padding-top: 3rem;
+  padding-bottom: 0;
+}
+
+.splash-minor-pitch {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+
+.splash-minor-pitch.left {
+  flex: 0 0 41.66666667%;
+  max-width: 41.66666667%;
+}
+
+.splash-minor-pitch.right {
+  flex: 0 0 58.33333333%;
+  max-width: 58.33333333%;
+}
+
+.splash-img.minor.left{
+  margin-left: 0;
+  flex: 0 0 41.66666667%;
+  max-width: 41.66666667%;
+}
+
+.splash-img.minor.right{
+  margin-left: 0;
+  flex: 0 0 58.33333333%;
+  max-width: 58.33333333%;
+}
+
+.splash-button {
+  text-decoration: none;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  width: 150px;
+  text-align: center;
+}
+
+.splash-button.grey {
+  color: white;
+  background-color: #6D8EA2;
+}
+
+.grey-button.grey:hover {
+  background-color: #5b7b8e;
+  border-color: #5b7b8e;
+  transition: 0.15s;
+}
+
+#splash-bottom {
+  background: linear-gradient(to bottom, #fff 0%, #f7ecff 46%, #d2ecff 74%, #fff 100%);
+  box-sizing: border-box;
+  margin-top: 3rem;
+}
+
+#splash-bottom-companies {
+  display: block;
+  box-sizing: border-box;
+}
+
+#companies-inner {
+  display: block;
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, #42548e 0%, #6b668c 100%);
+  border-radius: 12px;
+  color: white;
+}
+
+#logo-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+#logo-container svg {
+  margin: 1em 0.5em;
+  display: inline-block;
+  font-size: 2.5rem;
+}
+
+.splash-button.purple {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-decoration: none;
+  color: #212529;
+  background-color: #EBECF0;
+  border-color: #EBECF0;
+}
+
+.splash-button.purple:hover {
+  background-color: rgba(235, 236, 240, 0.8);
+  border-color: rgba(235, 236, 240, 0.85);
+  transition: 0.15s;
+}
+
+#splash-bottom-join .splash-container {
+  padding-bottom: 5rem;
+  padding-top: 5rem;
+}
+
+#start-planning {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.start-planning-contents {
+  padding: 1.5rem 3rem 0 3rem;
+  justify-content: center;
+  max-width: 50%;
+  text-align: center;
+}
+
+#sign-up-button-bottom {
+  width: 50%;
+  line-height: 1.25;
+  font-size: 1.25rem;
+}

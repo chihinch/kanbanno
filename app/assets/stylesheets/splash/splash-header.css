@@ -1,0 +1,55 @@
+.splash-navbar-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.splash-navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1574c1;
+  padding: 1rem;
+}
+
+.splash-navbar-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  float: right;
+  box-sizing: border-box;
+  color: white;
+}
+
+.splash-navbar-buttons > a {
+  display: inline-block;
+  font-size: 1.09375rem;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1.5;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 0.2rem;
+}
+
+.splash-link-button {
+  color: white !important;
+  background-color: transparent;
+  font-weight: 400;
+}
+
+.splash-link-button:hover {
+  text-decoration: underline;
+}
+
+.splash-white-button {
+  color: #1574c1 !important;
+  background-color: white !important;
+  font-weight: 500 !important;
+}
+
+.splash-white-button#signup {
+  margin-right: 0.25rem;
+}
