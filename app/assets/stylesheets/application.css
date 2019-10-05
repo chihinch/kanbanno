@@ -44,10 +44,9 @@ p {
 }
 
 footer {
-   font-size: 1rem;
    text-align: center;
    box-sizing: inherit;
-   margin: 2rem 1rem;
+   margin: 4em 1em;
 }
 
 footer ul {
@@ -66,6 +65,7 @@ footer a {
    display: block;
    padding: 0.25rem;
    text-align: center;
+   font-size: 1rem;
    color: #8993A4;
    text-decoration: underline;
 }
@@ -84,10 +84,13 @@ footer div {
 
 footer h1 {
    font-size: 1.5rem;
+   color: #505f79;
    font-weight: bold;
    cursor: default;
 }
 
 footer p {
    margin-top: 1rem;
+   font-size: 1rem;
+   color: #172b4d;
 }
