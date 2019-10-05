@@ -34,11 +34,9 @@
 .errors {
   max-width: 540px;
   padding: 1rem 0;
-  display: inline-flex;
-  flex-direction: column;
 }
 
-.errors p {
+.errors span {
   background-color: #eb5a46;
   border-radius: 0.25rem;
   color: #fbedeb;
@@ -47,6 +45,7 @@
   line-height: 1.44em;
   padding: 0.5em 1em;
   margin-bottom: 0.5em;
+  display: table;
 }
 
 .session-form-box {

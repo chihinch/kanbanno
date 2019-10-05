@@ -40,9 +40,9 @@ class SessionForm extends React.Component {
         errorsClass = "errors"
         errorList = this.props.errors.map((error, idx) => {
           return (
-            <p key={`session-error-${idx}`}>
+            <span key={`session-error-${idx}`}>
               {error}
-            </p>
+            </span>
           );
         });
         
