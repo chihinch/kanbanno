@@ -54,7 +54,7 @@ export default class Splash extends React.Component {
           <div>
             <div className="splash-minor-pitch left">
               <h3>Work with any team</h3>
-              <p>Stay on the same page as your team from anywhere: at work, at home, or in a subway train "delayed due to train traffic."</p>
+              <p>Stay on the same page as your team from anywhere: at work, at home, or in a subway train delayed due to "train traffic."</p>
               <Link to="/signup" className="splash-button grey">Start doing →</Link>
             </div>
 
