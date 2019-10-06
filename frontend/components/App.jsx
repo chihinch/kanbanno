@@ -11,10 +11,18 @@ import { AuthRoute, ProtectedRoute, AuthProtectedRoute } from '../util/route_uti
 const App = () => {
   return (
     <div>
+      {/* Any logged-in user will see a navbar through all parts of the app */}
+      <ProtectedRoute path="/" component={NavbarContainer} />
       <Switch>
+
+        {/* Only non-logged-in users will be able to access the login/signup forms */}
         <AuthRoute exact path="/login" component={LogInFormContainer} />
         <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-        <AuthProtectedRoute exact path="/" authComponent={SplashContainer} protectedComponent={NavbarContainer} />
+
+        {/* If no user is logged in, render the SplashContainer at the root path */}
+        {/* Otherwise, render the BoardIndexContainer at the root path (to be implemented) */}
+        {/* Going to /:username/:boards will also render the BoardIndexContainer */}
+        <AuthProtectedRoute exact path="/" authComponent={SplashContainer} protectedComponent={`Hello`} />
       </Switch>
     </div>
   );
