@@ -46,27 +46,30 @@
 .navbar-button.long-button {
   width: 6rem;
   box-sizing: border-box;
-  justify-content: space-around;
+  justify-content: space-evenly;
   text-decoration: none;
   color: white;
+  font-size: 16px;
 }
 
 .navbar-search {
-  height: 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  height: 32px;
+  width: 180px;
+  position: relative;
 }
 
 .navbar-search input {
-  height: 1.5rem;
-  box-sizing: content-box;
-  font-size: 1rem;
-  padding: 0.25rem;
+  height: 32px;
+  box-sizing: border-box;
+  font-size: 16px;
   border: none;
-  border-radius: 0.25rem;
+  border-radius: 3px;
   background-color:  rgba(255,255,255,0.3);
-  margin-right: 0.25rem;
+  display: block;
+  padding-left: 8px;
+  padding-right: 30px;
+  width: 180px;
+  float: left;
 }
 
 .navbar-search input::placeholder {
@@ -80,6 +83,20 @@
 .navbar-search input:focus {
   background-color: white;
   color: #4d4d4d;
+}
+
+.navbar-search span {
+  position: absolute;
+  right: 0;
+}
+
+.navbar-search button {
+  background-color:  transparent;
+  margin-right: 0;
+}
+
+.navbar-search button:hover {
+  background-color: transparent;
 }
 
 .navbar.logo {

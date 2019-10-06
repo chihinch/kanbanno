@@ -25,10 +25,10 @@ class Navbar extends React.Component {
             <span><FontAwesomeIcon icon={faChalkboard} /></span>
             <span>Boards</span>
           </button>
-          <form className="navbar-search">
+          <div className="navbar-search">
             <input type="text" placeholder="Search" />
-            <button><FontAwesomeIcon icon={faSearch} /></button>
-          </form>
+            <span><button class="navbar-button"><FontAwesomeIcon icon={faSearch} /></button></span>
+          </div>
         </div>
 
         <Link to="/" className="navbar logo">
