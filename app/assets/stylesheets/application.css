@@ -36,9 +36,8 @@ p {
   box-sizing: border-box;
 }
 
- .navbar-logo {
-  font-family: "Pacifico", cursive;
-  font-size: 2.5rem;
+ .logo {
+  font-family: "Damion", cursive;
   text-decoration: none;
   color: white;
 }

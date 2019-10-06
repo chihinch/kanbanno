@@ -13,7 +13,7 @@ export default class Splash extends React.Component {
     return (<>
       <header className="splash-navbar-container">
         <nav className="splash-navbar">
-          <Link to="/" className="navbar-logo">
+          <Link to="/" className="splash logo">
             Kanbanno
           </Link>
           <div className="splash-navbar-buttons">

@@ -12,15 +12,25 @@
   margin: 0.25rem;
 }
 
+.navbar .navbar-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0.25rem;
+}
+
 .navbar-button {
-  height: 2rem;
-  width: 2rem;
+  height: 32px;
+  width: 32px;
   background-color: rgba(255,255,255,0.3);
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 0.25rem;
-  margin-right: 0.25rem;
+  border: 0;
+  border-radius: 3px;
+  padding: 0;
+  margin-right: 4px;
+  transition: 0.1s;
 }
 
 .navbar-button:hover {
@@ -29,11 +39,12 @@
 
 .navbar svg {
   color: white;
-  font-size: 1.25rem;
+  font-size: 20px;
 }
 
 .navbar-button.long-button {
   width: 6rem;
+  box-sizing: border-box;
   justify-content: space-around;
   text-decoration: none;
   color: white;
@@ -61,16 +72,32 @@
   color: white;
 }
 
+.navbar-search input:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+
 .navbar-search input:focus {
   background-color: white;
   color: #4d4d4d;
 }
 
-.navbar .navbar-logo {
+.navbar.logo {
   opacity: 0.5;
-  font-size: 1.75rem;
+  display: block;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  top: 10px;
+  height: 30px;
+  width: 80px;
+  text-align: center;
+  font-size: 25px;
 }
 
-.navbar .navbar-logo:hover {
+.navbar.logo:hover {
   opacity: 1;
+}
+
+#logout-button {
+  margin-right: 0;
 }

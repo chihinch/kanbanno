@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faChalkboard, faSearch, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faChalkboard, faSearch, faDoorOpen, faPlus, faInfoCircle, faBell } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = ({ currentUser, logout }) => {
   return (<>
     <div className="navbar">
       <div className="navbar-left">
         <Link to="/" className="navbar-button">
-          <FontAwesomeIcon icon={faHome} />
+          <span><FontAwesomeIcon icon={faHome} /></span>
         </Link>
         <Link to="#" className="navbar-button long-button">
-          <FontAwesomeIcon icon={faChalkboard} />
-          Boards
+          <span><FontAwesomeIcon icon={faChalkboard} /></span>
+          <span>Boards</span>
         </Link>
         <form className="navbar-search">
           <input type="text" placeholder="Search" />
@@ -20,12 +20,21 @@ const Navbar = ({ currentUser, logout }) => {
         </form>
       </div>
 
-      <Link to="/" className="navbar-logo">
+      <Link to="/" className="navbar logo">
         Kanbanno
       </Link>
 
       <div className="navbar-right">
-        <Link to="#" onClick={logout} className="navbar-button long-button">
+        <Link to="/" className="navbar-button">
+          <span><FontAwesomeIcon icon={faPlus} /></span>
+        </Link>
+        <Link to="/" className="navbar-button">
+          <span><FontAwesomeIcon icon={faInfoCircle} /></span>
+        </Link>
+        <Link to="/" className="navbar-button">
+          <span><FontAwesomeIcon icon={faBell} /></span>
+        </Link>
+        <Link to="#" onClick={logout} className="navbar-button long-button" id="logout-button">
           <FontAwesomeIcon icon={faDoorOpen} />
           Log Out
         </Link>
