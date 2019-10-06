@@ -3,60 +3,72 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faChalkboard, faSearch, faDoorOpen, faPlus, faInfoCircle, faBell } from '@fortawesome/free-solid-svg-icons';
 
-const Navbar = ({ currentUser, logout }) => {
-  return (<>
-    <div className="navbar">
-      <div className="navbar-left">
-        <Link to="/" className="navbar-button">
-          <span><FontAwesomeIcon icon={faHome} /></span>
+class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+    // this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  // handleLogout(e) {
+  //   this.props.logout();
+  //   this.props.history.push('/');
+  // } 
+
+  render() {
+    return (<>
+      <div className="navbar">
+        <div className="navbar-left">
+          <Link to="/" className="navbar-button">
+            <span><FontAwesomeIcon icon={faHome} /></span>
+          </Link>
+          <button className="navbar-button long-button">
+            <span><FontAwesomeIcon icon={faChalkboard} /></span>
+            <span>Boards</span>
+          </button>
+          <form className="navbar-search">
+            <input type="text" placeholder="Search" />
+            <button><FontAwesomeIcon icon={faSearch} /></button>
+          </form>
+        </div>
+
+        <Link to="/" className="navbar logo">
+          Kanbanno
         </Link>
-        <Link to="#" className="navbar-button long-button">
-          <span><FontAwesomeIcon icon={faChalkboard} /></span>
-          <span>Boards</span>
-        </Link>
-        <form className="navbar-search">
-          <input type="text" placeholder="Search" />
-          <Link to="#"><FontAwesomeIcon icon={faSearch} /></Link>
-        </form>
+
+        <div className="navbar-right">
+          <button className="navbar-button">
+            <span><FontAwesomeIcon icon={faPlus} /></span>
+          </button>
+          <button className="navbar-button">
+            <span><FontAwesomeIcon icon={faInfoCircle} /></span>
+          </button>
+          <button className="navbar-button">
+            <span><FontAwesomeIcon icon={faBell} /></span>
+          </button>
+          <button onClick={this.props.logout} className="navbar-button long-button" id="logout-button">
+            <FontAwesomeIcon icon={faDoorOpen} />
+            Log Out
+          </button>
+        </div>
       </div>
 
-      <Link to="/" className="navbar logo">
-        Kanbanno
-      </Link>
-
-      <div className="navbar-right">
-        <Link to="/" className="navbar-button">
-          <span><FontAwesomeIcon icon={faPlus} /></span>
-        </Link>
-        <Link to="/" className="navbar-button">
-          <span><FontAwesomeIcon icon={faInfoCircle} /></span>
-        </Link>
-        <Link to="/" className="navbar-button">
-          <span><FontAwesomeIcon icon={faBell} /></span>
-        </Link>
-        <Link to="#" onClick={logout} className="navbar-button long-button" id="logout-button">
-          <FontAwesomeIcon icon={faDoorOpen} />
-          Log Out
-        </Link>
+      <div className="app-main-interface">
+        <p>
+          Welcome, {this.props.currentUser.name}
+          <br/>
+          {this.props.currentUser.email}
+          <br/><br/>
+          You should see this if you're logged in!
+          <br/>
+          Board index UI will go here.
+          <br/>
+          Click on the button on the top-right to logout.
+          <br/>
+          Thanks for visiting!
+        </p>
       </div>
-    </div>
-
-    <div className="app-main-interface">
-      <p>
-        Welcome, {currentUser.name}
-        <br/>
-        {currentUser.email}
-        <br/><br/>
-        You should see this if you're logged in!
-        <br/>
-        Board index UI will go here.
-        <br/>
-        Click on the button on the top-right to logout.
-        <br/>
-        Thanks for visiting!
-      </p>
-    </div>
-  </>);
+    </>);
+  }
 };
 
 export default Navbar;

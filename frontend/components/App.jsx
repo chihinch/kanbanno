@@ -14,10 +14,9 @@ const App = () => {
       {/* Any logged-in user will see a navbar through all parts of the app */}
       <ProtectedRoute path="/" component={NavbarContainer} />
       <Switch>
-
         {/* Only non-logged-in users will be able to access the login/signup forms */}
-        <AuthRoute exact path="/login" component={LogInFormContainer} />
         <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+        <AuthRoute exact path="/login" component={LogInFormContainer} />
 
         {/* If no user is logged in, render the SplashContainer at the root path */}
         {/* Otherwise, render the BoardIndexContainer at the root path (to be implemented) */}
