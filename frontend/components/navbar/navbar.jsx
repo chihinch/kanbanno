@@ -3,16 +3,13 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faChalkboard, faSearch, faDoorOpen, faPlus, faInfoCircle, faBell } from '@fortawesome/free-solid-svg-icons';
 
-class Navbar extends React.Component {
+export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
-    // this.handleLogout = this.handleLogout.bind(this);
+    this.state = {
+      showMenu: false,
+    }
   }
-
-  // handleLogout(e) {
-  //   this.props.logout();
-  //   this.props.history.push('/');
-  // } 
 
   render() {
     return (<>
@@ -70,5 +67,3 @@ class Navbar extends React.Component {
     </>);
   }
 };
-
-export default Navbar;
