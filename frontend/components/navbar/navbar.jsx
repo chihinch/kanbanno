@@ -33,11 +33,11 @@ export default class Navbar extends React.Component {
 
   render() {
     let currentMenu;
-
     if (this.state.showMenu) {
       switch (this.state.currentMenuName) {
         case "logout-button":
           currentMenu = <NavAccountMenu currentUser={this.props.currentUser} logout={this.props.logout} />;
+          break;
         default:
           currentMenu = null;
       }
