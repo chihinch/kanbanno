@@ -25,7 +25,7 @@ export default class NavAccountMenu extends React.Component {
               <li><Link to="#">Option #1</Link></li>
               <li><Link to="#">Option #2</Link></li>
               <li><Link to="#">Option #3</Link></li>
-              <li class="with-bottom-divider"><Link to="#">Option #4</Link></li>
+              <li className="with-bottom-divider"><Link to="#">Option #4</Link></li>
               <li><button onClick={this.props.logout} id="logout-button">Log Out</button></li>
             </ul>
           </nav>
