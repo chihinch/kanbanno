@@ -7,7 +7,7 @@ class Api::BoardsController < ApplicationController
   def show
     # A board will be selected by its ID (since it should be unique)
     # However the frontend route will still show /boards/:boardID/:title
-    @board = Board.find_by(id: params[:id])
+    @board = Board.find(params[:id])
   end
 
   def create
@@ -20,6 +20,12 @@ class Api::BoardsController < ApplicationController
   end
 
   def update
+    @board = currentUser.boards.find(params[:id])
+    if @board.update_attributes(board_params)
+      render :show
+    else
+      render json: @board.errors.full_messages, status: 422
+    end
   end
 
   def destroy
