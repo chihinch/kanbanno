@@ -3,15 +3,44 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faChalkboard, faSearch, faDoorOpen, faPlus, faInfoCircle, faBell } from '@fortawesome/free-solid-svg-icons';
 
+import NavAccountMenu from './nav_account_menu';
+
 export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       showMenu: false,
+      currentMenu: null,
     }
+    this.showMenu = this.showMenu.bind(this);
+    this.closeMenu = this.closeMenu.bind(this);
   }
 
+  showMenu(e) {
+    e.preventDefault();
+    this.setState({
+      showMenu: true,
+      currentMenu: e.target.id,
+    }, document.addEventListener('click', this.closeMenu));
+  }
+
+  closeMenu() {
+    this.setState({
+      showMenu: false,
+      currentMenu: null,
+    }, document.removeEventListener('click', this.closeMenu));
+  };
+
   render() {
+    let shownMenu;
+    if (this.state.showMenu) {
+      switch (this.state.currentMenu) {
+        case "logout-button":
+          shownMenu = <NavAccountMenu currentUser={this.props.currentUser} logout={this.props.logout} />
+        default:
+          null
+      }
+    }
     return (<>
       <div className="navbar">
         <div className="navbar-left">
@@ -42,12 +71,14 @@ export default class Navbar extends React.Component {
           <button className="navbar-button">
             <span><FontAwesomeIcon icon={faBell} /></span>
           </button>
-          <button onClick={this.props.logout} className="navbar-button long-button" id="logout-button">
+          <button onClick={this.showMenu} className="navbar-button long-button" id="logout-button">
             <FontAwesomeIcon icon={faDoorOpen} />
             Log Out
           </button>
         </div>
       </div>
+
+      {shownMenu}
 
       <div className="app-main-interface">
         <p>
