@@ -41,7 +41,8 @@ class Api::BoardsController < ApplicationController
   def destroy
     if @board.is_admin?(current_user)
       if Board.destroy(@board.id)
-        render index
+        render :show # return the show jbuilder so that the reducer can use its id to remove it
+        # it's up to the frontend to redirect the user to the boards index
       else
         render json: ['Something went wrong.'], status: 404
       end
