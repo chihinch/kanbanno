@@ -5,11 +5,11 @@ class Api::SessionsController < ApplicationController
       params[:user][:email],
       params[:user][:password]
     )
-    if @user
+    if @user.instance_of? User
       login!(@user)
       render :show
     else
-      render json: ['Invalid email and/or password'], status: 401
+      render json: [@user], status: 401
     end
   end
 

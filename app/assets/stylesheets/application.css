@@ -18,18 +18,34 @@
     font-family: "Work Sans", sans-serif;
  }
 
- .navbar-logo {
-  font-family: "Pacifico", cursive;
-  font-size: 2.25rem;;
+ h3 {
+  font-size: 2.1875rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+
+p {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+ .logo {
+  font-family: "Damion", cursive;
   text-decoration: none;
   color: white;
 }
 
 footer {
-   font-size: 1rem;
    text-align: center;
    box-sizing: inherit;
-   margin: 2rem 1rem;
+   margin: 4em 1em;
 }
 
 footer ul {
@@ -48,6 +64,7 @@ footer a {
    display: block;
    padding: 0.25rem;
    text-align: center;
+   font-size: 1rem;
    color: #8993A4;
    text-decoration: underline;
 }
@@ -57,8 +74,22 @@ footer ul li a:hover {
    text-decoration: underline;
 }
 
-footer h1 {
+footer div {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
    margin-top: 1rem;
+}
+
+footer h1 {
    font-size: 1.5rem;
+   color: #505f79;
    font-weight: bold;
+   cursor: default;
+}
+
+footer p {
+   margin-top: 1rem;
+   font-size: 1rem;
+   color: #172b4d;
 }

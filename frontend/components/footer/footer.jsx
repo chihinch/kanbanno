@@ -20,7 +20,10 @@ export default class Footer extends React.Component {
         <li key="footer-li-11"><Link to="#">Privacy</Link></li>
       </ul>
 
-      <h1>Kanbanno</h1>
+      <div>
+        <h1>Kanbanno</h1>
+        <p>© Copyright 2019. All rights reserved.</p>
+      </div>
     </footer>
     );
   }

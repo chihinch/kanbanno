@@ -1,0 +1,113 @@
+.account-menu-container {
+  float: right;
+  right: 4px;
+  top: 42px;
+  width: 304px;
+  max-height: 228px;
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 8px 16px -4px rgba(9,30,66,.25),0 0 0 1px rgba(9,30,66,.08);
+  box-sizing: border-box;
+  outline: 0;
+  overflow: hidden;
+}
+
+.account-menu.name {
+  padding: 0 12px;
+  position: relative;
+  text-align: center;
+}
+
+.account-name {
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(9,30,66,.13);
+  color: #5e6c84;
+  font-size: 14px;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  word-wrap: break-word;
+  padding: 0 32px;
+  position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.menu-close {
+  color: #6b778c;
+  padding: 10px 12px 10px 8px;
+  position: absolute;
+  margin: 0;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  border-radius: 3px;
+  display: inline-block;
+  line-height: 20px;
+  font-size: 14px;
+  width: inherit;
+  cursor: pointer;
+}
+
+.account-menu.options {
+  max-height: 223px;
+  box-sizing: border-box;
+  padding-bottom: 12px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.account-menu.options ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.account-menu.options li a,button {
+  border: none;
+  background-color: white;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px 12px;
+  margin: 0;
+  color: #172b4d;
+  text-align: left;
+  text-decoration: none;
+  transition: none;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.account-menu.options a:hover {
+  background-color: rgba(9,30,66,.04);
+}
+
+.with-bottom-divider:after {
+  background-color: rgba(9,30,66,.13);
+  content: "";
+  display: block;
+  height: 1px;
+  margin: 8px auto;
+  width: calc(100% - 20px);
+}
+
+#logout-button {
+  cursor: pointer;
+}
+
+#logout-button:hover {
+  background-color: rgba(9,30,66,.04);
+}
+

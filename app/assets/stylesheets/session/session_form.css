@@ -1,0 +1,107 @@
+.session-form-section {
+  display: flex;
+  justify-content: center;
+  padding: 4em 1em;
+}
+
+.session-form-container{
+  width: 540px;
+  margin: 0 auto;
+}
+
+.session-form-content {
+  display: block;
+}
+
+.session-form-content h1 {
+  font-size: 38px;
+  line-height: 48px;
+  font-weight: bold;
+  color: #333333;
+  padding-bottom: 0.55rem;
+}
+
+.session-form-link-div {
+  margin-bottom: 1.2em;
+}
+
+.session-form-link {
+  font-size: 18px;
+  margin-bottom: 1.2em;
+  color: #298fca;
+}
+
+.errors {
+  max-width: 540px;
+  padding: 1rem 0;
+}
+
+.errors span {
+  background-color: #eb5a46;
+  border-radius: 0.25rem;
+  color: #fbedeb;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.44em;
+  padding: 0.5em 1em;
+  margin-bottom: 0.5em;
+  display: table;
+}
+
+.session-form-box {
+  margin-top: 1.2em;
+  display: block;
+}
+
+.session-form-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.session-form-inputs label {
+  font-size: 20px;
+  margin-bottom: 0.5rem;
+  line-height: 1.44em;
+  color: #4d4d4d;
+}
+
+.session-form-inputs input {
+  margin-bottom: 1.2em;
+  font-size: 1.25rem;
+  border-radius: 4px;
+  background-color: #edeff0;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  width: 100%;
+  font-family: "Work Sans", sans-serif;
+  box-shadow: none;
+  border-style: solid;
+}
+
+.session-form-inputs::placeholder {
+  color: #979898;
+  opacity: 1;
+}
+
+.session-form-inputs:focus {
+  color: #4d4d4d;
+}
+
+.session-form-inputs input[type=submit] {
+  margin-top: 1rem;
+  background-color: #61bd4f;
+  border-color: #61bd4f;
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 0 #3F6F21;
+}
+
+.session-form-inputs input[type=submit]:hover {
+  background-color: #5AAC44;
+  border-color: #5AAC44;
+  color: white;
+  cursor: pointer;
+}
