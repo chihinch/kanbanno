@@ -39,7 +39,8 @@ export const signup = (user) => (dispatch) => {
       dispatch(receiveCurrentUser(user))
     }, (errors) => {
       dispatch(receiveErrors(errors.responseJSON))
-    });
+    }
+  );
 };
 
 export const login = (user) => (dispatch) => {
@@ -47,7 +48,8 @@ export const login = (user) => (dispatch) => {
       dispatch(receiveCurrentUser(user))
     }, (errors) => {
       dispatch(receiveErrors(errors.responseJSON))
-    });
+    }
+  );
 };
 
 export const demoLogin = () => (dispatch) => {
@@ -61,6 +63,7 @@ export const logout = () => (dispatch) => {
       dispatch(logoutCurrentUser())
     }, (errors) => {
       dispatch(receiveErrors(errors.responseJSON))
-    });
+    }
+  );
 };
 
