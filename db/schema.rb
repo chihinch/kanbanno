@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_04_130620) do
+ActiveRecord::Schema.define(version: 2019_10_07_131857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "boards", force: :cascade do |t|
     t.string "title", null: false
-    t.text "description"
+    t.text "description", default: "", null: false
     t.integer "admin_id", null: false
     t.boolean "archived", default: false, null: false
     t.datetime "created_at", null: false

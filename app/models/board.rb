@@ -1,5 +1,6 @@
 class Board < ApplicationRecord
-  validates :title, :admin_id, :archived, presence: true
+  validates :title, :admin_id, presence: true
+  validates :archived, inclusion: { in: [true, false] }
 
   belongs_to :admin,
     class_name: :User,
