@@ -17,9 +17,9 @@ export const login = (user) => {
 };
 
 const demoUser = {
-  name: "Wise Old Man",
-  email: "wiseoldman@kanbanno.com",
-  password: "DionysiusDraynorVillage"
+  name: "King Black Dragon",
+  email: "kbd@kanbanno.com",
+  password: "KBDRawr"
 };
 
 export const demoLogin = () => {
