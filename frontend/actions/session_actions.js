@@ -37,16 +37,16 @@ export const clearErrors = () => {
 export const signup = (user) => (dispatch) => {
   return SessionAPIUtil.signup(user).then((user) => {
       dispatch(receiveCurrentUser(user))
-    }, (error) => {
-      dispatch(receiveErrors(error.responseJSON))
+    }, (errors) => {
+      dispatch(receiveErrors(errors.responseJSON))
     });
 };
 
 export const login = (user) => (dispatch) => {
   return SessionAPIUtil.login(user).then((user) => {
       dispatch(receiveCurrentUser(user))
-    }, (error) => {
-      dispatch(receiveErrors(error.responseJSON))
+    }, (errors) => {
+      dispatch(receiveErrors(errors.responseJSON))
     });
 };
 
@@ -59,8 +59,8 @@ export const demoLogin = () => (dispatch) => {
 export const logout = () => (dispatch) => {
   return SessionAPIUtil.logout().then((user) => {
       dispatch(logoutCurrentUser())
-    }, (error) => {
-      dispatch(receiveErrors(error.responseJSON))
+    }, (errors) => {
+      dispatch(receiveErrors(errors.responseJSON))
     });
 };
 
