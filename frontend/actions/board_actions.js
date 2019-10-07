@@ -5,6 +5,8 @@ export const RECEIVE_BOARDS = 'RECEIVE_BOARDS';
 export const RECEIVE_BOARD = 'RECEIVE_BOARD';
 export const DESTROY_BOARD = 'DESTROY_BOARD';
 export const RECEIVE_BOARD_ERRORS = 'RECEIVE_BOARD_ERRORS';
+export const CLEAR_BOARD_ERRORS = 'CLEAR_BOARD_ERRORS';
+
 
 // Board action creators
 export const receiveBoards = (boards) => {
@@ -34,6 +36,12 @@ export const receiveErrors = (errors) => {
     errors
   };
 };
+
+export const clearErrors = () => {
+  return {
+    type: CLEAR_BOARD_ERRORS
+  }
+}
 
 // Board thunk action creators
 export const fetchBoards = () => (dispatch) => {
