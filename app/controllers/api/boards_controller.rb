@@ -1,17 +1,23 @@
 class Api::BoardsController < ApplicationController
   
   def index
-    @boards = currentUser.boards
+    @boards = current_user.boards
   end
 
   def show
     # A board will be selected by its ID (since it should be unique)
     # However the frontend route will still show /boards/:boardID/:title
-    @board = Board.find(params[:id])
+    @board = current_user.boards.find_by(id: params[:id])
+    if @board
+      render :show
+    else
+      render json: ['You do not have access to this board.'], status: 403
+    end
   end
 
   def create
     @board = Board.new(board_params)
+    @board.admin_id = current_user.id
     if @board.save
       render :show
     else
@@ -20,20 +26,27 @@ class Api::BoardsController < ApplicationController
   end
 
   def update
-    @board = currentUser.boards.find(params[:id])
-    if @board.update_attributes(board_params)
-      render :show
+    @board = current_user.boards.find_by(id: params[:id])
+    if @board
+      if @board.update_attributes(board_params)
+        render :show
+      else
+        render json: @board.errors.full_messages, status: 422
+      end
     else
-      render json: @board.errors.full_messages, status: 422
+      render json: ['You do not have access to this board.'], status: 403
     end
   end
 
   def destroy
-    id = params[:id]
-    if Board.destroy(id)
-      render :index
+    if @board.is_admin?(current_user)
+      if Board.destroy(@board.id)
+        render index
+      else
+        render json: ['Something went wrong.'], status: 404
+      end
     else
-      render json: ['Something went wrong'], status: 404
+      render json: ['You are not the admin of this board'], status: 403
     end
   end
 
