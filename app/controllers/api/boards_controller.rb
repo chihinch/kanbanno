@@ -39,6 +39,7 @@ class Api::BoardsController < ApplicationController
   end
 
   def destroy
+    @board = current_user.boards.find_by(id: params[:id])
     if @board.is_admin?(current_user)
       if Board.destroy(@board.id)
         render :show # return the show jbuilder so that the reducer can use its id to remove it
