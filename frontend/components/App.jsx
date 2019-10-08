@@ -19,6 +19,9 @@ const App = () => {
         <AuthRoute exact path="/signup" component={SignUpFormContainer} />
         <AuthRoute exact path="/login" component={LogInFormContainer} />
 
+        {/* Protected routes for boards */}
+        <ProtectedRoute exact path="/boards" component={BoardIndexContainer} />
+
         {/* If no user is logged in, render the SplashContainer at the root path */}
         {/* Otherwise, render the BoardIndexContainer at the root path (to be implemented) */}
         {/* Going to /:username/:boards will also render the BoardIndexContainer */}
