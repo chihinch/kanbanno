@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 export default class BoardForm extends React.Component {
   constructor(props) {
@@ -14,9 +13,11 @@ export default class BoardForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const board = Object.assign({}, this.state);
+    const board = Object.assign({}, {title: this.state.title, description: this.state.description});
+      debugger
     this.props.createBoard(board).then((board) => {
-      this.props.closeModal;
+      debugger
+      this.props.closeModal();
       // this.props.history.push(`/boards/${board.id}`);
     });
   }
