@@ -16,7 +16,7 @@ export const receiveBoards = (boards) => {
   };
 };
 
-export const receiveBoard = (board) => {
+export const receiveBoard = ({board}) => {
   return {
     type: RECEIVE_BOARD,
     board,

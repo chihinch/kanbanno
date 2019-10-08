@@ -14,9 +14,7 @@ export default class BoardForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const board = Object.assign({}, {title: this.state.title, description: this.state.description});
-      debugger
-    this.props.createBoard(board).then((board) => {
-      debugger
+    this.props.createBoard(board).then(() => {
       this.props.closeModal();
       // this.props.history.push(`/boards/${board.id}`);
     });

@@ -5,7 +5,6 @@ import BoardShow from './board_show';
 
 const mapStateToProps = (state, ownProps) => {
   let boardId = ownProps.match.params.boardId;
-  // debugger
   return {
     board: state.entities.boards[boardId]
   };
