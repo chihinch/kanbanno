@@ -1,4 +1,5 @@
 import { RECEIVE_BOARDS, RECEIVE_BOARD, REMOVE_BOARD } from '../actions/board_actions';
+import merge from 'lodash/merge';
 
 const boardsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -6,15 +7,12 @@ const boardsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_BOARDS:
-      action.boards.forEach((board) => {
-        nextState[board.id] = board;
-      });
-      return nextState;
+      return merge({}, action.boards);
     case RECEIVE_BOARD:
       const newBoard = { [action.board.id]: action.board }
-      return Object.assign({}, state, newBoard);
+      return merge({}, state, newBoard);
     case REMOVE_BOARD:
-      nextState = Object.assign({}, state);
+      nextState = merge({}, state);
       delete nextState[action.board.id];
       return nextState;
     default:

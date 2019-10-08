@@ -6,6 +6,7 @@ import SplashContainer from './splash/splash_container';
 import NavbarContainer from './navbar/navbar_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
+import BoardIndexContainer from './board/board_index_container';
 import { AuthRoute, ProtectedRoute, AuthProtectedRoute } from '../util/route_util';
 
 const App = () => {
@@ -21,7 +22,7 @@ const App = () => {
         {/* If no user is logged in, render the SplashContainer at the root path */}
         {/* Otherwise, render the BoardIndexContainer at the root path (to be implemented) */}
         {/* Going to /:username/:boards will also render the BoardIndexContainer */}
-        <AuthProtectedRoute exact path="/" authComponent={SplashContainer} protectedComponent={`Hello`} />
+        <AuthProtectedRoute exact path="/" authComponent={SplashContainer} protectedComponent={BoardIndexContainer} />
       </Switch>
     </div>
   );
