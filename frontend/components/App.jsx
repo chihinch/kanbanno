@@ -13,7 +13,7 @@ import { AuthRoute, ProtectedRoute, AuthProtectedRoute } from '../util/route_uti
 const App = () => {
   return (
     <div>
-      <Modal />
+      {/* <Modal /> */}
       {/* Any logged-in user will see a navbar through all parts of the app */}
       <ProtectedRoute path="/" component={NavbarContainer} />
       <Switch>
