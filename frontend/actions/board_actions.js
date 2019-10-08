@@ -3,7 +3,7 @@ import * as BoardAPIUtil from '../util/board_api_util';
 // Board action type constants
 export const RECEIVE_BOARDS = 'RECEIVE_BOARDS';
 export const RECEIVE_BOARD = 'RECEIVE_BOARD';
-export const DESTROY_BOARD = 'DESTROY_BOARD';
+export const REMOVE_BOARD = 'REMOVE_BOARD';
 export const RECEIVE_BOARD_ERRORS = 'RECEIVE_BOARD_ERRORS';
 export const CLEAR_BOARD_ERRORS = 'CLEAR_BOARD_ERRORS';
 
@@ -23,9 +23,9 @@ export const receiveBoard = (board) => {
   };
 };
 
-export const destroyBoard = (board) => {
+export const removeBoard = (board) => {
   return {
-    type: DESTROY_BOARD,
+    type: REMOVE_BOARD,
     board,
   }
 }
@@ -80,9 +80,9 @@ export const updateBoard = (board) => (dispatch) => {
   );
 };
 
-export const destroyBoard = (board) => (dispatch) => {
-  return BoardAPIUtil.destroyBoard(board.id).then((board) => {
-    dispatch(destroyBoard(board))},
+export const deleteBoard = (board) => (dispatch) => {
+  return BoardAPIUtil.deleteBoard(board.id).then((board) => {
+    dispatch(removeBoard(board))},
     (errors) => {
       dispatch(receiveErrors(errors.responseJSON))
     }

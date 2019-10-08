@@ -1,4 +1,4 @@
-import { RECEIVE_BOARDS, RECEIVE_BOARD, DESTROY_BOARD } from '../actions/board_actions';
+import { RECEIVE_BOARDS, RECEIVE_BOARD, REMOVE_BOARD } from '../actions/board_actions';
 
 const boardsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -13,7 +13,7 @@ const boardsReducer = (state = {}, action) => {
     case RECEIVE_BOARD:
       const newBoard = { [action.board.id]: action.board }
       return Object.assign({}, state, newBoard);
-    case DESTROY_BOARD:
+    case REMOVE_BOARD:
       nextState = Object.assign({}, state);
       delete nextState[action.board.id];
       return nextState;
