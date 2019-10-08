@@ -6,9 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(name: "King Black Dragon", email: "kbd@kanbanno.com", password: "KBDRawr")
-User.create(name: "Wise Old Man", email: "wiseoldman@kanbanno.com", password: "DionysiusDraynorVillage")
+User.create(name: "Runescape Player", email: "rp@kanbanno.com", password: "l337pl4yer")
 
-Board.create(title: "Find New Home", description: "My cave in the Wilderness is too remote - I can't find enough adventurers to eat", admin_id: 1)
-Board.create(title: "Apologise to Queen Black Dragon", description: "I should make up to the QBD for upsetting her - I should gift her something special.", admin_id: 1)
-Board.create(title: "Infiltrate the Wizard's Tower", description: "Find a way to harness the power of rune essence for my future plans", admin_id: 2)
+Board.create(title: "Cook's Assistant", description: "Help the cook make a cake for the Duke of Lumbridge's birthday", admin_id: 1)
+Board.create(title: "The Knight's Sword", description: "Help Sir Vyvin's squire replace Sir Vyvin's ceremonial sword", admin_id: 1)
+Board.create(title: "Drayon Slayer", description: "Slay Elvarg, the green dragon that inhabits Crandor", admin_id: 1)
