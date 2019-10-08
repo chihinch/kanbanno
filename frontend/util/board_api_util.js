@@ -6,10 +6,11 @@ export const fetchBoards = () => {
 };
 
 export const createBoard = (board) => {
+  debugger
   return $.ajax({
     method: 'POST',
     url: '/api/boards',
-    board
+    data: { title: board.title, description: board.description }
   });
 };
 
@@ -24,7 +25,7 @@ export const updateBoard = (board) => {
   return $.ajax({
     method: 'PATCH',
     url: `/api/board/${board.id}`,
-    data: { data }
+    data: { board }
   });
 };
 

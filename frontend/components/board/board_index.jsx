@@ -21,23 +21,27 @@ export default class BoardIndex extends React.Component {
 
       // and to jolyonruss and CMS for how to 'dashify' a string and make it lowercase
       // https://stackoverflow.com/questions/1983648/replace-spaces-with-dashes-and-make-all-letters-lower-case
-      const formattedTitle = board.title.replace(/[., \/#!$%\^&*;:{}=\-_`~()\?@<>"[\]'\\|+]/g, " ").replace(/\s{2,}/g, " ").replace(/\s+/g, '-').toLowerCase();
+      // const formattedTitle = board.title.replace(/[., \/#!$%\^&*;:{}=\-_`~()\?@<>"[\]'\\|+]/g, " ").replace(/\s{2,}/g, " ").replace(/\s+/g, '-').toLowerCase();
       return (
-        <li className="board-list-item" key={board.id}>
-          <Link to={`/boards/${board.id}/${formattedTitle}`}>{board.title}</Link>
+        <li className="board-list-item" key={`board-index-${board.id}`}>
+          <Link to={`/boards/${board.id}`}>{board.title}</Link>
         </li>
       );
     });
 
     // Append a createNewBoard list item to the boardItems, and return the ul
-    return (
-      <ul className="boards-list">
-        {boardItems}
-        <li className="board-list-item" key="create-board-li" id="create-board-li">
-          <div><span>Create new board</span></div>
-        </li>
-      </ul>
-    )
+    if (boardItems.length > 0) {
+      return (
+        <ul className="boards-list">
+          {boardItems}
+          <li className="board-list-item" key="create-board-li" id="create-board-li" onClick={this.props.openModal}>
+            <div><span>Create new board</span></div>
+          </li>
+        </ul>
+      );
+    } else {
+      return null;
+    }
   }
 
   render() {

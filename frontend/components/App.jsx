@@ -1,6 +1,5 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
 import SplashContainer from './splash/splash_container';
 import NavbarContainer from './navbar/navbar_container';
@@ -9,11 +8,12 @@ import LogInFormContainer from './session_form/login_form_container';
 import BoardIndexContainer from './board/board_index_container';
 import Modal from './modal';
 import { AuthRoute, ProtectedRoute, AuthProtectedRoute } from '../util/route_util';
+import BoardShowContainer from './board/board_show_container';
 
 const App = () => {
   return (
     <div>
-      {/* <Modal /> */}
+      <Modal />
       {/* Any logged-in user will see a navbar through all parts of the app */}
       <ProtectedRoute path="/" component={NavbarContainer} />
       <Switch>
@@ -22,6 +22,7 @@ const App = () => {
         <AuthRoute exact path="/login" component={LogInFormContainer} />
 
         {/* Protected routes for boards */}
+        <ProtectedRoute exact path="/boards/:boardId" component={BoardShowContainer} />
         <ProtectedRoute exact path="/boards" component={BoardIndexContainer} />
 
         {/* If no user is logged in, render the SplashContainer at the root path */}

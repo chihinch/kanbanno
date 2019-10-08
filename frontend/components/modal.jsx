@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import BoardFormContainer from './board/board_form_container';
-
+import BoardFormContainer from './board/new_board_form_container';
 import { closeModal } from '../actions/modal_actions';
 
 function Modal({ modal, closeModal }) {
