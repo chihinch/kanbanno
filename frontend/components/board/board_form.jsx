@@ -1,6 +1,7 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
-export default class BoardForm extends React.Component {
+class BoardForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,9 +15,10 @@ export default class BoardForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const board = Object.assign({}, {title: this.state.title, description: this.state.description});
-    this.props.createBoard(board).then(() => {
+    // debugger
+    this.props.createBoard(board).then((result) => {
+      // debugger
       this.props.closeModal();
-      // this.props.history.push(`/boards/${board.id}`);
     });
   }
 
@@ -46,8 +48,8 @@ export default class BoardForm extends React.Component {
             <textarea
               onChange={this.update('description')}
               className="create-board-description"
-              placeholder="Board description (optional)" 
-              cols="30" rows="10"
+              placeholder="Description (optional)" 
+              // cols="30" rows="10"
               value={this.state.description}
             >
             </textarea>
@@ -60,3 +62,5 @@ export default class BoardForm extends React.Component {
     )
   }
 }
+
+export default withRouter(BoardForm);

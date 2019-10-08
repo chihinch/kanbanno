@@ -1,0 +1,18 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 20;
+}
+
+.modal-child {
+  display: block;
+  background-color: transparent;
+  border: none;
+  margin-top: 24px;
+  padding: 24px;
+  width: auto;
+}

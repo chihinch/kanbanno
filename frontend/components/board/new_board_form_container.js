@@ -4,9 +4,10 @@ import { createBoard } from '../../actions/board_actions';
 import { closeModal } from '../../actions/modal_actions';
 import BoardForm from './board_form';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
+  // debugger
   return {
-    history: ownProps.history
+    board: state.entities.boards
   }
 }
 
