@@ -6,7 +6,6 @@ export const fetchBoards = () => {
 };
 
 export const createBoard = (board) => {
-  // debugger
   return $.ajax({
     method: 'POST',
     url: '/api/boards',
