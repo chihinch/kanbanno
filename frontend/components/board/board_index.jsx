@@ -20,7 +20,7 @@ export default class BoardIndex extends React.Component {
       const formattedTitle = board.title.replace(/[., \/#!$%\^&*;:{}=\-_`~()\?@<>"[\]'\\|+]/g, " ").replace(/\s{2,}/g, " ").replace(/\s+/g, '-').toLowerCase();
       return (
         <li className="board-list-item" key={board.id}>
-          <Link to={`/boards/${board.id}/${formattedTitle}`}></Link>
+          <Link to={`/boards/${board.id}/${formattedTitle}`}>{board.title}</Link>
         </li>
       )
     })
