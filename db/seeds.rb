@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(name: "Runescape Player", email: "rp@kanbanno.com", password: "l337pl4yer")
+User.create(name: "RuneScape Player", email: "rp@kanbanno.com", password: "l337pl4yer")
 
 Board.create(title: "Cook's Assistant", description: "Help the cook make a cake for the Duke of Lumbridge's birthday", admin_id: 1)
 Board.create(title: "The Knight's Sword", description: "Help Sir Vyvin's squire replace Sir Vyvin's ceremonial sword", admin_id: 1)

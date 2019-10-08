@@ -91,7 +91,7 @@ class SessionForm extends React.Component {
                     value={this.state.name}
                     onChange={this.update('name')}
                     className="session-input"
-                    placeholder="King Black Dragon" />
+                    placeholder="RuneScape Player" />
                   </>) : null}
                   
                   <label>Email</label>
@@ -99,7 +99,7 @@ class SessionForm extends React.Component {
                     value={this.state.email}
                     onChange={this.update('email')}
                     className="session-input"
-                    placeholder="kbd@kanbanno.com" 
+                    placeholder="rp@kanbanno.com" 
                   />
 
                   <label>Password</label>
