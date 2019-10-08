@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import BoardFormContainer from './board/board_form_container';
 
-// import { closeModal } from 
+import { closeModal } from '../actions/modal_actions';
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
