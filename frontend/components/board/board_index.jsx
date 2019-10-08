@@ -4,12 +4,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 export default class BoardIndex extends React.Component {
+  constructor(props) {
+    super(props);
+    this.renderBoards = this.renderBoards.bind(this);
+  }
 
   componentDidMount() {
     this.props.fetchBoards();
   }
 
-  render() {
+  renderBoards() {
     const boardItems = this.props.boards.map((board) => {
       // Special thanks to Mike Grace and Maxim Firsoff at 
       // https://stackoverflow.com/questions/4328500/how-can-i-strip-all-punctuation-from-a-string-in-javascript-using-regex
@@ -22,22 +26,30 @@ export default class BoardIndex extends React.Component {
         <li className="board-list-item" key={board.id}>
           <Link to={`/boards/${board.id}/${formattedTitle}`}>{board.title}</Link>
         </li>
-      )
-    })
+      );
+    });
 
+    // Append a createNewBoard list item to the boardItems, and return the ul
+    return (
+      <ul className="boards-list">
+        {boardItems}
+        <li className="board-list-item" key="create-board-li" id="create-board-li">
+          <div><span>Create new board</span></div>
+        </li>
+      </ul>
+    )
+  }
+
+  render() {
     return (
       <div className="board-index-view">
         <div className="board-index-container">
           <div className="personal-boards-section">
             <div className="personal-boards-section-header">
-              <span><FontAwesomeIcon icon={faUser} /></span>
+              <div><span><FontAwesomeIcon icon={faUser} /></span></div>
               <h3>Personal Boards</h3>
             </div>
-            <div className="personal-boards-list">
-              <ul>
-                {boardItems}
-              </ul>
-            </div>
+            {this.renderBoards()}
           </div>
         </div>
       </div>

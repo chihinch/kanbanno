@@ -1,0 +1,101 @@
+.board-index-view {
+  margin: auto;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.board-index-container {
+  margin: 40px auto 0 auto;
+  width: 1024px;
+}
+
+.personal-boards-section {
+  padding: 0 0 20px;
+  margin: 0 auto;
+}
+
+.personal-boards-section-header {
+  margin: 0 0 0 40px;
+  padding: 0 0 11px;
+  position: relative;
+  display: flex;
+}
+
+.personal-boards-section-header div {
+  left: -40px;
+  position: absolute;
+  top: 0;
+}
+
+.personal-boards-section-header span {
+  height: 32px;
+  line-height: 32px;
+  width: 32px;
+  font-size: 24px;
+  color: #42526e;
+}
+
+.personal-boards-section-header h3 {
+  display: inline-block;
+  line-height: 24px;
+  margin: 4px 0 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #114091;
+}
+
+.boards-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.board-list-item {
+  width: 23.5%;
+  padding: 0;
+  margin: 0 1.5% 8px 0;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+}
+
+.board-list-item > a, .board-list-item#create-board-li {
+  margin-right: 0;
+  border-radius: 3px;
+  height: 80px;
+  display: block;
+  line-height: 20px;
+  padding: 8px;
+  position: relative;
+  text-decoration: none;
+}
+
+.board-list-item > a {
+  background-color: #0079bf;
+  color: white;
+}
+
+.board-list-item > a:hover {
+  opacity: 0.9
+}
+
+.board-list-item#create-board-li {
+  background-color: #f0f2f4;
+  color: #172b4d;
+  height: 96px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .board-list-item#create-board-li > div {
+  margin: auto;
+} */
+
+.board-list-item#create-board-li:hover {
+  background-color: rgba(9,30,66,.08);
+  box-shadow: none;
+  border: none;
+}
