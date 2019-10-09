@@ -1,0 +1,39 @@
+.board-show-container {
+  padding-top: 40px;
+  height: 100vh;
+  background-color: #0079bf;
+}
+
+.board-show-header {
+  padding: 8px 4px 4px 8px;
+  height: auto;
+}
+
+.board-show-title span {
+  padding: 0 12px;
+}
+
+.board-show-title {
+  box-sizing: border-box;
+}
+
+.board-show-title input {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  line-height: 32px;
+  box-sizing: border-box;
+  max-width: calc(100% - 24px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-radius: 3px;
+  margin: 0 4px 4px 0;
+  padding: 4px 8px;
+}
+
+.board-show-title input:hover {
+  background-color: hsla(0,0%,100%,.32);
+  cursor: pointer;
+}

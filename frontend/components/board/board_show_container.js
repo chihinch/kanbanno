@@ -4,9 +4,18 @@ import { fetchBoard } from '../../actions/board_actions';
 import BoardShow from './board_show';
 
 const mapStateToProps = (state, ownProps) => {
-  let boardId = ownProps.match.params.boardId;
+  const boardId = parseInt(ownProps.match.params.boardId);
+  const nullBoard = {
+    id: null,
+    title: null,
+    description: null,
+    admin_id: null,
+    archived: false,
+    member_ids: [],
+  }
+  const board = state.entities.boards[boardId] || nullBoard;
   return {
-    board: state.entities.boards[boardId]
+    board,
   };
 };
 
