@@ -64,7 +64,7 @@ export default class Navbar extends React.Component {
         </Link>
 
         <div className="navbar-right">
-          <button className="navbar-button">
+          <button className="navbar-button" onClick={this.props.openNewBoardModal}>
             <span><FontAwesomeIcon icon={faPlus} /></span>
           </button>
           <button className="navbar-button">
