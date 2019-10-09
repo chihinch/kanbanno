@@ -7,7 +7,6 @@ class BoardForm extends React.Component {
     this.state = {
       title: '',
       description: '',
-      submitDisabled: true
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -25,18 +24,13 @@ class BoardForm extends React.Component {
   update(field) {
     return (e) => {
       this.setState({ [field]: e.currentTarget.value });
-      if (this.state.title.length > 1) {
-        this.setState({ submitDisabled: false });
-      } else {
-        this.setState({ submitDisabled: true });
-      }
     };
   }
 
   render() {
     return (
       <div>
-        <form className="create-board-form">
+        <form className="create-board-form" onSubmit={this.handleSubmit}>
           <div className="create-board-form-inputs">
             <input type="text" 
               value={this.state.title}
@@ -49,14 +43,17 @@ class BoardForm extends React.Component {
               onChange={this.update('description')}
               className="create-board-description"
               placeholder="Description (optional)" 
-              // cols="30" rows="10"
               value={this.state.description}
             >
             </textarea>
+
+            <input type="submit" 
+              className="create-board-submit" 
+              disabled={!this.state.title}
+              value="Create Board"
+            />
+
           </div>
-          <button type="submit" className="create-board-submit" disabled={this.state.submitDisabled} onClick={this.handleSubmit}>
-            <span>Create Board</span>
-          </button>
         </form>
       </div>
     )

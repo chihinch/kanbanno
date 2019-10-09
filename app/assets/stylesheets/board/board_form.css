@@ -7,11 +7,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  box-sizing: content-box;
 }
 
 .create-board-form-inputs input[type="text"] {
-  width: 75%;
   font-size: 16px;
   line-height: 24px;
   margin: 0;
@@ -23,7 +23,6 @@
 
 .create-board-form-inputs textarea {
   font-family: "Work Sans", sans-serif;
-  width: 75%;
   height: 100px;
   margin-top: 16px;
   font-size: 16px;
@@ -31,4 +30,18 @@
   padding: 2px 8px;
   border-radius: 3px;
   border: transparent;
+}
+
+.create-board-submit {
+  margin: 16px 8px 16px 0;
+  padding: 6px 12px;
+  width: 128px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.create-board-submit[disabled=false] {
+  cursor: not-allowed;
+  background-color: #f4f5f7;
+  color: #a5adba;
 }
