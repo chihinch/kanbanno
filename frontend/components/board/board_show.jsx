@@ -2,7 +2,7 @@ import React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
-import { faBars, faLock } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faLock, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 
 export default class BoardShow extends React.Component {
   constructor(props) {
@@ -46,19 +46,22 @@ export default class BoardShow extends React.Component {
       <div className="board-show-container">
         <div className="board-show-header">
           <div className="board-show-title">
-            <span><input type="text" value={this.state.title} onChange={this.update('title')} /></span>
+            <input type="text" 
+              value={this.state.title} 
+              size={this.state.title.length} 
+              onChange={this.update('title')} />
           </div>
 
           <a to="#" className="board-header-button" id="star">
             <span><FontAwesomeIcon icon={faStar} /></span>
           </a>
 
-          <div className="board-header-buttons-left">
+          <div className="board-header-buttons left">
             <a to="#" className="board-header-button" id="edit">
               <span><FontAwesomeIcon icon={faBars} /></span>
             </a>
 
-            <span class="board-header-divider"></span>
+            <span className="board-header-divider"></span>
 
             <a to="#" className="board-header-button" id="team">
               Personal
@@ -67,14 +70,14 @@ export default class BoardShow extends React.Component {
             <span className="board-header-divider"></span>
 
             <a to="#" className="board-header-button" id="permission">
-              <span><FontAwesomeIcon icon={faLock} /></span>
-              <span>Private</span>
+              <span id="permission-icon"><FontAwesomeIcon icon={faLock} /></span>
+              <span id="permission-text">Private</span>
             </a>
           </div>
             
-          <span class="board-header-divider"></span>
+          <span className="board-header-divider"></span>
 
-          <div className="board-header-buttons-left">
+          <div className="board-header-buttons left">
             <div className="board-header-avatar">
               <span id="avatar-initials">
                 {initials}
@@ -85,9 +88,9 @@ export default class BoardShow extends React.Component {
             </a>
           </div>
 
-          <div className="board-header-butons-right">
+          <div className="board-header-buttons right">
             <a to="#" className="board-header-button" id="menu">
-              <span id="menu-icon"></span>
+              <span id="menu-icon"><FontAwesomeIcon icon={faEllipsisH} /></span>
               <span id="menu-text">Show Menu</span>
             </a>
           </div>
