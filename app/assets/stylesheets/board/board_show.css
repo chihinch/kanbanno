@@ -9,12 +9,17 @@
   height: auto;
 }
 
-.board-show-title span {
-  padding: 0 12px;
-}
-
 .board-show-title {
   box-sizing: border-box;
+  margin: 0 4px 4px 0;
+  max-width: calc(100% - 24px);
+  position: relative;
+  float: left;
+}
+
+.board-show-title span {
+  padding: 0 12px;
+  line-height: 32px;
 }
 
 .board-show-title input {
@@ -23,14 +28,11 @@
   font-size: 18px;
   font-weight: bold;
   color: white;
-  line-height: 32px;
-  box-sizing: border-box;
-  max-width: calc(100% - 24px);
+  line-height: 20px;
+  box-sizing: content-box;
   overflow: hidden;
   text-overflow: ellipsis;
   border-radius: 3px;
-  margin: 0 4px 4px 0;
-  padding: 4px 8px;
 }
 
 .board-show-title input:hover {

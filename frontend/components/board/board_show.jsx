@@ -1,5 +1,9 @@
 import React from 'react';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-regular-svg-icons';
+import { faBars, faLock } from '@fortawesome/free-solid-svg-icons';
+
 export default class BoardShow extends React.Component {
   constructor(props) {
     super(props);
@@ -11,7 +15,6 @@ export default class BoardShow extends React.Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-
     if (props.board !== state) {
       return { 
         id: props.board.id,
@@ -23,18 +26,74 @@ export default class BoardShow extends React.Component {
     return null;
   }
 
+  update(field) {
+    return (e) => {
+      this.setState({ [field]: e.currentTarget.value });
+    };
+  }
+  
   render() {
     if (this.state.id == null) {
       return null;
     }
 
+    const nameToArray = this.props.currentUser.name.split(" ");
+    const firstInitial = nameToArray[0].slice(0, 1);
+    const lastInitial = nameToArray[nameToArray.length - 1].slice(0, 1);
+    const initials = firstInitial + lastInitial;
+
     return (
       <div className="board-show-container">
         <div className="board-show-header">
           <div className="board-show-title">
-            <span><input type="text" value={this.state.title} /></span>
+            <span><input type="text" value={this.state.title} onChange={this.update('title')} /></span>
           </div>
+
+          <a to="#" className="board-header-button" id="star">
+            <span><FontAwesomeIcon icon={faStar} /></span>
+          </a>
+
+          <div className="board-header-buttons-left">
+            <a to="#" className="board-header-button" id="edit">
+              <span><FontAwesomeIcon icon={faBars} /></span>
+            </a>
+
+            <span class="board-header-divider"></span>
+
+            <a to="#" className="board-header-button" id="team">
+              Personal
+            </a>
+
+            <span className="board-header-divider"></span>
+
+            <a to="#" className="board-header-button" id="permission">
+              <span><FontAwesomeIcon icon={faLock} /></span>
+              <span>Private</span>
+            </a>
+          </div>
+            
+          <span class="board-header-divider"></span>
+
+          <div className="board-header-buttons-left">
+            <div className="board-header-avatar">
+              <span id="avatar-initials">
+                {initials}
+              </span>
+            </div>
+            <a to="#" className="board-header-button" id="invite">
+              Invite
+            </a>
+          </div>
+
+          <div className="board-header-butons-right">
+            <a to="#" className="board-header-button" id="menu">
+              <span id="menu-icon"></span>
+              <span id="menu-text">Show Menu</span>
+            </a>
+          </div>
+
         </div>
+
         <div className="board-show-content">
           <h1>Lists go here!</h1>
         </div>

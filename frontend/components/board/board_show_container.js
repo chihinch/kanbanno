@@ -16,6 +16,7 @@ const mapStateToProps = (state, ownProps) => {
   const board = state.entities.boards[boardId] || nullBoard;
   return {
     board,
+    currentUser: state.users[state.session.id]
   };
 };
 
