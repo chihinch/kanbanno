@@ -6,13 +6,16 @@
   left: 0;
   background: rgba(0, 0, 0, 0.75);
   z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .modal-child {
   display: block;
   background-color: transparent;
   border: none;
-  margin-top: 24px;
+  margin-top: 36px;
   padding: 24px;
   width: auto;
 }

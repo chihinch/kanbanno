@@ -1,46 +1,76 @@
-.create-board-form {
-  margin: 0 auto;
+.board-form-container {
   width: 512px;
 }
 
-.create-board-form-inputs {
+.board-form {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.board-form-inputs {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   box-sizing: content-box;
+  background-color: #0079bf;
+  padding: 16px;
+  border-radius: 4px;
 }
 
-.create-board-form-inputs input[type="text"] {
+#title-with-close {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#title-with-close svg {
+  color: white;
+  cursor: pointer;
+}
+
+.board-input-title {
   font-size: 16px;
   line-height: 24px;
   margin: 0;
-  padding: 2px 8px;
+  padding: 4px 8px;
   border-radius: 3px;
   border: transparent;
+  box-sizing: border-box;
+  width: 80%;
+  background: hsla(0,0%,100%,.15);;
+  color: white;
 }
 
-
-.create-board-form-inputs textarea {
+.board-input-description {
   font-family: "Work Sans", sans-serif;
   height: 100px;
   margin-top: 16px;
   font-size: 16px;
   line-height: 24px;
-  padding: 2px 8px;
+  padding: 4px 8px;
   border-radius: 3px;
   border: transparent;
+  box-sizing: border-box;
+  width: 80%;
+  background: hsla(0,0%,100%,.15);;
+  color: white;
 }
 
-.create-board-submit {
-  margin: 16px 8px 16px 0;
-  padding: 6px 12px;
+.board-input-submit {
+  margin: 16px 8px 8px 0;
+  padding: 9px 12px;
   width: 128px;
   text-align: center;
   border-radius: 3px;
+  border: 0;
+  background-color: #5aac44;
+  color: white;
+  font-size: 14px;
 }
 
-.create-board-submit[disabled=false] {
+.board-input-submit[disabled] {
   cursor: not-allowed;
   background-color: #f4f5f7;
   color: #a5adba;

@@ -1,6 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+
 class BoardForm extends React.Component {
   constructor(props) {
     super(props);
@@ -29,31 +32,33 @@ class BoardForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form className="create-board-form" onSubmit={this.handleSubmit}>
-          <div className="create-board-form-inputs">
-            <input type="text" 
-              value={this.state.title}
-              onChange={this.update('title')}
-              className="create-board-title"
-              placeholder="Add board title"
-            />
+      <div className="board-form-container">
+        <form className="board-form" onSubmit={this.handleSubmit}>
+          <div className="board-form-inputs">
+            <div id="title-with-close">
+              <input type="text" 
+                value={this.state.title}
+                onChange={this.update('title')}
+                className="board-input-title"
+                placeholder="Add board title"
+              />
+              <span onClick={this.props.closeModal}><FontAwesomeIcon icon={faTimes} /></span>
+            </div>
 
             <textarea
               onChange={this.update('description')}
-              className="create-board-description"
+              className="board-input-description"
               placeholder="Description (optional)" 
               value={this.state.description}
             >
             </textarea>
-
-            <input type="submit" 
-              className="create-board-submit" 
-              disabled={!this.state.title}
-              value="Create Board"
-            />
-
           </div>
+
+          <input type="submit" 
+            className="board-input-submit" 
+            disabled={!this.state.title}
+            value="Create Board"
+          />
         </form>
       </div>
     )
