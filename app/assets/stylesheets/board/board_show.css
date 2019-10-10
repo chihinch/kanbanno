@@ -1,6 +1,8 @@
 .board-show-container {
   padding-top: 40px;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
+  position: fixed;
   background-color: #0079bf;
   display: flex;
   flex-direction: column;
@@ -110,10 +112,6 @@
   padding-left: 12px;
 }
 
-.board-header-button#permission {
-  
-}
-
 .board-header-avatar {
   margin-left: 4px;
   padding: 2px 0 0 2px;
@@ -151,10 +149,12 @@
 
 .board-header-button#permission, .board-header-button#menu {
   width: auto;
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
-.board-header-button #permission-text {
-  padding-right: 12px;
-  padding-left: 0;
+.board-header-button #permission-text, .board-header-button #menu-text {
+  padding: 0 12px 0 0;
+  position: relative;
+  width: 100%;
+  text-align: left;
 }
