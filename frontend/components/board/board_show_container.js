@@ -23,7 +23,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    openUpdateBoardModal: () => dispatch(openModal('updateBoard')),
+    // refactor this to take in an id and pass it in as argument to the action creator
+    openUpdateBoardModal: (id) => dispatch(openModal('updateBoard', id)),
     fetchBoard: (id) => dispatch(fetchBoard(id))
   };
 };

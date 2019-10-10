@@ -1,10 +1,11 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faBars, faLock, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 
-export default class BoardShow extends React.Component {
+class BoardShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = props.board;
@@ -57,7 +58,9 @@ export default class BoardShow extends React.Component {
           </a>
 
           <div className="board-header-buttons left">
-            <a to="#" className="board-header-button" id="edit" onClick={this.props.openUpdateBoardModal}>
+            <a to="#" className="board-header-button" id="edit" onClick={() => this.props.openUpdateBoardModal(this.state.id)}>
+
+              {/* callback () => this.props....(this.props.board.id) */}
               <span><FontAwesomeIcon icon={faBars} /></span>
             </a>
 
@@ -89,7 +92,7 @@ export default class BoardShow extends React.Component {
           </div>
 
           <div className="board-header-buttons right">
-            <a to="#" className="board-header-button" id="menu" onClick={this.props.openUpdateBoardModal}>
+            <a to="#" className="board-header-button" id="menu" onClick = {() => this.props.openUpdateBoardModal(this.state.id)}>
               <span id="menu-icon"><FontAwesomeIcon icon={faEllipsisH} /></span>
               <span id="menu-text">Show Menu</span>
             </a>
@@ -104,3 +107,5 @@ export default class BoardShow extends React.Component {
     )
   }
 }
+
+export default withRouter(BoardShow);
