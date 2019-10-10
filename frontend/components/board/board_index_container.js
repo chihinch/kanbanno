@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchBoards: () => dispatch(fetchBoards()),
-    openModal: () => dispatch(openModal('newBoard'))
+    openNewBoardModal: () => dispatch(openModal('newBoard'))
   };
 };
 

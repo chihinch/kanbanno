@@ -1,22 +1,24 @@
 import { connect } from 'react-redux';
 
-import { createBoard } from '../../actions/board_actions';
+import { updateBoard } from '../../actions/board_actions';
 import { closeModal } from '../../actions/modal_actions';
 import BoardForm from './board_form';
 
 const mapStateToProps = (state) => {
+  const boardId = parseInt(Object.keys(state.entities.boards)[0]);
+  const board = state.entities.boards[boardId];
   return {
     board: {
-      title: '',
-      description: ''
+      title: board.title,
+      description: board.description
     },
-    boardType: 'newBoard'
+    formType: 'updateBoard'
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    action: (board) => dispatch(createBoard(board)),
+    action: (board) => dispatch(updateBoard(board)),
     closeModal: () => dispatch(closeModal())
   };
 };

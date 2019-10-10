@@ -8,16 +8,16 @@ class BoardForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      description: '',
-    };
+      title: this.props.board.title,
+      description: this.props.board.description
+    }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const board = Object.assign({}, {title: this.state.title, description: this.state.description});
-    this.props.createBoard(board).then((result) => {
+    this.props.action(board).then(() => {
       this.props.closeModal();
     });
   }
@@ -55,7 +55,7 @@ class BoardForm extends React.Component {
           <input type="submit" 
             className="board-input-submit" 
             disabled={!this.state.title}
-            value="Create Board"
+            value={this.props.formType === 'newBoard' ? 'Create Board' : 'Save'}
           />
         </form>
       </div>

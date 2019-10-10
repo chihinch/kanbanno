@@ -57,7 +57,7 @@ export default class BoardShow extends React.Component {
           </a>
 
           <div className="board-header-buttons left">
-            <a to="#" className="board-header-button" id="edit">
+            <a to="#" className="board-header-button" id="edit" onClick={this.props.openUpdateBoardModal}>
               <span><FontAwesomeIcon icon={faBars} /></span>
             </a>
 
@@ -89,7 +89,7 @@ export default class BoardShow extends React.Component {
           </div>
 
           <div className="board-header-buttons right">
-            <a to="#" className="board-header-button" id="menu">
+            <a to="#" className="board-header-button" id="menu" onClick={this.props.openUpdateBoardModal}>
               <span id="menu-icon"><FontAwesomeIcon icon={faEllipsisH} /></span>
               <span id="menu-text">Show Menu</span>
             </a>
