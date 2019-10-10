@@ -5,6 +5,15 @@ import { faHome, faChalkboard, faSearch, faDoorOpen, faPlus, faInfoCircle} from 
 import { faBell } from '@fortawesome/free-regular-svg-icons';
 
 export default class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleMenu = this.handleMenu.bind(this);
+  }
+
+  handleMenu() {
+    this.props.openMenu(event.target.id);
+  }
+
   render() {
     return (<>
       <div className="navbar">
@@ -36,7 +45,7 @@ export default class Navbar extends React.Component {
           <button className="navbar-button">
             <span><FontAwesomeIcon icon={faBell} /></span>
           </button>
-          <button onClick={this.props.openAccountMenu} className="navbar-button long-button" id="logout-button">
+          <button onClick={this.handleMenu} className="navbar-button long-button" id="navAccountMenu">
             <FontAwesomeIcon icon={faDoorOpen} />
             Log Out
           </button>
