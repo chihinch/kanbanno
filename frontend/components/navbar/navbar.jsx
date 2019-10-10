@@ -1,48 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faChalkboard, faSearch, faDoorOpen, faPlus, faInfoCircle, faBell } from '@fortawesome/free-solid-svg-icons';
-
-import NavAccountMenu from './nav_account_menu';
+import { faHome, faChalkboard, faSearch, faDoorOpen, faPlus, faInfoCircle} from '@fortawesome/free-solid-svg-icons';
+import { faBell } from '@fortawesome/free-regular-svg-icons';
 
 export default class Navbar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showMenu: false,
-      currentMenuName: null,
-    };
-    this.showMenu = this.showMenu.bind(this);
-    this.closeMenu = this.closeMenu.bind(this);
-  }
-
-  showMenu(e) {
-    e.preventDefault();
-    this.setState({
-      showMenu: true,
-      currentMenuName: e.target.id,
-    }, document.addEventListener('click', this.closeMenu));
-  }
-
-  closeMenu() {
-    this.setState({
-      showMenu: false,
-      currentMenuName: null,
-    }, document.removeEventListener('click', this.closeMenu));
-  }
-
   render() {
-    let currentMenu;
-    if (this.state.showMenu) {
-      switch (this.state.currentMenuName) {
-        case "logout-button":
-          currentMenu = <NavAccountMenu currentUser={this.props.currentUser} logout={this.props.logout} />;
-          break;
-        default:
-          currentMenu = null;
-      }
-    }
-
     return (<>
       <div className="navbar">
         <div className="navbar-left">
@@ -73,14 +36,12 @@ export default class Navbar extends React.Component {
           <button className="navbar-button">
             <span><FontAwesomeIcon icon={faBell} /></span>
           </button>
-          <button onClick={this.showMenu} className="navbar-button long-button" id="logout-button">
+          <button onClick={this.props.openAccountMenu} className="navbar-button long-button" id="logout-button">
             <FontAwesomeIcon icon={faDoorOpen} />
             Log Out
           </button>
         </div>
       </div>
-
-      {currentMenu}
     </>);
   }
 }

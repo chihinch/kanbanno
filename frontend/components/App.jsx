@@ -7,6 +7,7 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import BoardIndexContainer from './board/board_index_container';
 import Modal from './modal';
+import Menu from './menu';
 import { AuthRoute, ProtectedRoute, AuthProtectedRoute } from '../util/route_util';
 import BoardShowContainer from './board/board_show_container';
 
@@ -14,6 +15,7 @@ const App = () => {
   return (
     <div>
       <Modal />
+      <Menu />
       {/* Any logged-in user will see a navbar through all parts of the app */}
       <ProtectedRoute path="/" component={NavbarContainer} />
       <Switch>
