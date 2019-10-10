@@ -18,7 +18,6 @@ function Modal({ modal, closeModal }) {
     case 'updateBoard':
       // can pass in boardid = modal.id
       // msp will now have board id
-      // debugger
       component = <UpdateBoardFormContainer boardId={modal.boardId}/>;
       break;
     default:

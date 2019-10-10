@@ -23,7 +23,7 @@ export const receiveBoard = ({board}) => {
   };
 };
 
-export const removeBoard = (board) => {
+export const removeBoard = ({board}) => {
   return {
     type: REMOVE_BOARD,
     board,
@@ -80,8 +80,8 @@ export const updateBoard = (board) => (dispatch) => {
   );
 };
 
-export const deleteBoard = (board) => (dispatch) => {
-  return BoardAPIUtil.deleteBoard(board.id).then((board) => {
+export const deleteBoard = (id) => (dispatch) => {
+  return BoardAPIUtil.deleteBoard(id).then((board) => {
     dispatch(removeBoard(board))},
     (errors) => {
       dispatch(receiveErrors(errors.responseJSON))
