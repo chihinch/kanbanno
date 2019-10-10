@@ -23,14 +23,20 @@ export const fetchBoard = (id) => {
 export const updateBoard = (board) => {
   return $.ajax({
     method: 'PATCH',
-    url: `/api/board/${board.id}`,
-    data: { board }
+    url: `/api/boards/${board.id}`,
+    data: { 
+      board: {
+        title: board.title,
+        description: board.description
+      },
+      id: board.id
+     }
   });
 };
 
 export const deleteBoard = (id) => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/board/${id}`,
+    url: `/api/boards/${id}`,
   });
 };

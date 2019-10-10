@@ -31,7 +31,6 @@ export const removeBoard = (board) => {
 }
 
 export const receiveErrors = (errors) => {
-  debugger
   return {
     type: RECEIVE_BOARD_ERRORS,
     errors

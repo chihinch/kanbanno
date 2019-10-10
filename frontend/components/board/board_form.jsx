@@ -16,7 +16,12 @@ class BoardForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const board = Object.assign({}, {title: this.state.title, description: this.state.description});
+    let board;
+    if (this.props.formType === 'newBoard') {
+      board = Object.assign({}, {title: this.state.title, description: this.state.description});
+    } else {
+      board = Object.assign({}, { title: this.state.title, description: this.state.description, id: this.props.board.id });
+    }
     this.props.action(board).then(() => {
       this.props.closeModal();
     });

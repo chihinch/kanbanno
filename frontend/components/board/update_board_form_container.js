@@ -10,7 +10,8 @@ const mapStateToProps = (state) => {
   return {
     board: {
       title: board.title,
-      description: board.description
+      description: board.description,
+      id: boardId
     },
     formType: 'updateBoard'
   }
