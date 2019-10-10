@@ -11,12 +11,15 @@ function Modal({ modal, closeModal }) {
   }
 
   let component;
-  switch (modal) {
+  switch (modal.type) { // change this to modal.type
     case 'newBoard':
       component = <NewBoardFormContainer />;
       break;
     case 'updateBoard':
-      component = <UpdateBoardFormContainer />;
+      // can pass in boardid = modal.id
+      // msp will now have board id
+      // debugger
+      component = <UpdateBoardFormContainer boardId={modal.boardId}/>;
       break;
     default:
       return null;
