@@ -12,6 +12,7 @@ class BoardForm extends React.Component {
       description: this.props.board.description
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleSubmit(e) {
@@ -27,6 +28,14 @@ class BoardForm extends React.Component {
     });
   }
 
+  handleDelete(e) {
+    e.preventDefault();
+    this.props.closeModal();
+    this.props.deleteBoard(this.props.board.id).then(() => {
+      this.props.history.push('/boards');
+    });
+  }
+
   update(field) {
     return (e) => {
       this.setState({ [field]: e.currentTarget.value });
@@ -34,6 +43,12 @@ class BoardForm extends React.Component {
   }
 
   render() {
+    let deleteButton;
+    if (this.props.formType === 'updateBoard') {
+      deleteButton = <button className="board-delete-button" onClick={this.handleDelete} >Delete Board</button>
+    } else {
+      deleteButton = null;
+    }
     return (
       <div className="board-form-container">
         <form className="board-form" onSubmit={this.handleSubmit}>
@@ -63,6 +78,7 @@ class BoardForm extends React.Component {
             value={this.props.formType === 'newBoard' ? 'Create Board' : 'Save'}
           />
         </form>
+        {deleteButton}
       </div>
     )
   }
