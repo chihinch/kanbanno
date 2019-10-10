@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
       title: '',
       description: ''
     },
-    boardType: 'newBoard'
+    formType: 'newBoard'
   }
 }
 
