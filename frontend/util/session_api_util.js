@@ -17,9 +17,9 @@ export const login = (user) => {
 };
 
 const demoUser = {
-  name: "RuneScape Player",
-  email: "rp@kanbanno.com",
-  password: "l337pl4yer"
+  name: "Demo User",
+  email: "demo@kanbanno.com",
+  password: "demodemo"
 };
 
 export const demoLogin = () => {

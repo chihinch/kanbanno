@@ -124,3 +124,14 @@
 #logout-button {
   margin-right: 0;
 }
+
+.navbar-button#navAccountMenu {
+  background-color: #dfe1e6;
+  border-radius: 25em;
+  color: #172b4d;
+  font-weight: 500;
+}
+
+.navbar-button#navAccountMenu:hover {
+  background-color: #c1c7d0;
+}

@@ -118,23 +118,22 @@
   float: left;
   height: 28px;
   width: 28px;
-  background-color: #dfe1e6;
-  border-radius: 25em;
   color: #172b4d;
+  border-radius: 25em;
+  background-color: #dfe1e6;
 }
 
 .board-header-avatar span {
   z-index: 1;
   height: 28px;
   width: 28px;
-  margin: 0 0 0 -2px;
-  font-weight: bold;
+  margin: 0;
+  font-weight: 500;
   cursor: pointer;
   display: block;
-  float: right;
   text-align: center;
   line-height: 28px;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .board-header-avatar:hover {

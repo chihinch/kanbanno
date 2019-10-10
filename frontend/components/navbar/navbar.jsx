@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faChalkboard, faSearch, faDoorOpen, faPlus, faInfoCircle} from '@fortawesome/free-solid-svg-icons';
+import { faHome, faChalkboard, faSearch, faPlus, faInfoCircle} from '@fortawesome/free-solid-svg-icons';
 import { faBell } from '@fortawesome/free-regular-svg-icons';
 
 export default class Navbar extends React.Component {
@@ -15,6 +15,11 @@ export default class Navbar extends React.Component {
   }
 
   render() {
+    const nameToArray = this.props.currentUser.name.split(" ");
+    const firstInitial = nameToArray[0].slice(0, 1);
+    const lastInitial = nameToArray[nameToArray.length - 1].slice(0, 1);
+    const initials = firstInitial + lastInitial;
+
     return (<>
       <div className="navbar">
         <div className="navbar-left">
@@ -45,9 +50,8 @@ export default class Navbar extends React.Component {
           <button className="navbar-button">
             <span><FontAwesomeIcon icon={faBell} /></span>
           </button>
-          <button onClick={this.handleMenu} className="navbar-button long-button" id="navAccountMenu">
-            <FontAwesomeIcon icon={faDoorOpen} />
-            Log Out
+          <button onClick={this.handleMenu} className="navbar-button" id="navAccountMenu">
+            {initials}
           </button>
         </div>
       </div>
