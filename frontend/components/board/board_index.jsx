@@ -40,7 +40,13 @@ export default class BoardIndex extends React.Component {
         </ul>
       );
     } else {
-      return null;
+      return (
+        <ul className="boards-list">
+          <li className="board-list-item" key="create-board-li" id="create-board-li" onClick={this.props.openNewBoardModal}>
+            <div><span>Create new board</span></div>
+          </li>
+        </ul>
+      );
     }
   }
 
