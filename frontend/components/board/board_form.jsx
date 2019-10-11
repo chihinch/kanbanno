@@ -72,13 +72,16 @@ class BoardForm extends React.Component {
             </textarea>
           </div>
 
-          <input type="submit" 
-            className="board-input-submit" 
-            disabled={!this.state.title}
-            value={this.props.formType === 'newBoard' ? 'Create Board' : 'Save'}
-          />
+          <div className="board-form-buttons">
+            <input type="submit" 
+              className="board-input-submit" 
+              disabled={!this.state.title}
+              value={this.props.formType === 'newBoard' ? 'Create Board' : 'Save'}
+            />
+
+            {deleteButton}
+          </div>
         </form>
-        {deleteButton}
       </div>
     )
   }
