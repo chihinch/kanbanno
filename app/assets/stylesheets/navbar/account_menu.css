@@ -94,6 +94,10 @@
   background-color: rgba(9,30,66,.04);
 }
 
+.account-menu.options li svg {
+  margin-right: 4px;
+}
+
 .with-bottom-divider:after {
   background-color: rgba(9,30,66,.13);
   content: "";
