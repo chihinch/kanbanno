@@ -44,8 +44,23 @@ Users will be able to rearrange their lists and cards around a board by simply d
 
 Boards can be shared with a team so everyone can stay informed about the progression of their project. Team members can interact with lists and cards just like the board's owner.
 
-## Acknowledgements
+## Future Updates
 
-Many thanks to the instructors at App Academy for their guidance throughout the creation of this app, and for showing me how invigorating software development can be.
+* Boards
+  * Users can star boards to see them at the top of their dashboard
+  * Boards can be archived and reopened
+* Lists and Cards
+  * Lists can be added to cards, and cards can be added to lists
+  * Utilisation of Atlassian's react-beautiful-dnd library to implement drag-and-drop capability to lists and cards
+  * Lists and cards and be archived
+* Sharing
+  * Users can share boards with other Kanbanno users
+  * Board members can all edit the board, lists, and cards
+* Comments and Due Dates
+  * Users can comment and add due dates to cards
+  * Due dates can display a status based on proximity to deadlines
+
+
+## Acknowledgements
 
 Special thanks to the authors of Trello as well as Atlassian Corporation plc for creating a wonderful app for making project management pain-free.
