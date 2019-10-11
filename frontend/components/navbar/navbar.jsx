@@ -11,6 +11,8 @@ export default class Navbar extends React.Component {
   }
 
   handleMenu() {
+    event.preventDefault();
+    event.stopPropagation();
     this.props.openMenu(event.target.id);
   }
 
@@ -26,9 +28,9 @@ export default class Navbar extends React.Component {
           <Link to="/" className="navbar-button">
             <span><FontAwesomeIcon icon={faHome} /></span>
           </Link>
-          <button className="navbar-button long-button">
-            <span><FontAwesomeIcon icon={faChalkboard} /></span>
-            <span>Boards</span>
+          <button onClick={this.handleMenu} className="navbar-button long-button" id="navBoardMenu">
+            <span id="navBoardMenu"><FontAwesomeIcon icon={faChalkboard} id="navBoardMenu"/></span>
+            <span id="navBoardMenu">Boards</span>
           </button>
           <div className="navbar-search">
             <input type="text" placeholder="Search" />

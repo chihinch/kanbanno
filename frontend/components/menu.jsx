@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import NavAccountMenu from '../components/navbar/nav_account_menu';
+import NavBoardMenu from '../components/navbar/nav_board_menu';
 import { closeMenu } from '../actions/menu_actions';
 
 function Menu({ menu, closeMenu }) {
@@ -13,6 +14,9 @@ function Menu({ menu, closeMenu }) {
   switch (menu) {
     case 'navAccountMenu':
       component = <NavAccountMenu />;
+      break;
+    case 'navBoardMenu':
+      component = <NavBoardMenu />;
       break;
     default:
       return null;

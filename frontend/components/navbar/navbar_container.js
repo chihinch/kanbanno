@@ -4,8 +4,9 @@ import { openModal } from '../../actions/modal_actions';
 import { openMenu } from '../../actions/menu_actions';
 import Navbar from './navbar';
 
-const mapStateToProps = ({ session, users }) => {
+const mapStateToProps = ({ session, users, entities }) => {
   return {
+    boards: entities.boards,
     currentUser: users[session.id]
   };
 };
