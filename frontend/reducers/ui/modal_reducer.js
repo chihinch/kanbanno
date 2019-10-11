@@ -1,4 +1,4 @@
-import { OPEN_MODAL, CLOSE_MODAL } from '../actions/modal_actions';
+import { OPEN_MODAL, CLOSE_MODAL } from '../../actions/modal_actions';
 
 const modalReducer = (state = null, action) => {
   Object.freeze(state);

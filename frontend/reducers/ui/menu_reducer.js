@@ -1,4 +1,4 @@
-import { OPEN_MENU, CLOSE_MENU } from '../actions/menu_actions';
+import { OPEN_MENU, CLOSE_MENU } from '../../actions/menu_actions';
 
 const menuReducer = (state = null, action) => {
   Object.freeze(state);
