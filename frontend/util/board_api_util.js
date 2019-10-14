@@ -20,17 +20,11 @@ export const fetchBoard = (id) => {
   });
 };
 
-export const updateBoard = (board) => {
+export const updateBoard = ({board}) => {
   return $.ajax({
     method: 'PATCH',
     url: `/api/boards/${board.id}`,
-    data: { 
-      board: {
-        title: board.title,
-        description: board.description
-      },
-      id: board.id
-     }
+    data: { board }
   });
 };
 

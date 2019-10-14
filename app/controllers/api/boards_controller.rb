@@ -5,9 +5,7 @@ class Api::BoardsController < ApplicationController
   end
 
   def show
-    # A board will be selected by its ID (since it should be unique)
-    # However the frontend route will still show /boards/:boardID/:title
-    @board = current_user.boards.find_by(id: params[:id])
+    @board = current_user.boards.find(params[:id])
     if @board
       render :show
     else
@@ -26,7 +24,8 @@ class Api::BoardsController < ApplicationController
   end
 
   def update
-    @board = current_user.boards.find_by(id: params[:id])
+    debugger
+    @board = current_user.boards.find(params[:id])
     if @board
       if @board.update_attributes(board_params)
         render :show
