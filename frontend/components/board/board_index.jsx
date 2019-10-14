@@ -15,13 +15,6 @@ export default class BoardIndex extends React.Component {
 
   renderBoards() {
     const boardItems = this.props.boards.map((board) => {
-      // Special thanks to Mike Grace and Maxim Firsoff at 
-      // https://stackoverflow.com/questions/4328500/how-can-i-strip-all-punctuation-from-a-string-in-javascript-using-regex
-      // for this regex to strip punctuation in the board's title
-
-      // and to jolyonruss and CMS for how to 'dashify' a string and make it lowercase
-      // https://stackoverflow.com/questions/1983648/replace-spaces-with-dashes-and-make-all-letters-lower-case
-      // const formattedTitle = board.title.replace(/[., \/#!$%\^&*;:{}=\-_`~()\?@<>"[\]'\\|+]/g, " ").replace(/\s{2,}/g, " ").replace(/\s+/g, '-').toLowerCase();
       return (
         <li className="board-list-item" key={`board-index-${board.id}`}>
           <Link to={`/boards/${board.id}`}>{board.title}</Link>
