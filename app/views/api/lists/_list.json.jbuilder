@@ -1,0 +1,1 @@
+json.extract! list, :id, :title, :board_id, :prev_list_id, :next_list_id, :archived
