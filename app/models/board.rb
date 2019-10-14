@@ -7,6 +7,8 @@ class Board < ApplicationRecord
     primary_key: :id,
     foreign_key: :admin_id
 
+  has_many :lists
+
   def is_admin?(user)
     user.id == self.admin_id
   end
