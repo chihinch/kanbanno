@@ -5,6 +5,7 @@ import onClickOutside from 'react-onclickoutside';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 
+import { fetchBoards } from '../../actions/board_actions';
 import { openModal } from '../../actions/modal_actions';
 import { closeMenu } from '../../actions/menu_actions';
 
@@ -17,6 +18,7 @@ const mapStateToProps = ({ entities }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     openNewBoardModal: () => dispatch(openModal('newBoard')),
+    fetchBoards: () => dispatch(fetchBoards()),
     closeMenu: () => dispatch(closeMenu()),
   };
 };
@@ -25,12 +27,16 @@ class NavBoardMenu extends React.Component {
   handleClickOutside(e) {
     this.props.closeMenu();
   }
+
+  componentDidMount() {
+    this.props.fetchBoards();
+  }
   
   render() {
     const boardItems = Object.values(this.props.boards).map((board) => {
       return (
         <div className="board-li" key={`personal-${board.id}`}>
-          <Link to={`/boards/${board.id}`} className="board-li-link">
+          <Link to={`/boards/${board.id}`} onClick={this.props.closeMenu} className="board-li-link">
             <div className="board-li-contents">
               <div className="board-li-color-block"></div>
               <div className="board-li-title">{board.title}</div>
