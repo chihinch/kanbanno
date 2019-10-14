@@ -1,6 +1,6 @@
 import { RECEIVE_BOARD_ERRORS, CLEAR_BOARD_ERRORS } from '../../actions/board_actions';
 
-const boardsErrorsReducer = (state = [], action) => {
+const boardErrorsReducer = (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_BOARD_ERRORS:
@@ -12,4 +12,4 @@ const boardsErrorsReducer = (state = [], action) => {
   }
 };
 
-export default boardsErrorsReducer;
+export default boardErrorsReducer;
