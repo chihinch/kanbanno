@@ -14,8 +14,8 @@ class BoardShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchBoard(this.props.boardId);
-    this.props.fetchLists(this.props.boardId);
+    this.props.fetchBoard(this.props.boardId)
+      .then(this.props.fetchLists(this.props.boardId));
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -106,7 +106,7 @@ class BoardShow extends React.Component {
         {/* <div className="board-show-content">
           <h1>Lists go here!</h1>
         </div> */}
-        <ListIndexContainer />
+        {/* <ListIndexContainer /> */}
       </div>
     )
   }

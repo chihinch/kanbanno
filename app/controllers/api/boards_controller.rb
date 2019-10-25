@@ -5,7 +5,9 @@ class Api::BoardsController < ApplicationController
   end
 
   def show
-    @board = current_user.boards.find(params[:id])
+    @board = Board.find_by(id: params[:id])
+    # debugger
+    # if @board && @board.is_admin?(current_user)
     if @board
       render :show
     else
