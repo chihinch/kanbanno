@@ -69,3 +69,32 @@ b1_l1_c1 = Card.create(
   prev_card_id: nil,
   next_card_id: nil
 )
+
+b2_l1 = List.create(
+  title: "Apple",
+  board_id: b2.id,
+  prev_list_id: nil,
+  next_list_id: 2,
+)
+
+b2_l2 = List.create(
+  title: "Tomato",
+  board_id: b2.id,
+  prev_list_id: 1,
+  next_list_id: 3,
+)
+
+b2_l3 = List.create(
+  title: "Corn",
+  board_id: b2.id,
+  prev_list_id: 2,
+  next_list_id: nil,
+)
+
+b2_l1_c1 = Card.create(
+  title: "Obtain egg",
+  description: "There's a chicken farm across the River Lum where you can find eggs",
+  list_id: b2_l1.id,
+  prev_card_id: nil,
+  next_card_id: nil
+)

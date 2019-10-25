@@ -14,8 +14,6 @@ class BoardShow extends React.Component {
   }
 
   componentDidMount() {
-    debugger
-    // const boardId = parseInt(this.props.match.params.boardId);
     this.props.fetchBoard(this.props.boardId);
     this.props.fetchLists(this.props.boardId);
   }

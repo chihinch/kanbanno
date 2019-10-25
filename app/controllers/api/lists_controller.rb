@@ -1,11 +1,7 @@
 class Api::ListsController < ApplicationController 
 
-  debugger
-
   def index
-    # debugger
     @lists = List.where(board_id: params[:board_id])
-    # debugger
   end
 
   def create
