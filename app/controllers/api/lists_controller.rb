@@ -1,7 +1,11 @@
 class Api::ListsController < ApplicationController 
 
+  debugger
+
   def index
-    @lists = @board.lists
+    # debugger
+    @lists = List.where(board_id: params[:board_id])
+    # debugger
   end
 
   def create
@@ -24,3 +28,5 @@ class Api::ListsController < ApplicationController
   end
 
 end
+
+# NOTE TO SELF INVESTIGATE @BOARD AND HOW TO ACCESS CURRENTLY VIEWED BOARD

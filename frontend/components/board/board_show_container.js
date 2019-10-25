@@ -17,6 +17,7 @@ const mapStateToProps = (state, ownProps) => {
   }
   const board = state.entities.boards[boardId] || nullBoard;
   return {
+    boardId,
     board,
     currentUser: state.users[state.session.id]
   };
@@ -26,7 +27,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     openUpdateBoardModal: (id) => dispatch(openModal('updateBoard', id)),
     fetchBoard: (id) => dispatch(fetchBoard(id)),
-    fetchLists: () => dispatch(fetchLists())
+    fetchLists: (boardId) => dispatch(fetchLists(boardId))
   };
 };
 

@@ -35,8 +35,8 @@ export const clearErrors = () => {
 }
 
 // List thunk action creators
-export const fetchLists = () => (dispatch) => {
-  return ListAPIUtil.fetchLists().then((lists) => {
+export const fetchLists = (boardId) => (dispatch) => {
+  return ListAPIUtil.fetchLists(boardId).then((lists) => {
     dispatch(receiveLists(lists))}, 
     (errors) => {
       dispatch(receiveErrors(errors.responseJSON))
