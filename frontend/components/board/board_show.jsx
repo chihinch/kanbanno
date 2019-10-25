@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 
+import ListIndexContainer from '../lists/list_index_container';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faBars, faLock, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
@@ -13,6 +15,7 @@ class BoardShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchBoard(parseInt(this.props.match.params.boardId));
+    this.props.fetchLists();
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -100,9 +103,10 @@ class BoardShow extends React.Component {
 
         </div>
 
-        <div className="board-show-content">
+        {/* <div className="board-show-content">
           <h1>Lists go here!</h1>
-        </div>
+        </div> */}
+        <ListIndexContainer />
       </div>
     )
   }

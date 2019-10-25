@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { fetchLists } from '../../actions/list_actions';
+// import { fetchLists } from '../../actions/list_actions';
 import ListIndex from './list_index';
 
 const mapStateToProps = (state, ownProps) => {
@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchLists: () => dispatch(fetchLists())
+    // fetchLists: () => dispatch(fetchLists())
   };
 };
 
