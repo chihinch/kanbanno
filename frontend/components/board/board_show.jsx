@@ -62,8 +62,6 @@ class BoardShow extends React.Component {
 
           <div className="board-header-buttons left">
             <a to="#" className="board-header-button" id="edit" onClick={() => this.props.openUpdateBoardModal(this.state.id)}>
-
-              {/* callback () => this.props....(this.props.board.id) */}
               <span><FontAwesomeIcon icon={faBars} /></span>
             </a>
 
