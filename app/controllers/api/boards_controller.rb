@@ -9,8 +9,8 @@ class Api::BoardsController < ApplicationController
   def show
     @board = Board.find_by(id: params[:id])
     # debugger
-    # if @board && @board.is_admin?(current_user)
-    if @board
+    if @board && @board.is_admin?(current_user)
+    # if @board
       render :show
     else
       render json: ['You do not have access to this board.'], status: 403

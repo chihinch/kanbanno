@@ -103,10 +103,7 @@ class BoardShow extends React.Component {
 
         </div>
 
-        {/* <div className="board-show-content">
-          <h1>Lists go here!</h1>
-        </div> */}
-        {/* <ListIndexContainer /> */}
+        <ListIndexContainer />
       </div>
     )
   }
