@@ -5,11 +5,15 @@ import createList from '../../actions/list_actions';
 import ListForm from './list_form';
 
 const mapStateToProps = (state) => {
-  return {title: ''};
+  return {
+    list: {title: ''}
+  }
 };
 
-const mapDispatchToProps = () => {
-
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createList: (list) => dispatch(createList(list))
+  }
 };
 
 class ListForm extends React.Component {
