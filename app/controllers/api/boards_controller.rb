@@ -1,7 +1,9 @@
 class Api::BoardsController < ApplicationController
   
   def index
+    # debugger
     @boards = current_user.boards
+    # @boards = Board.where(admin_id: current_user.id)
   end
 
   def show
