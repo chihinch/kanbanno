@@ -13,9 +13,10 @@ export const createList = (list) => {
   });
 };
 
-export const fetchList = (id) => {
+export const updateList = (list) => {
   return $.ajax({
-    method: 'GET',
-    url: `/api/lists/${id}`
+    method: 'PATCH',
+    url: `/api/lists/${list.id}`,
+    data: { list }
   });
 };
