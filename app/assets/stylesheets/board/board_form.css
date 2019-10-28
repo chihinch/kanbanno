@@ -19,6 +19,11 @@
   border-radius: 3px;
 }
 
+.board-form-inputs input::placeholder, textarea::placeholder {
+  color: white;
+  opacity: 50%;
+}
+
 #title-with-close {
   display: flex;
   justify-content: space-between;
