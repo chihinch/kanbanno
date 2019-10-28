@@ -44,8 +44,8 @@ class ListForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="list-form-container">
+        <form onSubmit={this.handleSubmit} className="list-form">
           <input type="text" 
             value={this.state.title} 
             onChange={this.update('title')}

@@ -10,21 +10,25 @@ export default class ListIndex extends React.Component {
 
   renderLists() {
     const listItems = this.props.lists.map((list) => {
-      return <li className="list-list-item" key={`list-index-${list.id}`}>{list.title}</li>
+      return (
+      <div className="list-item-container" key={`list-item-${list.id}`}>
+        <div className="list-item-contents">
+          <div className="list-item-header">{list.title}</div>
+        </div>
+      </div>
+      )
     });
 
-    return (
-      <ul className="lists-list">
-        {listItems}
-      </ul>
-    );
+    return listItems;
   }
 
   render() {
     return (
-      <div className = 'list-index-container'>
-        {this.renderLists()}
-        <ListFormContainer />
+      <div className="board-content">
+        <div className = "list-index-container">
+          {this.renderLists()}
+          <ListFormContainer />
+        </div>
       </div>
     )
   }
