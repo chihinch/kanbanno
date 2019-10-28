@@ -55,8 +55,8 @@ export const fetchLists = (boardId) => (dispatch) => {
 // };
 
 export const createList = (boardId, list) => (dispatch) => {
-  return ListAPIUtil.createList(boardId, list).then((list) => {
-    dispatch(receiveList(list))
+  return ListAPIUtil.createList(boardId, list).then((lists) => {
+    dispatch(receiveLists(lists))
   },
     (errors) => {
       dispatch(receiveErrors(errors.responseJSON))

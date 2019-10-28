@@ -6,18 +6,14 @@ class Api::ListsController < ApplicationController
   end
 
   def index
-    # @lists = List.where(board_id: params[:board_id], archived: false)
-    # obtain_lists()
   end
 
   def create
     @list = List.new(list_params)
     @list.board_id = params[:board_id]
-    prevList = @lists.last
     if @list.save
-      @list.prev_list_id = prevList.id
-      prevList.next_list_id = @list.id
-      @list.save
+      @list.updateOrder(@lists[-2], @list.next_list)
+      # debugger
       render :index
     else
       render json: @list.errors.full_messages, status: 422
