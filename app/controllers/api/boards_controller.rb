@@ -24,7 +24,6 @@ class Api::BoardsController < ApplicationController
   end
 
   def update
-    debugger
     @board = current_user.boards.find(params[:id])
     if @board
       if @board.update_attributes(board_params)

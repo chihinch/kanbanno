@@ -20,7 +20,7 @@ export const fetchBoard = (id) => {
   });
 };
 
-export const updateBoard = ({board}) => {
+export const updateBoard = (board) => {
   return $.ajax({
     method: 'PATCH',
     url: `/api/boards/${board.id}`,
