@@ -1,14 +1,20 @@
-class Api::ListsController < ApplicationController 
+class Api::ListsController < ApplicationController
+  before_action :obtain_lists
+  
+  def obtain_lists
+    @lists = List.where(board_id: params[:board_id], archived: false)
+  end
 
   def index
-    @lists = List.where(board_id: params[:board_id])
+    # @lists = List.where(board_id: params[:board_id], archived: false)
+    # obtain_lists()
   end
 
   def create
     @list = List.new(list_params)
     @list.board_id = params[:board_id]
+    prevList = @lists.last
     if @list.save
-      prevList = @lists.last
       @list.prev_list_id = prevList.id
       prevList.next_list_id = @list.id
       @list.save

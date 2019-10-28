@@ -14,7 +14,7 @@ export const receiveLists = (lists) => {
   };
 };
 
-export const receiveList = ({ list }) => {
+export const receiveList = (list) => {
   return {
     type: RECEIVE_LIST,
     list,
