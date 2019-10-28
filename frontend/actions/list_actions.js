@@ -44,18 +44,18 @@ export const fetchLists = (boardId) => (dispatch) => {
   );
 };
 
-export const fetchList = (id) => (dispatch) => {
-  return ListAPIUtil.fetchList(id).then((list) => {
-    dispatch(receiveList(list))
-  },
-    (errors) => {
-      dispatch(receiveErrors(errors.responseJSON))
-    }
-  );
-};
+// export const fetchList = (id) => (dispatch) => {
+//   return ListAPIUtil.fetchList(id).then((list) => {
+//     dispatch(receiveList(list))
+//   },
+//     (errors) => {
+//       dispatch(receiveErrors(errors.responseJSON))
+//     }
+//   );
+// };
 
-export const createList = (list) => (dispatch) => {
-  return ListAPIUtil.createList(list).then((list) => {
+export const createList = (boardId, list) => (dispatch) => {
+  return ListAPIUtil.createList(boardId, list).then((list) => {
     dispatch(receiveList(list))
   },
     (errors) => {

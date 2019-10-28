@@ -5,10 +5,10 @@ export const fetchLists = (boardId) => {
   });
 };
 
-export const createList = (list) => {
+export const createList = (boardId, list) => {
   return $.ajax({
     method: 'POST',
-    url: '/api/lists',
+    url: `/api/boards/${boardId}/lists`,
     data: { list }
   });
 };
