@@ -12,7 +12,7 @@ export default class ListIndex extends React.Component {
   renderLists() {
     const listItems = this.props.lists.map((list) => {
       return (
-        <ListItem list={list} />
+        <ListItem list={list} key={`list-item-${list.id}`}/>
       )
     });
 

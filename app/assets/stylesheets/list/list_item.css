@@ -29,3 +29,7 @@
   position: relative;
   min-height: 20px;
 }
+
+.new-card-container {
+  background: red;
+}
