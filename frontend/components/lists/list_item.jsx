@@ -1,9 +1,19 @@
 import React from 'react';
 
-export default class ListItem extends React.Component {
+import { connect } from 'react-redux';
+import { updateList } from '../../actions/list_actions';
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateList: (list) => dispatch(updateList(list))
+  }
+}
+
+class ListItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: this.props.list.id,
       title: this.props.list.title
     };
 
@@ -27,7 +37,8 @@ export default class ListItem extends React.Component {
   }
 
   updateListTitle() {
-    console.log("I pressed the esc key");
+    // console.log("I pressed the esc key");
+    this.props.updateList(this.state);
   }
 
   render() {
@@ -53,3 +64,4 @@ export default class ListItem extends React.Component {
   }
 };
 
+export default connect(null, mapDispatchToProps)(ListItem);

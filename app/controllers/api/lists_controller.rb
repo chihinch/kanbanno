@@ -12,11 +12,24 @@ class Api::ListsController < ApplicationController
     @list = List.new(list_params)
     @list.board_id = params[:board_id]
     if @list.save
+      # Introduce the newly created list to its neighbours
       @list.updateOrder(@lists[-2], @list.next_list)
-      # debugger
       render :index
     else
       render json: @list.errors.full_messages, status: 422
+    end
+  end
+
+  def update
+    @list = List.find(params[:id])
+    if @list
+      if @list.update_attributes(list_params)
+        render :index
+      else
+        render json: @list.errors.full_messages, status: 422
+      end
+    else
+      render json: @list.errors.full_messages, status: 404
     end
   end
 

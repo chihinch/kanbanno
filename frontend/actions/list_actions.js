@@ -56,10 +56,20 @@ export const fetchLists = (boardId) => (dispatch) => {
 
 export const createList = (boardId, list) => (dispatch) => {
   return ListAPIUtil.createList(boardId, list).then((lists) => {
-    dispatch(receiveLists(lists))
+    dispatch(receiveLists(lists));
   },
     (errors) => {
-      dispatch(receiveErrors(errors.responseJSON))
+      dispatch(receiveErrors(errors.responseJSON));
+    }
+  );
+};
+
+export const updateList = (list) => (dispatch) => {
+  return ListAPIUtil.updateList(list).then((lists) => {
+    dispatch(receiveLists(lists));
+  },
+    (errors) => {
+      dispatch(receiveErrors(errors.responseJSON));
     }
   );
 };

@@ -5,7 +5,7 @@ class Api::BoardsController < ApplicationController
   end
 
   def show
-    @board = Board.find_by(id: params[:id])
+    @board = Board.find(params[:id])
     if @board && @board.is_admin?(current_user)
       render :show
     else
@@ -24,7 +24,7 @@ class Api::BoardsController < ApplicationController
   end
 
   def update
-    @board = current_user.boards.find(params[:id])
+    @board = Board.find(params[:id])
     if @board
       if @board.update_attributes(board_params)
         render :show
