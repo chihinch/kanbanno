@@ -8,7 +8,8 @@ export default class ListItem extends React.Component {
     };
 
     this.update = this.update.bind(this);
-    this.focusListNameChanger = this.focusListNameChanger.bind(this);
+    this.handleKeyEscaper = this.handleKeyEscaper.bind(this);
+    this.updateListTitle = this.updateListTitle.bind(this);
   }
 
   update(field) {
@@ -17,8 +18,16 @@ export default class ListItem extends React.Component {
     };
   }
 
-  focusListNameChanger() {
-    console.log(event.target.value);
+  handleKeyEscaper(e) {
+    // debugger
+    if (e.key === 'Escape' || e.key === 'Enter') {
+      e.target.blur();
+      this.updateListTitle();
+    }
+  }
+
+  updateListTitle() {
+    console.log("I pressed the esc key");
   }
 
   render() {
@@ -28,7 +37,8 @@ export default class ListItem extends React.Component {
         <div className="list-item-header">
           <textarea 
             className="list-name-editor" 
-            onBlur={this.focusListNameChanger} 
+            onKeyDown={this.handleKeyEscaper}
+            onBlur={this.updateListTitle} 
             onChange={this.update('title')} 
             value={this.state.title}
           >
