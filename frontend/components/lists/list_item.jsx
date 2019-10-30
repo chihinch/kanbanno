@@ -11,9 +11,10 @@ export default class ListItem extends React.Component {
       <div className="list-item-contents">
         <div className="list-item-header">
           <textarea>{this.props.list.title}</textarea>
-        {/* {this.props.list.title} */}
         </div>
+        <div className="list-card-container">
 
+        </div>
       </div>
     </div>
     );
