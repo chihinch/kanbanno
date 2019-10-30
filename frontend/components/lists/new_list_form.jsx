@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-class ListForm extends React.Component {
+class NewListForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,4 +64,4 @@ class ListForm extends React.Component {
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ListForm));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NewListForm));

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ListFormContainer from './list_form';
+import NewListFormContainer from './new_list_form';
 
 export default class ListIndex extends React.Component {
   constructor(props) {
@@ -27,7 +27,7 @@ export default class ListIndex extends React.Component {
       <div className="board-content">
         <div className = "list-index-container">
           {this.renderLists()}
-          <ListFormContainer />
+          <NewListFormContainer />
         </div>
       </div>
     )
