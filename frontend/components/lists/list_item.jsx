@@ -32,7 +32,7 @@ class ListItem extends React.Component {
     // debugger
     if (e.key === 'Escape' || e.key === 'Enter') {
       e.target.blur();
-      this.updateListTitle();
+      // this.updateListTitle();
     }
   }
 
