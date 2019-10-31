@@ -18,6 +18,12 @@ class BoardShow extends React.Component {
       .then(this.props.fetchLists(this.props.boardId));
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      this.props.fetchLists(this.props.boardId);
+    }
+  }
+
   static getDerivedStateFromProps(props, state) {
     if (props.board !== state) {
       return { 

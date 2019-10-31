@@ -19,11 +19,11 @@ export default class ListIndex extends React.Component {
     return listItems;
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps !== this.props) {
-      this.renderLists();
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps !== this.props) {
+  //     this.renderLists();
+  //   }
+  // }
 
   render() {
     return (

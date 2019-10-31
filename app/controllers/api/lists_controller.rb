@@ -1,6 +1,6 @@
 class Api::ListsController < ApplicationController
   before_action :obtain_lists
-  
+
   def obtain_lists
     @lists = List.where(board_id: params[:board_id], archived: false)
   end
@@ -25,6 +25,7 @@ class Api::ListsController < ApplicationController
     @list = List.find(params[:id])
     if @list
       if @list.update_attributes(list_params)
+        # obtain_lists()
         render :index
       else
         render json: @list.errors.full_messages, status: 422
