@@ -12,11 +12,17 @@ export default class ListIndex extends React.Component {
   renderLists() {
     const listItems = this.props.lists.map((list) => {
       return (
-        <ListItem list={list} key={`list-item-${list.id}`}/>
+        <ListItem list={list} boardId={this.props.boardId} key={`list-item-${list.id}`}/>
       )
     });
 
     return listItems;
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      this.renderLists();
+    }
   }
 
   render() {

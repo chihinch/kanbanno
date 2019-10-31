@@ -21,6 +21,7 @@ class Api::ListsController < ApplicationController
   end
 
   def update
+    # debugger
     @list = List.find(params[:id])
     if @list
       if @list.update_attributes(list_params)

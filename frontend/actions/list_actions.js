@@ -64,8 +64,8 @@ export const createList = (boardId, list) => (dispatch) => {
   );
 };
 
-export const updateList = (list) => (dispatch) => {
-  return ListAPIUtil.updateList(list).then((lists) => {
+export const updateList = (boardId, list) => (dispatch) => {
+  return ListAPIUtil.updateList(boardId, list).then((lists) => {
     dispatch(receiveLists(lists));
   },
     (errors) => {

@@ -5,9 +5,9 @@ import { updateList } from '../../actions/list_actions';
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateList: (list) => dispatch(updateList(list))
+    updateList: (boardId, list) => dispatch(updateList(boardId, list))
   }
-}
+};
 
 class ListItem extends React.Component {
   constructor(props) {
@@ -38,7 +38,8 @@ class ListItem extends React.Component {
 
   updateListTitle() {
     // console.log("I pressed the esc key");
-    this.props.updateList(this.state);
+    // debugger
+    this.props.updateList(this.props.boardId, this.state);
   }
 
   render() {
