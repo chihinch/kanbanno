@@ -3,7 +3,7 @@
   right: 4px;
   top: 42px;
   width: 304px;
-  max-height: 228px;
+  max-height: 400px;
   position: absolute;
   z-index: 1;
   background-color: white;
@@ -58,7 +58,7 @@
 }
 
 .account-menu.options {
-  max-height: 223px;
+  max-height: 300px;
   box-sizing: border-box;
   padding-bottom: 12px;
   overflow-x: hidden;

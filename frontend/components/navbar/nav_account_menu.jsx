@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import onClickOutside from 'react-onclickoutside';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faLinkedin, faTrello } from '@fortawesome/free-brands-svg-icons';
+import { faTimes, faIdBadge } from '@fortawesome/free-solid-svg-icons';
+import { faAngellist, faGithub, faLinkedin, faTrello } from '@fortawesome/free-brands-svg-icons';
 import { closeMenu } from '../../actions/menu_actions';
 import { logout } from '../../actions/session_actions';
 
@@ -51,24 +51,33 @@ class NavAccountMenu extends React.Component {
           <nav>
             <ul>
               <li>
+                <a href="https://dannychan.dev" target="_blank">
+                  <FontAwesomeIcon icon={faIdBadge} />
+                  Portfolio
+                </a>
+              </li>
+              <li>
                 <a href="https://github.com/chihinch/kanbanno" target="_blank">
                   <FontAwesomeIcon icon={faGithub} />
                   GitHub
                 </a>
                 </li>
               <li>
-                <a href="#">
+                <a href="https://linkedin.com/in/chihinchan" target="_blank">
                   <FontAwesomeIcon icon={faLinkedin} />
                   LinkedIn
                 </a>
               </li>
-              <li>
-                <Link to="#">Option #3</Link>
+              <li className="with-bottom-divider">
+                <a href="https://angel.co/chihinch" target="_blank">
+                  <FontAwesomeIcon icon={faAngellist} />
+                  AngelList
+                  </a>
               </li>
               <li className="with-bottom-divider">
                 <a href="https://trello.com" target="_blank">
                   <FontAwesomeIcon icon={faTrello} />
-                  Trello
+                  Inspired by Trello
                   </a>
               </li>
               <li><button onClick={this.handleLogout} id="logout-button">Log Out</button></li>
