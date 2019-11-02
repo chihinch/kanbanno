@@ -9,11 +9,14 @@ class Api::ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(list_params)
-    @list.board_id = params[:board_id]
-    if @list.save
-      # Introduce the newly created list to its neighbours
-      @list.updateOrder(@lists[-2], @list.next_list)
+    list = List.new(list_params)
+    list.board_id = params[:board_id]
+    # debugger
+    if list.save
+      # Update the newly created list's prev neighbour if there were lists present beforehand
+      if @lists.length > 1
+        list.updateNeighbours(@lists[-2])
+      end
       render :index
     else
       render json: @list.errors.full_messages, status: 422

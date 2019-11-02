@@ -6,26 +6,32 @@ class List < ApplicationRecord
   has_many :cards
 
   def prev_list
-    return List.new() if !self.prev_list_id
-    List.find(self.prev_list_id)
+    # return List.new() if !self.prev_list_id
+    List.find_by(id: self.prev_list_id)
   end
 
   def next_list
-    return List.new() if !self.next_list_id
-    List.find(self.next_list_id)
+    # return List.new() if !self.next_list_id
+    List.find_by(id: self.next_list_id)
   end
 
-  def updateOrder(prev_list, next_list)
-    # debugger
-    prev_list.next_list_id = self.id
-    self.prev_list_id = prev_list.id
+  def updateNeighbours(prev_list = nil, next_list = nil)
+    # If prev_list = nil, then we're dealing with the head list
+    # If next_list = nil, then we're dealing with the tail list
 
-    next_list.prev_list_id = self.id
-    self.next_list_id = next_list.id
+    if prev_list
+      prev_list.next_list_id = self.id
+      self.prev_list_id = prev_list.id
+    end
+
+    if next_list
+      next_list.prev_list_id = self.id
+      self.next_list_id = next_list.id
+    end
 
     List.transaction do
-      prev_list.save
-      next_list.save
+      prev_list.save unless prev_list.nil?
+      next_list.save unless next_list.nil?
       self.update(self.attributes)
     end
   end
