@@ -19,7 +19,7 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     action: (board) => dispatch(updateBoard(board)),
     deleteBoard: (id) => dispatch(deleteBoard(id)),

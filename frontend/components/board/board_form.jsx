@@ -23,8 +23,11 @@ class BoardForm extends React.Component {
     } else {
       board = Object.assign({}, { title: this.state.title, description: this.state.description, id: this.props.board.id });
     }
-    this.props.action(board).then(() => {
-      this.props.closeModal();
+    debugger
+    this.props.action(board).then((board) => {
+      debugger
+      // this.props.closeModal();
+      // this.props.history.push(`/boards/${action.board.id}`);
     });
   }
 
