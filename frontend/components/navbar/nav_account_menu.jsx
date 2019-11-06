@@ -1,10 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+
 import onClickOutside from 'react-onclickoutside';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faIdBadge } from '@fortawesome/free-solid-svg-icons';
 import { faAngellist, faGithub, faLinkedin, faTrello } from '@fortawesome/free-brands-svg-icons';
+
 import { closeMenu } from '../../actions/menu_actions';
 import { logout } from '../../actions/session_actions';
 

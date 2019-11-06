@@ -59,11 +59,3 @@ export default class ListIndex extends React.Component {
     )
   }
 }
-
-// <div className="list-index-container">
-//   {(provided, snapshot) => {
-//     (
-//       this.renderLists()
-//       < NewListFormContainer />
-//                 )
-//   }}
