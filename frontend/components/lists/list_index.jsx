@@ -1,4 +1,5 @@
 import React from 'react';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
 import NewListFormContainer from './new_list_form';
 import ListItem from './list_item';
@@ -7,6 +8,7 @@ export default class ListIndex extends React.Component {
   constructor(props) {
     super(props);
     this.renderLists = this.renderLists.bind(this);
+    this.onDragEnd = this.onDragEnd.bind(this);
   }
 
   renderLists() {
@@ -25,14 +27,27 @@ export default class ListIndex extends React.Component {
   //   }
   // }
 
+  onDragEnd() {
+
+  }
+
   render() {
     return (
-      <div className="board-content">
-        <div className = "list-index-container">
-          {this.renderLists()}
-          <NewListFormContainer />
-        </div>
-      </div>
+      <DragDropContext 
+        onDragEnd={this.onDragEnd}
+      >
+        <Droppable
+          droppableId="board"
+          type="list"
+        >
+          <div className="board-content">
+            <div className = "list-index-container">
+              {this.renderLists()}
+              <NewListFormContainer />
+            </div>
+          </div>
+        </Droppable>
+      </DragDropContext>
     )
   }
 }
