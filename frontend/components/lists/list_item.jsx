@@ -13,8 +13,8 @@ class ListItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: this.props.list.id,
-      title: this.props.list.title
+      id: props.list.id,
+      title: props.list.title
     };
 
     this.update = this.update.bind(this);

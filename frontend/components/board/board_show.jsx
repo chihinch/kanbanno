@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 
+import BoardTitle from './board_title';
 import ListIndexContainer from '../lists/list_index_container';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,40 +11,53 @@ import { faBars, faLock, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 class BoardShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = props.board;
+    // this.state = {
+    //   boardId: props.boardId,
+      // title: '',
+      // description: '',
+    //   currentUser: props.currentUser
+    // }
+    // debugger
+    // this.update = this.update.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchBoard(this.props.boardId)
       .then(this.props.fetchLists(this.props.boardId));
+
+    // this.setState({
+    //   title: this.props.board.title,
+    //   description: this.props.board.description
+    // });
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps !== this.props) {
-      this.props.fetchLists(this.props.boardId);
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps !== this.props) {
+  //     this.props.fetchLists(this.props.boardId);
+  //   }
+  // }
 
-  static getDerivedStateFromProps(props, state) {
-    if (props.board !== state) {
-      return { 
-        id: props.board.id,
-        title: props.board.title,
-        admin_id: props.board.admin_id,
-        archived: props.board.archived,
-      };
-    }
-    return null;
-  }
+  // static getDerivedStateFromProps(props, state) {
+  //   if (props.board !== state) {
+  //     return { 
+  //       id: props.board.id,
+  //       title: props.board.title,
+  //       admin_id: props.board.admin_id,
+  //       archived: props.board.archived,
+  //     };
+  //   }
+  //   return null;
+  // }
 
-  update(field) {
-    return (e) => {
-      this.setState({ [field]: e.currentTarget.value });
-    };
-  }
+  // update(field) {
+  //   return (e) => {
+  //     this.setState({ [field]: e.target.value });
+  //   };
+  // }
   
   render() {
-    if (this.state.id == null) {
+    debugger
+    if (this.props.board.id === null) {
       return null;
     }
 
@@ -55,12 +69,13 @@ class BoardShow extends React.Component {
     return (
       <div className="board-show-container">
         <div className="board-show-header">
-          <div className="board-show-title">
+          {/* <div className="board-show-title">
             <input type="text" 
               value={this.state.title} 
               size={this.state.title.length} 
               onChange={this.update('title')} />
-          </div>
+          </div> */}
+          <BoardTitle title={this.props.board.title} />
 
           <a to="#" className="board-header-button" id="star">
             <span><FontAwesomeIcon icon={faStar} /></span>

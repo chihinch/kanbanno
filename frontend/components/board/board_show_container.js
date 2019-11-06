@@ -9,13 +9,14 @@ const mapStateToProps = (state, ownProps) => {
   const boardId = parseInt(ownProps.match.params.boardId);
   const nullBoard = {
     id: null,
-    title: null,
-    description: null,
+    title: '',
+    description: '',
     admin_id: null,
     archived: false,
     member_ids: [],
   }
   const board = state.entities.boards[boardId] || nullBoard;
+  // debugger
   return {
     boardId,
     board,
