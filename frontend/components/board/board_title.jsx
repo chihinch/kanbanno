@@ -9,6 +9,12 @@ export default class BoardTitle extends React.Component {
     this.update = this.update.bind(this);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      this.setState({ title: this.props.title });
+    }
+  }
+
   update(field) {
     return (e) => {
       this.setState({ [field]: e.target.value });

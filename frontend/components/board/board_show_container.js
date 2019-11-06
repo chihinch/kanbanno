@@ -16,7 +16,6 @@ const mapStateToProps = (state, ownProps) => {
     member_ids: [],
   }
   const board = state.entities.boards[boardId] || nullBoard;
-  // debugger
   return {
     boardId,
     board,
