@@ -61,7 +61,7 @@ b1_l3 = {
 }
 
 b1_seed_lists = List.create([b1_l1, b1_l2, b1_l3])
-b1_seed_lists[1].updateOrder(b1_seed_lists[0], b1_seed_lists[2])
+b1_seed_lists[1].updateNeighbours(b1_seed_lists[0], b1_seed_lists[2])
 
 b2_l1 = {
   title: "Apple",
@@ -84,5 +84,5 @@ b2_l4 = {
 }
 
 b2_seed_lists = List.create([b2_l1, b2_l2, b2_l3, b2_l4])
-b2_seed_lists[1].updateOrder(b2_seed_lists[0], b2_seed_lists[2])
-b2_seed_lists[2].updateOrder(b2_seed_lists[1], b2_seed_lists[3])
+b2_seed_lists[1].updateNeighbours(b2_seed_lists[0], b2_seed_lists[2])
+b2_seed_lists[2].updateNeighbours(b2_seed_lists[1], b2_seed_lists[3])
