@@ -17,6 +17,7 @@ class BoardTitle extends React.Component {
       id: props.boardId
     };
     this.update = this.update.bind(this);
+    this.handleKeyEscaper = this.handleKeyEscaper.bind(this);
     this.updateBoardTitle = this.updateBoardTitle.bind(this);
   }
 
@@ -32,7 +33,17 @@ class BoardTitle extends React.Component {
     };
   }
 
+  handleKeyEscaper(e) {
+    if (e.key === 'Escape' || e.key === 'Enter') {
+      e.target.blur();
+    }
+  }
+
   updateBoardTitle() {
+    if (!this.state.title) {
+      this.setState({ title: this.props.title });
+      return;
+    }
     this.props.updateBoard(this.state);
   }
 
@@ -43,6 +54,7 @@ class BoardTitle extends React.Component {
           value={this.state.title}
           size={this.state.title.length}
           onChange={this.update('title')} 
+          onKeyDown={this.handleKeyEscaper}
           onBlur={this.updateBoardTitle}
         />
       </div>
