@@ -33,21 +33,37 @@ export default class ListIndex extends React.Component {
 
   render() {
     return (
-      <DragDropContext 
+      <DragDropContext
         onDragEnd={this.onDragEnd}
       >
-        <Droppable
-          droppableId="board"
-          type="list"
-        >
-          <div className="board-content">
-            <div className = "list-index-container">
-              {this.renderLists()}
-              <NewListFormContainer />
-            </div>
-          </div>
-        </Droppable>
+        <div className="board-content">
+          <Droppable
+            droppableId={`board_${this.props.boardId}`}
+            direction="horizontal"
+            type="LIST"
+          >
+            {(provided, snapshot) => (
+              <div 
+                className="list-index-container"
+                ref={provided.innerRef} 
+                {...provided.droppableProps}
+              >
+                {this.renderLists()}
+                {provided.placeholder}
+                <NewListFormContainer />
+              </div>
+            )}
+          </Droppable>
+        </div>
       </DragDropContext>
     )
   }
 }
+
+// <div className="list-index-container">
+//   {(provided, snapshot) => {
+//     (
+//       this.renderLists()
+//       < NewListFormContainer />
+//                 )
+//   }}
