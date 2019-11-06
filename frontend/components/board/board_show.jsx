@@ -38,14 +38,14 @@ class BoardShow extends React.Component {
     return (
       <div className="board-show-container">
         <div className="board-show-header">
-          <BoardTitle title={this.props.board.title} />
+          <BoardTitle title={this.props.board.title} boardId={this.props.boardId} />
 
           <a to="#" className="board-header-button" id="star">
             <span><FontAwesomeIcon icon={faStar} /></span>
           </a>
 
           <div className="board-header-buttons left">
-            <a to="#" className="board-header-button" id="edit" onClick={() => this.props.openUpdateBoardModal(this.state.id)}>
+            <a to="#" className="board-header-button" id="edit" onClick={() => this.props.openUpdateBoardModal(this.props.boardId)}>
               <span><FontAwesomeIcon icon={faBars} /></span>
             </a>
 
@@ -77,7 +77,7 @@ class BoardShow extends React.Component {
           </div>
 
           <div className="board-header-buttons right">
-            <a to="#" className="board-header-button" id="menu" onClick = {() => this.props.openUpdateBoardModal(this.state.id)}>
+            <a to="#" className="board-header-button" id="menu" onClick = {() => this.props.openUpdateBoardModal(this.props.boardId)}>
               <span id="menu-icon"><FontAwesomeIcon icon={faEllipsisH} /></span>
               <span id="menu-text">Show Menu</span>
             </a>
