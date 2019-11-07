@@ -45,6 +45,7 @@ class ListItem extends React.Component {
       <Draggable
         draggableId={`list-${this.props.list.id}`}
         index={this.props.dragIdx}
+        type="LIST"
       >
         {(provided, snapshot) => (
           <div 
