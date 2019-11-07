@@ -11,10 +11,3 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 export default withRouter(connect(mapStateToProps, null)(ListIndex));
-
-// const mapStateToProps = (ownProps) => {
-//   debugger
-//   return {
-//     boardId: parseInt(ownProps.match.params.boardId)
-//   }
-// };

@@ -25,7 +25,6 @@ class BoardShow extends React.Component {
   }
   
   render() {
-    // debugger
     if (this.props.board.id === null) {
       return null;
     }

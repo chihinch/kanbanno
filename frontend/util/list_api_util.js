@@ -14,7 +14,6 @@ export const createList = (boardId, list) => {
 };
 
 export const updateList = (boardId, list) => {
-  // debugger
   return $.ajax({
     method: 'PATCH',
     url: `/api/lists/${list.id}`,

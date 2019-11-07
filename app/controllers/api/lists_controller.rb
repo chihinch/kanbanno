@@ -11,7 +11,6 @@ class Api::ListsController < ApplicationController
   def create
     list = List.new(list_params)
     list.board_id = params[:board_id]
-    # debugger
     if list.save
       # Update the newly created list's prev neighbour if there were lists present beforehand
       if @lists.length > 1
@@ -24,11 +23,9 @@ class Api::ListsController < ApplicationController
   end
 
   def update
-    # debugger
     @list = List.find(params[:id])
     if @list
       if @list.update_attributes(list_params)
-        # obtain_lists()
         render :index
       else
         render json: @list.errors.full_messages, status: 422
