@@ -10,13 +10,14 @@ export default class ListIndex extends React.Component {
     this.state = {
       listOrder: []
     };
-    // this.orderLists = this.orderLists.bind(this);
+    this.orderLists = this.orderLists.bind(this);
     this.renderLists = this.renderLists.bind(this);
     this.onDragEnd = this.onDragEnd.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchLists(this.props.boardId)
+    this.props.fetchLists(this.props.boardId);
+    this.orderLists();
   }
 
   componentDidUpdate(prevProps) {
@@ -26,13 +27,17 @@ export default class ListIndex extends React.Component {
     }
 
     if (prevProps.lists !== this.props.lists) {
-      // this.orderLists();
+      this.orderLists();
     }
   }
 
-  // orderLists() {
-  //   const 
-  // }
+  orderLists() {
+    let orderedLists = [];
+    this.props.lists.forEach((list) => {
+      orderedLists.push(list);
+    });
+    this.setState( { listOrder: orderedLists });
+  }
 
   renderLists() {
     const listItems = this.state.listOrder.map((list, index) => {
@@ -64,6 +69,8 @@ export default class ListIndex extends React.Component {
   }
 
   render() {
+    if (!this.state.listOrder) return;
+
     return (
       <DragDropContext
         onDragEnd={this.onDragEnd}

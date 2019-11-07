@@ -14,7 +14,7 @@ class Api::ListsController < ApplicationController
     if list.save
       # Update the newly created list's prev neighbour if there were lists present beforehand
       if @lists.length > 1
-        @lists[-1].updateNeighbours(@lists[-2]) # Where @lists[-2] should be the final list before the new one was created
+        @lists[-1].updateNeighbours(@lists[-2])
       end
       render :index
     else
