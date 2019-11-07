@@ -7,12 +7,15 @@ import ListItem from './list_item';
 export default class ListIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      lists: []
+    };
     this.renderLists = this.renderLists.bind(this);
     this.onDragEnd = this.onDragEnd.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchLists(this.props.boardId);
+    this.props.fetchLists(this.props.boardId)
   }
 
   componentDidUpdate(prevProps) {
@@ -22,7 +25,7 @@ export default class ListIndex extends React.Component {
   }
 
   renderLists() {
-    const listItems = this.props.lists.map((list, index) => {
+    const listItems = this.state.lists.map((list, index) => {
       return (
         <ListItem 
           list={list} 
@@ -32,18 +35,22 @@ export default class ListIndex extends React.Component {
         />
       )
     });
-
     return listItems;
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps !== this.props) {
-  //     this.renderLists();
-  //   }
-  // }
+  onDragEnd(result) {
+    const { destination, source, draggableId } = result;
 
-  onDragEnd() {
+    if (!destination) {
+      return;
+    }
 
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      return;
+    }
   }
 
   render() {
