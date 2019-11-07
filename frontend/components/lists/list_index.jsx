@@ -12,9 +12,14 @@ export default class ListIndex extends React.Component {
   }
 
   renderLists() {
-    const listItems = this.props.lists.map((list) => {
+    const listItems = this.props.lists.map((list, index) => {
       return (
-        <ListItem list={list} boardId={this.props.boardId} key={`list-item-${list.id}`}/>
+        <ListItem 
+          list={list} 
+          boardId={this.props.boardId} 
+          key={`list-item-${list.id}`} 
+          dragIdx={index}
+        />
       )
     });
 

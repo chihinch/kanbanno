@@ -1,6 +1,7 @@
 import React from 'react';
-
 import { connect } from 'react-redux';
+import { Droppable, Draggable } from 'react-beautiful-dnd';
+
 import { updateList } from '../../actions/list_actions';
 
 const mapDispatchToProps = (dispatch) => {
@@ -29,38 +30,47 @@ class ListItem extends React.Component {
   }
 
   handleKeyEscaper(e) {
-    // debugger
     if (e.key === 'Escape' || e.key === 'Enter') {
       e.target.blur();
-      // this.updateListTitle();
     }
   }
 
   updateListTitle() {
-    // console.log("I pressed the esc key");
-    // debugger
     this.props.updateList(this.props.boardId, this.state);
   }
 
   render() {
+    // debugger
     return (
-    <div className="list-item-container">
-      <div className="list-item-contents">
-        <div className="list-item-header">
-          <textarea 
-            className="list-name-editor" 
-            onKeyDown={this.handleKeyEscaper}
-            onBlur={this.updateListTitle} 
-            onChange={this.update('title')} 
-            value={this.state.title}
+      <Draggable
+        draggableId={`list-${this.props.list.id}`}
+        index={this.props.dragIdx}
+      >
+        {(provided, snapshot) => (
+          <div 
+            className="list-item-container"
+            ref={provided.innerRef}
+            {...provided.draggableProps}
+            {...provided.dragHandleProps}
           >
-          </textarea>
-        </div>
-        <div className="new-card-container">
-          + Add a card
-        </div>
-      </div>
-    </div>
+            <div className="list-item-contents">
+              <div className="list-item-header">
+                <textarea
+                  className="list-name-editor"
+                  onKeyDown={this.handleKeyEscaper}
+                  onBlur={this.updateListTitle}
+                  onChange={this.update('title')}
+                  value={this.state.title}
+                >
+                </textarea>
+              </div>
+              <div className="new-card-container">
+                + Add a card
+            </div>
+            </div>
+          </div>
+        )}
+      </Draggable>
     );
   }
 };
