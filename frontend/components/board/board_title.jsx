@@ -44,6 +44,11 @@ class BoardTitle extends React.Component {
       this.setState({ title: this.props.title });
       return;
     }
+
+    if (this.state.title === this.props.title) {
+      return;
+    }
+
     this.props.updateBoard(this.state);
   }
 
