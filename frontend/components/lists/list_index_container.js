@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
+import { fetchLists } from '../../actions/list_actions';
 import ListIndex from './list_index';
 
 const mapStateToProps = (state, ownProps) => {
@@ -10,4 +11,10 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, null)(ListIndex));
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchLists: (boardId) => dispatch(fetchLists(boardId))
+  }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ListIndex));

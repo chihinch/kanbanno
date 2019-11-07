@@ -11,6 +11,16 @@ export default class ListIndex extends React.Component {
     this.onDragEnd = this.onDragEnd.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchLists(this.props.boardId);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.boardId !== this.props.boardId) {
+      this.props.fetchLists(this.props.boardId);
+    }
+  }
+
   renderLists() {
     const listItems = this.props.lists.map((list, index) => {
       return (
