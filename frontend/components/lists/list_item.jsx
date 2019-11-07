@@ -40,7 +40,6 @@ class ListItem extends React.Component {
   }
 
   render() {
-    // debugger
     return (
       <Draggable
         draggableId={`list-${this.props.list.id}`}

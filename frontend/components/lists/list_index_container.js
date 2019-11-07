@@ -5,7 +5,6 @@ import { fetchLists } from '../../actions/list_actions';
 import ListIndex from './list_index';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return {
     lists: Object.values(state.entities.lists),
     boardId: parseInt(ownProps.match.params.boardId)

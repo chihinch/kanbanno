@@ -8,8 +8,9 @@ export default class ListIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      lists: []
+      listOrder: []
     };
+    // this.orderLists = this.orderLists.bind(this);
     this.renderLists = this.renderLists.bind(this);
     this.onDragEnd = this.onDragEnd.bind(this);
   }
@@ -19,13 +20,22 @@ export default class ListIndex extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    // debugger
     if (prevProps.boardId !== this.props.boardId) {
       this.props.fetchLists(this.props.boardId);
     }
+
+    if (prevProps.lists !== this.props.lists) {
+      // this.orderLists();
+    }
   }
 
+  // orderLists() {
+  //   const 
+  // }
+
   renderLists() {
-    const listItems = this.state.lists.map((list, index) => {
+    const listItems = this.state.listOrder.map((list, index) => {
       return (
         <ListItem 
           list={list} 
