@@ -6,7 +6,7 @@ import ListIndex from './list_index';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    lists: Object.keys(state.entities.lists).map((id) => state.entities.lists[id]),
+    lists: Object.values(state.entities.lists),
     boardId: parseInt(ownProps.match.params.boardId)
   };
 };
