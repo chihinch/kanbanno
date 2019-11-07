@@ -36,6 +36,11 @@ class ListItem extends React.Component {
   }
 
   updateListTitle() {
+    if (!this.state.title) {
+      this.setState({ title: this.props.list.title });
+      return;
+    }
+    if (this.state.title === this.props.list.title) return;
     this.props.updateList(this.props.boardId, this.state);
   }
 

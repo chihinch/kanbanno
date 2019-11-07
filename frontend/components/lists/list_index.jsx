@@ -21,7 +21,6 @@ export default class ListIndex extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // debugger
     if (prevProps.boardId !== this.props.boardId) {
       this.props.fetchLists(this.props.boardId);
     }
