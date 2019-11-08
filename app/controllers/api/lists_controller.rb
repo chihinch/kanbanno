@@ -17,20 +17,24 @@ class Api::ListsController < ApplicationController
       end
       render :index
     else
-      render json: @list.errors.full_messages, status: 422
+      render json: list.errors.full_messages, status: 422
     end
   end
 
   def update
-    @list = List.find(params[:id])
-    if @list
-      if @list.update(list_params)
+    list = List.find(params[:id])
+    if list
+      if list.update(list_params)
+        debugger
+        if list_params[:prev_list_id] && list_params[:next_list_id]
+          list.updateNeighbours(list.prev_list_id, list.next_list_id)
+        end
         render :index
       else
-        render json: @list.errors.full_messages, status: 422
+        render json: list.errors.full_messages, status: 422
       end
     else
-      render json: @list.errors.full_messages, status: 404
+      render json: list.errors.full_messages, status: 404
     end
   end
 

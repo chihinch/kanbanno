@@ -49,6 +49,7 @@ export default class ListIndex extends React.Component {
   }
 
   persistNewOrderToDB(list, index) {
+    debugger
     if (index === 0) {
       list.prev_list_id = null;
       list.next_list_id = this.state.listOrder[1];
@@ -61,6 +62,7 @@ export default class ListIndex extends React.Component {
       list.prev_list_id = this.state.listOrder[index - 1];
       list.next_list_id = this.state.listOrder[index + 1];
     }
+    debugger
     this.props.updateList(list);
   }
 
@@ -87,6 +89,7 @@ export default class ListIndex extends React.Component {
         listOrder: newListOrder,
       };
       this.setState(newState);
+      this.persistNewOrderToDB(this.props.lists[draggableId], destination.index);
     }
   }
 
