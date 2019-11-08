@@ -3,7 +3,9 @@ json.board do
 end
 
 json.lists do
-  json.array! @board.lists.each do |list|
-    json.partial! '/api/lists/list', list: list
+  @board.lists.each do |list|
+    json.set! list.id do
+      json.partial! '/api/lists/list', list: list
+    end
   end
 end
