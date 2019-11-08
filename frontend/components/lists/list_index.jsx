@@ -12,7 +12,7 @@ export default class ListIndex extends React.Component {
     };
     this.orderLists = this.orderLists.bind(this);
     this.renderLists = this.renderLists.bind(this);
-    this.persistNewOrder = this.persistNewOrder.bind(this);
+    this.persistNewOrderToDB = this.persistNewOrderToDB.bind(this);
     this.onDragEnd = this.onDragEnd.bind(this);
   }
 
