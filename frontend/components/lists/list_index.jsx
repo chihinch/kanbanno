@@ -48,22 +48,25 @@ export default class ListIndex extends React.Component {
     return listItems;
   }
 
-  persistNewOrderToDB(list, index) {
-    debugger
+  persistNewOrderToDB(list, index, listOrder) {
+    // debugger
     if (index === 0) {
+      debugger
       list.prev_list_id = null;
-      list.next_list_id = this.state.listOrder[1];
+      list.next_list_id = listOrder[1];
     }
     else if (index === this.state.listOrder.length - 1) {
-      list.prev_list_id = this.state.listOrder[this.state.listOrder.length - 2];
+      debugger
+      list.prev_list_id = this.state.listOrder[listOrder.length - 2];
       list.next_list_id = null;
     }
     else {
-      list.prev_list_id = this.state.listOrder[index - 1];
-      list.next_list_id = this.state.listOrder[index + 1];
+      debugger
+      list.prev_list_id = listOrder[index - 1];
+      list.next_list_id = listOrder[index + 1];
     }
     debugger
-    this.props.updateList(list);
+    this.props.updateList(this.props.boardId, list);
   }
 
   onDragEnd(result) {
@@ -89,7 +92,8 @@ export default class ListIndex extends React.Component {
         listOrder: newListOrder,
       };
       this.setState(newState);
-      this.persistNewOrderToDB(this.props.lists[draggableId], destination.index);
+      // debugger
+      this.persistNewOrderToDB(this.props.lists[draggableId], destination.index, newListOrder);
     }
   }
 

@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchLists: (boardId) => dispatch(fetchLists(boardId)),
-    updateList: (list) => dispatch(updateList(list))
+    updateList: (boardId, list) => dispatch(updateList(boardId, list))
   }
 }
 
