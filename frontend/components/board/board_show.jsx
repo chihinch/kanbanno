@@ -77,7 +77,7 @@ class BoardShow extends React.Component {
 
         </div>
 
-        <ListIndexContainer />
+        {/* <ListIndexContainer /> */}
       </div>
     )
   }

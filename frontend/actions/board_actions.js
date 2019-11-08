@@ -16,10 +16,11 @@ export const receiveBoards = (boards) => {
   };
 };
 
-export const receiveBoard = ({board}) => {
+export const receiveBoard = (payload) => {
   return {
     type: RECEIVE_BOARD,
-    board,
+    board: payload.board,
+    lists: payload.lists,
   };
 };
 
@@ -54,8 +55,8 @@ export const fetchBoards = () => (dispatch) => {
 };
 
 export const fetchBoard = (id) => (dispatch) => {
-  return BoardAPIUtil.fetchBoard(id).then((board) => {
-    dispatch(receiveBoard(board))}, 
+  return BoardAPIUtil.fetchBoard(id).then((payload) => {
+    dispatch(receiveBoard(payload))}, 
     (errors) => {
       dispatch(receiveErrors(errors.responseJSON))
     }
