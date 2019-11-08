@@ -25,7 +25,7 @@ class Api::ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
     if @list
-      if @list.update_attributes(list_params)
+      if @list.update(list_params)
         render :index
       else
         render json: @list.errors.full_messages, status: 422
@@ -37,7 +37,7 @@ class Api::ListsController < ApplicationController
 
   private
   def list_params
-    params.require(:list).permit(:title)
+    params.require(:list).permit(:title, :prev_list_id, :next_list_id)
   end
 
 end
