@@ -40,8 +40,7 @@ class Api::BoardsController < ApplicationController
     @board = Board.find(params[:id])
     if @board.is_admin?(current_user)
       if Board.destroy(@board.id)
-        render :show # return the show jbuilder so that the reducer can use its id to remove it
-        # it's up to the frontend to redirect the user to the boards index
+        render :show
       else
         render json: ['Something went wrong.'], status: 404
       end

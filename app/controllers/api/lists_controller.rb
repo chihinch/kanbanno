@@ -12,7 +12,6 @@ class Api::ListsController < ApplicationController
     list = List.new(list_params)
     list.board_id = params[:board_id]
     if list.save
-      # Update the newly created list's prev neighbour if there were lists present beforehand
       if @lists.length > 1
         @lists[-1].updateNeighbours(@lists[-2])
       end

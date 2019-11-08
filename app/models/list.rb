@@ -6,12 +6,10 @@ class List < ApplicationRecord
   has_many :cards
 
   def prev_list
-    # return List.new() if !self.prev_list_id
     List.find_by(id: self.prev_list_id)
   end
 
   def next_list
-    # return List.new() if !self.next_list_id
     List.find_by(id: self.next_list_id)
   end
 

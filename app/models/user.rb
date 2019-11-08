@@ -1,9 +1,6 @@
 class User < ApplicationRecord
   validates :name, :password_digest, presence: true
-
-  # Validation of a unique email address with a valid format (built into Ruby)
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
-
   validates :password, length: { minimum: 6, allow_nil: true }
 
   after_initialize :ensure_session_token
