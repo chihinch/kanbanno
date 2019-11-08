@@ -45,9 +45,11 @@ class ListItem extends React.Component {
   }
 
   render() {
+    if (!this.props.list) return null;
+    // const idForDraggable = this.props.list ? this.props.list.id : null
     return (
       <Draggable
-        draggableId={`list-${this.props.list.id}`}
+        draggableId={`${this.props.list.id}`}
         index={this.props.dragIdx}
         type="LIST"
       >

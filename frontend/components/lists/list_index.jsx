@@ -16,15 +16,10 @@ export default class ListIndex extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.fetchLists(this.props.boardId);
     this.orderLists();
   }
 
   componentDidUpdate(prevProps) {
-    // if (prevProps.boardId !== this.props.boardId) {
-    //   this.props.fetchLists(this.props.boardId);
-    // }
-    
     if (prevProps.lists !== this.props.lists) {
       this.orderLists();
     }
@@ -32,22 +27,19 @@ export default class ListIndex extends React.Component {
 
   orderLists() {
     let orderedLists = [];
-    // debugger
-    this.props.lists.forEach((list) => {
-      orderedLists.push(list);
+    Object.keys(this.props.lists).forEach((listId) => {
+      orderedLists.push(listId);
     });
     this.setState( { listOrder: orderedLists });
   }
 
   renderLists() {
-    // debugger
-    const listItems = this.state.listOrder.map((list, index) => {
-      // const listFromProps = this.props.lists.find((list) => list.id === listId)
+    const listItems = this.state.listOrder.map((listId, index) => {
       return (
         <ListItem 
-          list={list} 
+          list={this.props.lists[listId]} 
           boardId={this.props.boardId} 
-          key={`list-${list.id}`} 
+          key={`list-${listId}`} 
           dragIdx={index}
         />
       )
@@ -56,6 +48,7 @@ export default class ListIndex extends React.Component {
   }
 
   onDragEnd(result) {
+    // debugger
     const { destination, source, draggableId, type } = result;
 
     if (!destination) {
@@ -82,8 +75,7 @@ export default class ListIndex extends React.Component {
   }
 
   render() {
-    debugger
-    if (!this.state.listOrder) return null;
+    if (!this.state.listOrder) return null; 
 
     return (
       <DragDropContext
