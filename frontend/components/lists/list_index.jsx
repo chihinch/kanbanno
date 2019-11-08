@@ -12,6 +12,7 @@ export default class ListIndex extends React.Component {
     };
     this.orderLists = this.orderLists.bind(this);
     this.renderLists = this.renderLists.bind(this);
+    this.persistNewOrder = this.persistNewOrder.bind(this);
     this.onDragEnd = this.onDragEnd.bind(this);
   }
 
@@ -45,6 +46,22 @@ export default class ListIndex extends React.Component {
       )
     });
     return listItems;
+  }
+
+  persistNewOrderToDB(list, index) {
+    if (index === 0) {
+      list.prev_list_id = null;
+      list.next_list_id = this.state.listOrder[1];
+    }
+    else if (index === this.state.listOrder.length - 1) {
+      list.prev_list_id = this.state.listOrder[this.state.listOrder.length - 2];
+      list.next_list_id = null;
+    }
+    else {
+      list.prev_list_id = this.state.listOrder[index - 1];
+      list.next_list_id = this.state.listOrder[index + 1];
+    }
+    this.props.updateList(list);
   }
 
   onDragEnd(result) {
