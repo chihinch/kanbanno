@@ -17,14 +17,13 @@ export default class ListIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchLists(this.props.boardId);
-    this.orderLists();
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.boardId !== this.props.boardId) {
-      this.props.fetchLists(this.props.boardId);
-    }
-
+    // if (prevProps.boardId !== this.props.boardId) {
+    //   this.props.fetchLists(this.props.boardId);
+    // }
+    
     if (prevProps.lists !== this.props.lists) {
       this.orderLists();
     }
@@ -33,18 +32,19 @@ export default class ListIndex extends React.Component {
   orderLists() {
     let orderedLists = [];
     this.props.lists.forEach((list) => {
-      orderedLists.push(list);
+      orderedLists.push(list.id);
     });
     this.setState( { listOrder: orderedLists });
   }
 
   renderLists() {
-    const listItems = this.state.listOrder.map((list, index) => {
+    const listItems = this.state.listOrder.map((listId, index) => {
+      const listFromProps = this.props.lists.find((list) => list.id === listId)
       return (
         <ListItem 
-          list={list} 
+          list={listFromProps} 
           boardId={this.props.boardId} 
-          key={`list-item-${list.id}`} 
+          key={`list-${listFromProps.id}`} 
           dragIdx={index}
         />
       )
@@ -53,7 +53,7 @@ export default class ListIndex extends React.Component {
   }
 
   onDragEnd(result) {
-    const { destination, source, draggableId } = result;
+    const { destination, source, draggableId, type } = result;
 
     if (!destination) {
       return;
@@ -64,6 +64,17 @@ export default class ListIndex extends React.Component {
       destination.index === source.index
     ) {
       return;
+    }
+
+    if (type === 'LIST') {
+      const newListOrder = Array.from(this.state.listOrder);
+      newListOrder.splice(source.index, 1);
+      newListOrder.splice(destination.index, 0, draggableId);
+      const newState = {
+        ...this.state,
+        listOrder: newListOrder,
+      };
+      this.setState(newState);
     }
   }
 
