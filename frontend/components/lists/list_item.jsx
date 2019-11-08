@@ -56,10 +56,12 @@ class ListItem extends React.Component {
             className="list-item-container"
             ref={provided.innerRef}
             {...provided.draggableProps}
-            {...provided.dragHandleProps}
           >
             <div className="list-item-contents">
-              <div className="list-item-header">
+              <div 
+                className="list-item-header"
+                {...provided.dragHandleProps}
+              >
                 <textarea
                   className="list-name-editor"
                   onKeyDown={this.handleKeyEscaper}

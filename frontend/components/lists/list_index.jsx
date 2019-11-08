@@ -82,7 +82,7 @@ export default class ListIndex extends React.Component {
   }
 
   render() {
-    // debugger
+    debugger
     if (!this.state.listOrder) return null;
 
     return (
