@@ -16,6 +16,12 @@ class BoardShow extends React.Component {
   componentDidMount() {
     this.props.fetchBoard(this.props.boardId)
   }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.boardId !== this.props.boardId) {
+      this.props.fetchBoard(this.props.boardId);
+    }
+  }
   
   render() {
     if (this.props.board.id === null) {
@@ -77,7 +83,7 @@ class BoardShow extends React.Component {
 
         </div>
 
-        {/* <ListIndexContainer /> */}
+        <ListIndexContainer />
       </div>
     )
   }

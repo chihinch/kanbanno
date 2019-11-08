@@ -16,7 +16,8 @@ export default class ListIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchLists(this.props.boardId);
+    // this.props.fetchLists(this.props.boardId);
+    this.orderLists();
   }
 
   componentDidUpdate(prevProps) {
@@ -31,20 +32,22 @@ export default class ListIndex extends React.Component {
 
   orderLists() {
     let orderedLists = [];
+    // debugger
     this.props.lists.forEach((list) => {
-      orderedLists.push(list.id);
+      orderedLists.push(list);
     });
     this.setState( { listOrder: orderedLists });
   }
 
   renderLists() {
-    const listItems = this.state.listOrder.map((listId, index) => {
-      const listFromProps = this.props.lists.find((list) => list.id === listId)
+    // debugger
+    const listItems = this.state.listOrder.map((list, index) => {
+      // const listFromProps = this.props.lists.find((list) => list.id === listId)
       return (
         <ListItem 
-          list={listFromProps} 
+          list={list} 
           boardId={this.props.boardId} 
-          key={`list-${listFromProps.id}`} 
+          key={`list-${list.id}`} 
           dragIdx={index}
         />
       )
@@ -79,7 +82,8 @@ export default class ListIndex extends React.Component {
   }
 
   render() {
-    if (!this.state.listOrder) return;
+    // debugger
+    if (!this.state.listOrder) return null;
 
     return (
       <DragDropContext
