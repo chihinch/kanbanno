@@ -24,16 +24,19 @@ class Api::ListsController < ApplicationController
   def update
     list = List.find(params[:id])
     if list
-      if list.update(list_params)
-        debugger
-        if list_params[:prev_list_id] && list_params[:next_list_id]
-          debugger
-          list.updateNeighbours(list_params[:prev_list_id], list_params[:next_list_id])
-        end
-        render :index
+      # if list.update(list_params)
+      #   debugger
+      #   if list_params[:prev_list_id] && list_params[:next_list_id]
+      #     debugger
+      #     list.updateNeighbours(list_params[:prev_list_id], list_params[:next_list_id])
+      #   end
+      #   render :index
+      if list_params[:prev_list_id] && list_params[:next_list_id]
+        list.updateNeighbours(list_params[:prev_list_id], list_params[:next_list_id])
       else
-        render json: list.errors.full_messages, status: 422
+        list.update(list_params)
       end
+      render :index
     else
       render json: list.errors.full_messages, status: 404
     end
