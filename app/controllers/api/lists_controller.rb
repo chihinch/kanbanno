@@ -27,7 +27,8 @@ class Api::ListsController < ApplicationController
       if list.update(list_params)
         debugger
         if list_params[:prev_list_id] && list_params[:next_list_id]
-          list.updateNeighbours(list.prev_list_id, list.next_list_id)
+          debugger
+          list.updateNeighbours(list_params[:prev_list_id], list_params[:next_list_id])
         end
         render :index
       else
