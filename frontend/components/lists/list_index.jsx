@@ -48,22 +48,22 @@ export default class ListIndex extends React.Component {
     return listItems;
   }
 
-  persistNewOrderToDB(list, index, listOrder) {
+  persistNewOrderToDB(list, newIndex, newListOrder) {
     // debugger
-    if (index === 0) {
+    if (newIndex === 0) {
       debugger
       list.prev_list_id = null;
-      list.next_list_id = listOrder[1];
+      list.next_list_id = newListOrder[1];
     }
-    else if (index === this.state.listOrder.length - 1) {
+    else if (newIndex === newListOrder.length - 1) {
       debugger
-      list.prev_list_id = this.state.listOrder[listOrder.length - 2];
+      list.prev_list_id = newListOrder[newListOrder.length - 2];
       list.next_list_id = null;
     }
     else {
       debugger
-      list.prev_list_id = listOrder[index - 1];
-      list.next_list_id = listOrder[index + 1];
+      list.prev_list_id = newListOrder[newIndex - 1];
+      list.next_list_id = newListOrder[newIndex + 1];
     }
     debugger
     this.props.updateList(this.props.boardId, list);

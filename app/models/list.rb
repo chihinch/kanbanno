@@ -13,9 +13,13 @@ class List < ApplicationRecord
     List.find_by(id: self.next_list_id)
   end
 
-  def updateNeighbours(prev_list = nil, next_list = nil)
-    # If prev_list = nil, then we're dealing with the head list
-    # If next_list = nil, then we're dealing with the tail list
+  def updateNeighbours(prev_list_id = nil, next_list_id = nil)
+    # If prev_list_id = nil, then we're dealing with the head list
+    # If next_list_id = nil, then we're dealing with the tail list
+
+    prev_list = List.find_by(id: prev_list_id)
+    next_list = List.find_by(id: next_list_id)
+    # debugger
 
     if prev_list
       prev_list.next_list_id = self.id
@@ -27,10 +31,11 @@ class List < ApplicationRecord
       self.next_list_id = next_list.id
     end
 
+    # debugger
     List.transaction do
       prev_list.save unless prev_list.nil?
       next_list.save unless next_list.nil?
-      self.update(self.attributes)
+      # self.update(self.attributes)
     end
   end
 end
