@@ -7,7 +7,7 @@ class Board < ApplicationRecord
     primary_key: :id,
     foreign_key: :admin_id
 
-  has_many :lists
+  has_many :lists, dependent: :destroy
 
   def is_admin?(user)
     user.id == self.admin_id
