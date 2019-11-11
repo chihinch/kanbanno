@@ -61,7 +61,16 @@ b1_l3 = {
 }
 
 b1_seed_lists = List.create([b1_l1, b1_l2, b1_l3])
-b1_seed_lists[1].updateNeighbours(b1_seed_lists[0], b1_seed_lists[2])
+b1_seed_lists[0].updateNeighbours(nil, b1_seed_lists[1].id)
+b1_seed_lists[1].updateNeighbours(b1_seed_lists[0].id, b1_seed_lists[2].id)
+b1_seed_lists[2].updateNeighbours(b1_seed_lists[1].id, nil)
+# b1_seed_lists[0].prev_list_id = nil
+# b1_seed_lists[0].next_list_id = b1_seed_lists[1].id
+# b1_seed_lists[1].prev_list_id = b1_seed_lists[0].id
+# b1_seed_lists[1].next_list_id = b1_seed_lists[2].id
+# b1_seed_lists[2].prev_list_id = b1_seed_lists[1].id
+# b1_seed_lists[2].next_list_id = nil
+# b1_seed_lists.save
 
 b2_l1 = {
   title: "Apple",
@@ -84,5 +93,17 @@ b2_l4 = {
 }
 
 b2_seed_lists = List.create([b2_l1, b2_l2, b2_l3, b2_l4])
-b2_seed_lists[1].updateNeighbours(b2_seed_lists[0], b2_seed_lists[2])
-b2_seed_lists[2].updateNeighbours(b2_seed_lists[1], b2_seed_lists[3])
+b2_seed_lists[0].updateNeighbours(nil, b2_seed_lists[1].id)
+b2_seed_lists[1].updateNeighbours(b2_seed_lists[0].id, b2_seed_lists[2].id)
+b2_seed_lists[2].updateNeighbours(b2_seed_lists[1].id, b2_seed_lists[3].id)
+b2_seed_lists[3].updateNeighbours(b2_seed_lists[2].id, nil)
+# debugger
+# b2_seed_lists[0].prev_list_id = nil
+# b2_seed_lists[0].next_list_id = b2_seed_lists[1].id
+# b2_seed_lists[1].prev_list_id = b2_seed_lists[0].id
+# b2_seed_lists[1].next_list_id = b2_seed_lists[2].id
+# b2_seed_lists[2].prev_list_id = b2_seed_lists[1].id
+# b2_seed_lists[2].next_list_id = b2_seed_lists[3].id
+# b2_seed_lists[3].prev_list_id = b2_seed_lists[2].id
+# b2_seed_lists[3].next_list_id = nil
+# b2_seed_lists.save
