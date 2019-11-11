@@ -39,7 +39,7 @@ class Api::BoardsController < ApplicationController
   def destroy
     @board = Board.find(params[:id])
     if @board.is_admin?(current_user)
-      if Board.destroy(@board.id)
+      if @board.destroy
         render :show
       else
         render json: ['Something went wrong.'], status: 404
