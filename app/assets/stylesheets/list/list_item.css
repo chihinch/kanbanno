@@ -13,6 +13,7 @@
 }
 
 .list-item-contents {
+  width: inherit;
   background-color: #ebecf0;
   border-radius: 3px;
   box-sizing: border-box;
@@ -28,6 +29,27 @@
   padding: 10px 8px;
   position: relative;
   min-height: 20px;
+}
+
+.list-name-editor {
+  background: transparent;
+  border: none;
+  border-radius: 3px;
+  box-shadow: none;
+  font-weight: 600;
+  margin: -4px 0;
+  height: 20px;
+  min-height: 20px;
+  padding: 4px 8px;
+  resize: none;
+  max-height: 256px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.list-name-editor:focus {
+  background-color: white;
+  cursor: text;
 }
 
 .new-card-container {

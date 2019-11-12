@@ -4,6 +4,7 @@
 }
 
 .list-index-container {
+  height: 100%;
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
