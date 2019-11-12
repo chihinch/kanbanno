@@ -6,7 +6,6 @@ class List < ApplicationRecord
   has_many :cards, dependent: :destroy
 
   def prev_list
-    # return List.new() unless self.prev_list_id
     List.find_by(id: self.prev_list_id)
   end
 
@@ -31,14 +30,14 @@ class List < ApplicationRecord
     self.next_list_id = next_list_id
 
     # And update the old neighbours
-    if !old_prev_list.nil? # 
+    if !old_prev_list.nil? 
       if !old_next_list.nil? # Left+ Right+
         old_prev_list.next_list_id = old_next_list.id
         old_next_list.prev_list_id = old_prev_list.id
       else # Left+ Right-
         old_prev_list.next_list_id = nil
       end
-    else # This list did not have a left neighbour
+    else
       if !old_next_list.nil? # Left- Right+
         old_next_list.prev_list_id = nil
       end
