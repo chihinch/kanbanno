@@ -1,20 +1,22 @@
 class Api::ListsController < ApplicationController
-  before_action :obtain_lists
 
   def obtain_lists
     @lists = List.where(board_id: params[:board_id], archived: false)
   end
 
   def index
+    obtain_lists()
   end
 
   def create
+    obtain_lists()
     list = List.new(list_params)
     list.board_id = params[:board_id]
     if list.save
       if @lists.length > 1
-        @lists[-1].updateNeighbours(@lists[-2])
+        list.updateNeighbours(@lists[-2].id)
       end
+      obtain_lists()
       render :index
     else
       render json: list.errors.full_messages, status: 422
@@ -29,6 +31,7 @@ class Api::ListsController < ApplicationController
       else
         list.update(list_params)
       end
+      obtain_lists()
       render :index
     else
       render json: list.errors.full_messages, status: 404
