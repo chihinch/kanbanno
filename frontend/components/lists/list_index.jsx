@@ -27,12 +27,20 @@ export default class ListIndex extends React.Component {
   }
 
   orderLists() {
+    if (Object.keys(this.props.lists).length === 0) return;
+
     let orderedLists = [...Object.keys(this.props.lists)];
     orderedLists.sort((listA, listB) => {
-      if (this.props.lists[listA].next_list_id === null) {
+      if (!this.props.lists[listA].prev_list_id) {
+        return -1;
+      }
+      else if (!this.props.lists[listB].prev_list_id) {
         return 1;
       }
-      else if (this.props.lists[listB].next_list_id === null) {
+      else if (!this.props.lists[listA].next_list_id) {
+        return 1;
+      }
+      else if (!this.props.lists[listB].next_list_id) {
         return -1;
       }
       else {
@@ -53,7 +61,7 @@ export default class ListIndex extends React.Component {
         />
       )
     });
-    debugger
+
     return listItems;
   }
 
