@@ -1,0 +1,56 @@
+.list-form-container {
+  width: 272px;
+  margin: 0 4px;
+  height: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.list-form {
+  width: inherit;
+  padding: 4px 8px;
+  background-color: #ebecf0;
+  border-radius: 3px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.list-input-title {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 8px 12px;
+  background-color: white;
+  border: none;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 2px #0079bf;
+}
+
+.list-input-submit {
+  background-color: #5aac44;
+  box-shadow: none;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  height: 32px;
+  margin-top: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  cursor: pointer;
+  line-height: 20px;
+  width: 72px;
+  font-size: 14px;
+}
+
+.list-input-submit:hover {
+  background-color: #61bd4f;
+}
+
+.list-input-submit[disabled] {
+  cursor: not-allowed;
+  background-color: #f4f5f7;
+  color: #a5adba;
+}
