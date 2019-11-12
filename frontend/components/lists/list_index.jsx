@@ -11,7 +11,7 @@ export default class ListIndex extends React.Component {
       listOrder: []
     };
     this.orderLists = this.orderLists.bind(this);
-    this.renderLists = this.renderLists.bind(this);
+    this.constructLists = this.constructLists.bind(this);
     this.persistNewOrderToDB = this.persistNewOrderToDB.bind(this);
     this.onDragEnd = this.onDragEnd.bind(this);
   }
@@ -44,13 +44,14 @@ export default class ListIndex extends React.Component {
         return -1;
       }
       else {
-      return this.props.lists[listA].next_list_id > this.props.lists[listB].next_list_id ? 1 : -1;
+      return this.props.lists[listA].prev_list_id > this.props.lists[listB].prev_list_id ? 1 : -1;
       }
     });
+
     this.setState( { listOrder: orderedLists });
   }
 
-  renderLists() {
+  constructLists() {
     const listItems = this.state.listOrder.map((listId, index) => {
       return (
         <ListItem 
@@ -66,23 +67,18 @@ export default class ListIndex extends React.Component {
   }
 
   persistNewOrderToDB(list, newIndex, newListOrder) {
-    // debugger
     if (newIndex === 0) {
-      debugger
       list.prev_list_id = null;
       list.next_list_id = newListOrder[1];
     }
     else if (newIndex === newListOrder.length - 1) {
-      debugger
       list.prev_list_id = newListOrder[newListOrder.length - 2];
       list.next_list_id = null;
     }
     else {
-      debugger
       list.prev_list_id = newListOrder[newIndex - 1];
       list.next_list_id = newListOrder[newIndex + 1];
     }
-    debugger
     this.props.updateList(this.props.boardId, list);
   }
 
@@ -109,7 +105,6 @@ export default class ListIndex extends React.Component {
         listOrder: newListOrder,
       };
       this.setState(newState);
-      // debugger
       this.persistNewOrderToDB(this.props.lists[draggableId], destination.index, newListOrder);
     }
   }
@@ -133,7 +128,7 @@ export default class ListIndex extends React.Component {
                 ref={provided.innerRef} 
                 {...provided.droppableProps}
               >
-                {this.renderLists()}
+                {this.constructLists()}
                 {provided.placeholder}
                 <NewListFormContainer />
               </div>

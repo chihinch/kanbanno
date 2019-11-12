@@ -7,14 +7,14 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 export default class BoardIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.renderBoards = this.renderBoards.bind(this);
+    this.constructBoards = this.constructBoards.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchBoards();
   }
 
-  renderBoards() {
+  constructBoards() {
     const boardItems = this.props.boards.map((board) => {
       return (
         <li className="board-list-item" key={`board-index-${board.id}`}>
@@ -53,7 +53,7 @@ export default class BoardIndex extends React.Component {
               <div><span><FontAwesomeIcon icon={faUser} /></span></div>
               <h3>Personal Boards</h3>
             </div>
-            {this.renderBoards()}
+            {this.constructBoards()}
           </div>
         </div>
       </div>
