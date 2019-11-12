@@ -27,9 +27,17 @@ export default class ListIndex extends React.Component {
   }
 
   orderLists() {
-    let orderedLists = [];
-    Object.keys(this.props.lists).forEach((listId) => {
-      orderedLists.push(listId);
+    let orderedLists = [...Object.keys(this.props.lists)];
+    orderedLists.sort((listA, listB) => {
+      if (this.props.lists[listA].next_list_id === null) {
+        return 1;
+      }
+      else if (this.props.lists[listB].next_list_id === null) {
+        return -1;
+      }
+      else {
+      return this.props.lists[listA].next_list_id > this.props.lists[listB].next_list_id ? 1 : -1;
+      }
     });
     this.setState( { listOrder: orderedLists });
   }
@@ -45,6 +53,7 @@ export default class ListIndex extends React.Component {
         />
       )
     });
+    debugger
     return listItems;
   }
 
