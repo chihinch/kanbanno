@@ -65,4 +65,28 @@ export default class CardIndex extends React.Component {
     }
     this.props.updateCard(card);
   }
+
+  render() {
+    if (!this.state.listOrder) return null;
+
+    return (
+      <Droppable
+        droppableId={`list_${this.props.listId}`}
+        direction="horizontal"
+        type="LIST"
+      >
+        {(provided, snapshot) => (
+          <div
+            className="list-index-container"
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+          >
+            {this.constructCards()}
+            {provided.placeholder}
+            <NewListFormContainer />
+          </div>
+        )}
+      </Droppable>
+    )
+  }
 }

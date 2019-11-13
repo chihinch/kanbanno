@@ -8,6 +8,7 @@ class Board < ApplicationRecord
     foreign_key: :admin_id
 
   has_many :lists, dependent: :destroy
+  has_many :cards, through: :lists, source: :cards
 
   def is_admin?(user)
     user.id == self.admin_id

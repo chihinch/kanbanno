@@ -9,3 +9,11 @@ json.lists do
     end
   end
 end
+
+json.cards do
+  @board.cards.each do |card|
+    json.set! card.id do
+      json.partial! '/api/cards/card', card: card
+    end
+  end
+end

@@ -21,6 +21,7 @@ export const receiveBoard = (payload) => {
     type: RECEIVE_BOARD,
     board: payload.board,
     lists: payload.lists,
+    cards: payload.cards,
   };
 };
 
