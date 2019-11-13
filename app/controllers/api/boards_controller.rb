@@ -5,7 +5,7 @@ class Api::BoardsController < ApplicationController
   end
 
   def show
-    @board = Board.includes(:lists).find(params[:id])
+    @board = Board.find_by(id: params[:id])
     if @board
       render :show
     else
