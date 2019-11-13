@@ -30,12 +30,12 @@ class CardItem extends React.Component {
       >
         {(provided, snapshot) => (
           <div
-            className="list-item-container"
+            className="card-item-container"
             ref={provided.innerRef}
             {...provided.draggableProps}
           >
             <div>
-              {this.state.title}
+              <span>{this.state.title}</span>
             </div>
           </div>
         )}

@@ -1,0 +1,20 @@
+.card-item-container {
+  overflow: hidden;
+  padding: 6px 8px 2px;
+  /* cursor: pointer; */
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(9,30,66,.25);
+  margin-bottom: 8px;
+  max-width: 300px;
+  min-height: 20px;
+}
+
+.card-item-container span {
+    display: block;
+    margin: 0 0 4px;
+    overflow: hidden;
+    text-decoration: none;
+    word-wrap: break-word;
+    color: #172b4d;
+}

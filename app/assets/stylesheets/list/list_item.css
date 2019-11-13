@@ -57,6 +57,14 @@
   cursor: text;
 }
 
+.card-index-container {
+  margin-bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0 4px;
+  padding: 0 4px;
+}
+
 .new-card-container {
   min-height: 38px;
   max-height: 38px;
