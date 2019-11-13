@@ -75,6 +75,7 @@ export default class ListIndex extends React.Component {
 
   onDragEnd(result) {
     const { destination, source, draggableId, type } = result;
+    debugger
 
     if (!destination) {
       return;
@@ -100,9 +101,9 @@ export default class ListIndex extends React.Component {
       this.persistNewOrderToDB(this.props.lists[draggedListId], destination.index, newListOrder);
     }
 
-    // if (type === 'CARD') {
+    if (type === 'CARD') {
 
-    // }
+    }
   }
 
   render() {
