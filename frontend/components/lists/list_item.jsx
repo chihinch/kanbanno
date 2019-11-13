@@ -9,7 +9,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateList: (boardId, list) => dispatch(updateList(boardId, list))
+    updateList: (list) => dispatch(updateList(list))
   }
 };
 
@@ -44,7 +44,7 @@ class ListItem extends React.Component {
       return;
     }
     if (this.state.title === this.props.list.title) return;
-    this.props.updateList(this.props.boardId, this.state);
+    this.props.updateList(this.state);
   }
 
   render() {

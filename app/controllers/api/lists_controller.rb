@@ -31,7 +31,7 @@ class Api::ListsController < ApplicationController
       else
         list.update(list_params)
       end
-      obtain_lists()
+      @lists = List.where(board_id: list.board_id, archived: false)
       render :index
     else
       render json: list.errors.full_messages, status: 404

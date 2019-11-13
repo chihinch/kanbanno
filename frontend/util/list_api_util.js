@@ -13,13 +13,10 @@ export const createList = (boardId, list) => {
   });
 };
 
-export const updateList = (boardId, list) => {
+export const updateList = (list) => {
   return $.ajax({
     method: 'PATCH',
     url: `/api/lists/${list.id}`,
-    data: { 
-      list,
-      board_id: boardId
-    }
+    data: { list }
   });
 };

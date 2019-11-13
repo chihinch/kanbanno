@@ -46,7 +46,6 @@ export default class ListIndex extends React.Component {
       return (
         <ListItem 
           list={this.props.lists[listId]} 
-          boardId={this.props.boardId} 
           key={`list-${listId}`} 
           dragIdx={index}
         />
@@ -69,7 +68,7 @@ export default class ListIndex extends React.Component {
       list.prev_list_id = newListOrder[newIndex - 1];
       list.next_list_id = newListOrder[newIndex + 1];
     }
-    this.props.updateList(this.props.boardId, list);
+    this.props.updateList(list);
   }
 
   onDragEnd(result) {
