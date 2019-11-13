@@ -1,7 +1,17 @@
-import { React } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import { Draggable } from 'react-beautiful-dnd';
 
-export default class CardItem extends React.Component {
+import { updateCard } from '../../actions/card_actions';
+
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateCard: (card) => dispatch(updateCard(card))
+  };
+};
+
+class CardItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +24,7 @@ export default class CardItem extends React.Component {
   render() {
     return (
       <Draggable 
-        draggableId={this.props.card.id}
+        draggableId={`${this.props.card.id}`}
         index={this.props.dragIdx}
         type="CARD"
       >
@@ -33,3 +43,5 @@ export default class CardItem extends React.Component {
     )
   }
 }
+
+export default connect(null, mapDispatchToProps)(CardItem);

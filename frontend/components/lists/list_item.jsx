@@ -4,6 +4,7 @@ import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 import { updateList } from '../../actions/list_actions';
 import { updateCard } from '../../actions/card_actions';
+import CardItem from '../card/card_item';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -73,9 +74,11 @@ class ListItem extends React.Component {
     if (Object.keys(this.props.cards).length === 0) return;
 
     let cardsFromProps = Object.values(this.props.cards).filter((card) => card.list_id === this.props.list.id);
-    let orderedCards = [];
+    if (cardsFromProps.length === 0) return;
 
+    let orderedCards = [];
     let currentCard = cardsFromProps.find((card) => card.prev_card_id === null);
+    // debugger
     orderedCards.push(currentCard.id);
     while (currentCard.next_card_id !== null) {
       currentCard = cardsFromProps.find((card) => card.id === currentCard.next_card_id);
