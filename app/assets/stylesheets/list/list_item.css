@@ -1,8 +1,8 @@
 .list-item-container {
   width: 272px;
   margin: 0 4px;
-  height: 100%;
-  box-sizing: border-box;
+  /* height: 100%; */
+  /* box-sizing: content-box; */
   display: inline-block;
   vertical-align: top;
   white-space: nowrap;
@@ -83,9 +83,9 @@
 }
 
 .new-card-button:hover {
-    background-color: rgba(9,30,66,.08);
-    color: #172b4d;  
-  }
+  background-color: rgba(9,30,66,.08);
+  color: #172b4d;  
+}
 
 .new-card-button span {
   font-size: 14px;

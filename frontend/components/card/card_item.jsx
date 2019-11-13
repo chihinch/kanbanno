@@ -33,6 +33,7 @@ class CardItem extends React.Component {
             className="card-item-container"
             ref={provided.innerRef}
             {...provided.draggableProps}
+            {...provided.dragHandleProps}
           >
             <div>
               <span>{this.state.title}</span>

@@ -96,6 +96,10 @@ export default class ListIndex extends React.Component {
       this.setState(newState);
       this.persistNewOrderToDB(this.props.lists[draggableId], destination.index, newListOrder);
     }
+
+    // if (type === 'CARD') {
+
+    // }
   }
 
   render() {

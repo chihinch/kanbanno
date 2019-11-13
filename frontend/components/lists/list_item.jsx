@@ -88,6 +88,8 @@ class ListItem extends React.Component {
   }
 
   constructCards() {
+    if (this.state.cardOrder.length === 0) return null;
+    
     const cardItems = this.state.cardOrder.map((cardId, index) => {
       return (
         <CardItem
@@ -130,7 +132,8 @@ class ListItem extends React.Component {
             className="list-item-container"
             ref={provided.innerRef}
             {...provided.draggableProps}
-          >
+            
+            >
             <div className="list-item-contents">
               <div 
                 className="list-item-header"
@@ -166,7 +169,7 @@ class ListItem extends React.Component {
                   <span id="card-plus-icon"><FontAwesomeIcon icon={faPlus} /></span>
                   <span id="card-plus-text">Add a card</span>
                 </a>
-            </div>
+              </div>
             </div>
           </div>
         )}
