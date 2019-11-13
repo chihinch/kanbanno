@@ -59,10 +59,11 @@
 
 .card-index-container {
   margin-bottom: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
+  /* overflow-y: auto; */
+  /* overflow-x: hidden; */
   margin: 0 4px;
   padding: 0 4px;
+  background-color: inherit;
 }
 
 .new-card-container {
