@@ -98,3 +98,23 @@ b3_seed_lists = List.create([b3_l1, b3_l2, b3_l3])
 b3_seed_lists[0].updateNeighbours(nil, b3_seed_lists[1].id)
 b3_seed_lists[1].updateNeighbours(b3_seed_lists[0].id, b3_seed_lists[2].id)
 b3_seed_lists[2].updateNeighbours(b3_seed_lists[1].id, nil)
+
+b1_l1_c1 = {
+  title: "Fetch a bucket of milk",
+  list_id: b1_seed_lists.first.id
+}
+
+b1_l1_c2 = {
+  title: "Fetch an egg",
+  list_id: b1_seed_lists.first.id
+}
+
+b1_l1_c3 = {
+  title: "Fetch flour",
+  list_id: b1_seed_lists.first.id
+}
+
+b1_l1_lists = Card.create([b1_l1_c1, b1_l1_c2, b1_l1_c3])
+b1_l1_lists[0].updateNeighbours(nil, b1_l1_lists[1].id)
+b1_l1_lists[1].updateNeighbours(b1_l1_lists[0].id, b1_l1_lists[2].id)
+b1_l1_lists[2].updateNeighbours(b1_l1_lists[1].id, nil)
