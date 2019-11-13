@@ -6,16 +6,17 @@
 
 ## Welcome to Kanbanno!
 
-Kanbanno is a single page appplication modelled after [Trello](https://trello.com "Trello"). It runs on the [kanban](https://en.wikipedia.org/wiki/Kanban "Kanban") system developed by engineers at Toyota, which presents an intuitive interface for its users to stay informed on the progression of their projects and quickly update the status of tasks.
+Kanbanno is a single page appplication modelled after [Trello](https://trello.com "Trello"). It applies the [kanban](https://en.wikipedia.org/wiki/Kanban "Kanban") system developed by engineers at Toyota, which presents an intuitive, board-based interface for teams to stay informed on the progression of their projects and quickly update the status of tasks.
 
 ## Technologies
 
-* Backend: Ruby on Rails/PostgreSQL
-* Frontend: React/Redux
+* Backend: Ruby on Rails / PostgreSQL
+* Frontend: React.js / Redux
 * Hosting: Heroku
 * Other libraries: 
-  * [react-fontawesome](https://github.com/FortAwesome/react-fontawesome) for icons
+  * [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) for drag-and-drop capability
   * [react-onclickoutside](https://github.com/Pomax/react-onclickoutside) for user interaction with menus
+  * [react-fontawesome](https://github.com/FortAwesome/react-fontawesome) for icons
 
 ## Features
 
