@@ -24,7 +24,7 @@ class CardItem extends React.Component {
   render() {
     return (
       <Draggable 
-        draggableId={`${this.props.card.id}`}
+        draggableId={`card_${this.props.card.id}`}
         index={this.props.dragIdx}
         type="CARD"
       >

@@ -90,13 +90,14 @@ export default class ListIndex extends React.Component {
     if (type === 'LIST') {
       const newListOrder = Array.from(this.state.listOrder);
       newListOrder.splice(source.index, 1);
-      newListOrder.splice(destination.index, 0, draggableId);
+      const draggedListId = draggableId.slice(draggableId.search('_') + 1);
+      newListOrder.splice(destination.index, 0, draggedListId);
       const newState = {
         ...this.state,
         listOrder: newListOrder,
       };
       this.setState(newState);
-      this.persistNewOrderToDB(this.props.lists[draggableId], destination.index, newListOrder);
+      this.persistNewOrderToDB(this.props.lists[draggedListId], destination.index, newListOrder);
     }
 
     // if (type === 'CARD') {

@@ -122,7 +122,7 @@ class ListItem extends React.Component {
     if (!this.props.list) return null;
     return (
       <Draggable
-        draggableId={`${this.props.list.id}`}
+        draggableId={`list_${this.props.list.id}`}
         index={this.props.dragIdx}
         type="LIST"
       >
@@ -158,7 +158,7 @@ class ListItem extends React.Component {
                     ref={provided.innerRef}
                     {...provided.droppableProps}
                   >
-                    {/* {this.constructCards()} */}
+                    {this.constructCards()}
                     {provided.placeholder}
                   </div>
                 )}
