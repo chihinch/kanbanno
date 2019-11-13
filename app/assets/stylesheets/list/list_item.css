@@ -41,6 +41,7 @@
   border-radius: 3px;
   box-shadow: none;
   font-weight: 600;
+  font-size: 14px;
   margin: -4px 0;
   height: 20px;
   min-height: 20px;
@@ -57,5 +58,31 @@
 }
 
 .new-card-container {
-  background: red;
+  min-height: 38px;
+  max-height: 38px;
+  display: flex;
+  align-items: center;
+}
+
+.new-card-button {
+  border-radius: 3px;
+  margin: 2px 8px 8px 8px;
+  padding: 4px 8px;
+  text-decoration: none;
+  width: 100%;
+  color: #6b778c;
+}
+
+.new-card-button:hover {
+    background-color: rgba(9,30,66,.08);
+    color: #172b4d;  
+  }
+
+.new-card-button span {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+#card-plus-icon {
+  margin-right: 4px;
 }

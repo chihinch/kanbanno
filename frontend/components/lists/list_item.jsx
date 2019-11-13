@@ -4,6 +4,9 @@ import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 import { updateList } from '../../actions/list_actions';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+
 const mapDispatchToProps = (dispatch) => {
   return {
     updateList: (boardId, list) => dispatch(updateList(boardId, list))
@@ -73,7 +76,10 @@ class ListItem extends React.Component {
                 </textarea>
               </div>
               <div className="new-card-container">
-                + Add a card
+                <a href="#" className="new-card-button">
+                  <span id="card-plus-icon"><FontAwesomeIcon icon={faPlus} /></span>
+                  <span id="card-plus-text">Add a card</span>
+                </a>
             </div>
             </div>
           </div>
