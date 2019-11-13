@@ -142,7 +142,7 @@ class ListItem extends React.Component {
                 >
                 </textarea>
               </div>
-              {/* <Droppable 
+              <Droppable 
                 droppableId={`list_${this.props.list.id}`}
                 direction="vertical"
                 type="CARD"
@@ -157,7 +157,7 @@ class ListItem extends React.Component {
                     {provided.placeholder}
                   </div>
                 )}
-              </Droppable> */}
+              </Droppable>
               <div className="new-card-container">
                 <a href="#" className="new-card-button">
                   <span id="card-plus-icon"><FontAwesomeIcon icon={faPlus} /></span>
