@@ -23,6 +23,10 @@ class Api::CardsController < ApplicationController
     end
   end
 
+  def show
+    @card = Card.find(params[:id])
+  end
+
   def update
     card = List.find(params[:id])
     if card
