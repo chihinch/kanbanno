@@ -35,7 +35,7 @@ class Api::CardsController < ApplicationController
       else
         card.update(card_params)
       end
-      obtain_cards()
+      @cards = Card.where(list_id: card.list_id, archived: false)
       render :index
     else
       render json: card.errors.full_messages, status: 404
