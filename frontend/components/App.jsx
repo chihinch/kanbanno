@@ -28,11 +28,9 @@ const App = () => {
         <ProtectedRoute exact path="/boards" component={BoardIndexContainer} />
 
         {/* If no user is logged in, render the SplashContainer at the root path */}
-        {/* Otherwise, render the BoardIndexContainer at the root path (to be implemented) */}
-        {/* Going to /:username/:boards will also render the BoardIndexContainer */}
+        {/* Otherwise, render the BoardIndexContainer at the root path */}
         <AuthProtectedRoute exact path="/" authComponent={SplashContainer} protectedComponent={BoardIndexContainer} />
       </Switch>
-      {/* Certain buttons in the app will trigger a modal to appear */}
     </div>
   );
 };
