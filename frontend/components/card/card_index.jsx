@@ -8,6 +8,7 @@ export default class CardIndex extends React.Component {
     };
     this.orderCards = this.orderCards.bind(this);
     this.constructCards = this.constructCards.bind(this);
+    this.persistNewOrderToDB = this.persistNewOrderToDB.bind(this);
   }
 
   componentDidMount() {
@@ -47,5 +48,21 @@ export default class CardIndex extends React.Component {
     });
 
     return cardItems;
+  }
+
+  persistNewOrderToDB(card, newIndex, newCardOrder) {
+    if (newIndex === 0) {
+      card.prev_card_id = null;
+      card.next_card_id = newCardOrder[1];
+    }
+    else if (newIndex === newCardOrder.length - 1) {
+      card.prev_card_id = newCardOrder[newCardOrder.length - 2];
+      card.next_card_id = null;
+    }
+    else {
+      card.prev_card_id = newCardOrder[newIndex - 1];
+      card.next_card_id = newCardOrder[newIndex + 1];
+    }
+    this.props.updateCard(card);
   }
 }
