@@ -1,0 +1,1 @@
+json.extract! card, :id, :title, :description, :list_id, :prev_card_id, :next_card_id, :archived
