@@ -78,7 +78,6 @@ class ListItem extends React.Component {
 
     let orderedCards = [];
     let currentCard = cardsFromProps.find((card) => card.prev_card_id === null);
-    // debugger
     orderedCards.push(currentCard.id);
     while (currentCard.next_card_id !== null) {
       currentCard = cardsFromProps.find((card) => card.id === currentCard.next_card_id);
@@ -89,7 +88,7 @@ class ListItem extends React.Component {
 
   constructCards() {
     if (this.state.cardOrder.length === 0) return null;
-    
+
     const cardItems = this.state.cardOrder.map((cardId, index) => {
       return (
         <CardItem
@@ -159,7 +158,7 @@ class ListItem extends React.Component {
                     ref={provided.innerRef}
                     {...provided.droppableProps}
                   >
-                    {this.constructCards()}
+                    {/* {this.constructCards()} */}
                     {provided.placeholder}
                   </div>
                 )}

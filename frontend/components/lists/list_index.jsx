@@ -42,6 +42,8 @@ export default class ListIndex extends React.Component {
   }
 
   constructLists() {
+    if (this.state.listOrder.length === 0 ) return null;
+
     const listItems = this.state.listOrder.map((listId, index) => {
       return (
         <ListItem 
