@@ -4,7 +4,6 @@ import merge from 'lodash/merge';
 
 const listsReducer = (state = {}, action) => {
   Object.freeze(state);
-  let nextState = {};
 
   switch (action.type) {
     case RECEIVE_LISTS:
