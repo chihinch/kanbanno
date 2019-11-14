@@ -43,7 +43,7 @@ export default class Splash extends React.Component {
 
           <div className="splash-1-buttons">
             <Link to="/signup" className="splash-1-button">Sign Up - It's Free!</Link>
-            <Link to="/" className="splash-1-button" onClick={this.props.demoLogin}>See how it works!</Link>
+            <Link to="/" className="splash-1-button" onClick={this.props.demoLogin}>Try a Demo!</Link>
           </div>
 
         </div>
