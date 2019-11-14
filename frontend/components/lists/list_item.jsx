@@ -37,6 +37,7 @@ class ListItem extends React.Component {
     this.updateListTitle = this.updateListTitle.bind(this);
     this.setHeightOfTextarea = this.setHeightOfTextarea.bind(this);
     this.handleKeyEscaper = this.handleKeyEscaper.bind(this);
+    // this.moveCardAcrossList = this.moveCardAcrossList(this);
     this.orderCards = this.orderCards.bind(this);
     this.constructCards = this.constructCards.bind(this);
     this.persistNewOrderToDB = this.persistNewOrderToDB.bind(this);
@@ -57,10 +58,10 @@ class ListItem extends React.Component {
       const { destination, source, draggableId } = this.props.cardDragResult;
       const draggedCardId = draggableId.slice(draggableId.search('_') + 1);
       const draggedCard = this.props.cards[draggedCardId];
+      const newCardOrder = Array.from(this.state.cardOrder);
 
       // Intra-list drag-and-drop
       if (source.droppableId === destination.droppableId && draggedCard.list_id === this.state.id) {
-        const newCardOrder = Array.from(this.state.cardOrder);
         newCardOrder.splice(source.index, 1);
         newCardOrder.splice(destination.index, 0, draggedCardId);
         const newState = {
@@ -74,6 +75,13 @@ class ListItem extends React.Component {
       else if (source.droppableId !== destination.droppableId) {
         if (destination.droppableId === `list-${this.state.id}`) {
           draggedCard.list_id = this.state.id;
+          newCardOrder.splice(destination.index, 0, draggedCardId);
+          const newState = {
+            ...this.state,
+            cardOrder: newCardOrder,
+          };
+          this.setState(newState);
+          this.persistNewOrderToDB(draggedCard, destination, newCardOrder);
         }
       }
     }
