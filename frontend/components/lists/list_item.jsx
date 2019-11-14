@@ -9,11 +9,10 @@ import CardItem from '../card/card_item';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   const cards = state.entities.cards;
-  const cardsOnList = Object.values(cards).filter((card) => card.list_id === ownProps.listId);
   return {
-    cardsOnList,
+    cards,
   }
 }
 
@@ -35,9 +34,9 @@ class ListItem extends React.Component {
     };
 
     this.update = this.update.bind(this);
+    this.updateListTitle = this.updateListTitle.bind(this);
     this.setHeightOfTextarea = this.setHeightOfTextarea.bind(this);
     this.handleKeyEscaper = this.handleKeyEscaper.bind(this);
-    this.updateListTitle = this.updateListTitle.bind(this);
     this.orderCards = this.orderCards.bind(this);
     this.constructCards = this.constructCards.bind(this);
     this.persistNewOrderToDB = this.persistNewOrderToDB.bind(this);
@@ -52,11 +51,22 @@ class ListItem extends React.Component {
     if (prevProps.cards !== this.props.cards) {
       this.orderCards();
     }
-  }
 
-  setHeightOfTextarea(element) {
-    element.style.height = 'inherit';
-    element.style.height = element.scrollHeight + 'px';
+    if (prevProps.cardDragResult !== this.props.cardDragResult && this.props.cardDragResult) {
+      const { cardDragResult } = this.props;
+      const { destination, source, draggableId, type } = cardDragResult;
+
+      const newCardOrder = Array.from(this.state.cardOrder);
+      newCardOrder.splice(source.index, 1);
+      const draggedCardId = draggableId.slice(draggableId.search('_') + 1);
+      newCardOrder.splice(destination.index, 0, draggedCardId);
+      const newState = {
+        ...this.state,
+        cardOrder: newCardOrder,
+      };
+      this.setState(newState);
+      this.persistNewOrderToDB(this.props.cards[draggedCardId], destination.index, newCardOrder);
+    }
   }
 
   update(field) {
@@ -64,12 +74,6 @@ class ListItem extends React.Component {
       this.setHeightOfTextarea(e.target);
       this.setState({ [field]: e.target.value });
     };
-  }
-
-  handleKeyEscaper(e) {
-    if (e.key === 'Escape' || e.key === 'Enter') {
-      e.target.blur();
-    }
   }
 
   updateListTitle() {
@@ -81,14 +85,29 @@ class ListItem extends React.Component {
     this.props.updateList(this.state);
   }
 
+  setHeightOfTextarea(element) {
+    element.style.height = 'inherit';
+    element.style.height = element.scrollHeight + 'px';
+  }
+
+
+  handleKeyEscaper(e) {
+    if (e.key === 'Escape' || e.key === 'Enter') {
+      e.target.blur();
+    }
+  }
+
   orderCards() {
-    if (this.props.cardsOnList.length === 0) return;
+    if (Object.entries(this.props.cards).length === 0 && obj.constructor === Object) return;
+
+    const cardsOnList = Object.values(this.props.cards).filter((card) => card.list_id === this.state.id);
+    if (cardsOnList.length === 0) return;
 
     let orderedCards = [];
-    let currentCard = this.props.cardsOnList.find((card) => card.prev_card_id === null);
+    let currentCard = cardsOnList.find((card) => card.prev_card_id === null);
     orderedCards.push(currentCard.id);
     while (currentCard.next_card_id !== null) {
-      currentCard = this.props.cardsOnList.find((card) => card.id === currentCard.next_card_id);
+      currentCard = cardsOnList.find((card) => card.id === currentCard.next_card_id);
       orderedCards.push(currentCard.id);
     }
     this.setState({ cardOrder: orderedCards });
@@ -100,7 +119,7 @@ class ListItem extends React.Component {
     const cardItems = this.state.cardOrder.map((cardId, index) => {
       return (
         <CardItem
-          card={this.props.cardsOnList[index]}
+          card={this.props.cards[cardId]}
           key={`card-${cardId}`}
           dragIdx={index}
         />

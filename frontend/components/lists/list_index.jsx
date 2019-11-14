@@ -8,7 +8,8 @@ export default class ListIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      listOrder: []
+      listOrder: [],
+      cardDragResult: {}
     };
     this.orderLists = this.orderLists.bind(this);
     this.constructLists = this.constructLists.bind(this);
@@ -48,9 +49,9 @@ export default class ListIndex extends React.Component {
       return (
         <ListItem 
           list={this.props.lists[listId]} 
-          listId={listId}
           key={`list-${listId}`} 
           dragIdx={index}
+          cardDragResult={this.state.cardDragResult}
         />
       )
     });
@@ -103,7 +104,7 @@ export default class ListIndex extends React.Component {
     }
 
     if (type === 'CARD') {
-
+      this.setState({cardDragResult: result});
     }
   }
 
