@@ -1,8 +1,6 @@
 .list-item-container {
   width: 272px;
   margin: 0 4px;
-  /* height: 100%; */
-  /* box-sizing: content-box; */
   display: inline-block;
   vertical-align: top;
   white-space: nowrap;
@@ -41,13 +39,13 @@
   border-radius: 3px;
   box-shadow: none;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
   margin: -4px 0;
-  height: 20px;
-  min-height: 20px;
   padding: 4px 8px;
-  resize: none;
   max-height: 256px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  resize: none;
   cursor: pointer;
   font: inherit;
 }

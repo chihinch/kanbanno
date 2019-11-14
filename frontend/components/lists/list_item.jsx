@@ -32,6 +32,7 @@ class ListItem extends React.Component {
     };
 
     this.update = this.update.bind(this);
+    this.setHeightOfTextarea = this.setHeightOfTextarea.bind(this);
     this.handleKeyEscaper = this.handleKeyEscaper.bind(this);
     this.updateListTitle = this.updateListTitle.bind(this);
     this.orderCards = this.orderCards.bind(this);
@@ -40,6 +41,7 @@ class ListItem extends React.Component {
   }
 
   componentDidMount() {
+    this.setHeightOfTextarea(this.textAreaRef);
     this.orderCards();
   }
 
@@ -49,8 +51,14 @@ class ListItem extends React.Component {
     }
   }
 
+  setHeightOfTextarea(element) {
+    element.style.height = 'inherit';
+    element.style.height = element.scrollHeight + 'px';
+  }
+
   update(field) {
     return (e) => {
+      this.setHeightOfTextarea(e.target);
       this.setState({ [field]: e.target.value });
     };
   }
@@ -120,6 +128,7 @@ class ListItem extends React.Component {
 
   render() {
     if (!this.props.list) return null;
+
     return (
       <Draggable
         draggableId={`list_${this.props.list.id}`}
@@ -144,6 +153,7 @@ class ListItem extends React.Component {
                   onBlur={this.updateListTitle}
                   onChange={this.update('title')}
                   value={this.state.title}
+                  ref={textAreaRef => this.textAreaRef = textAreaRef}
                 >
                 </textarea>
               </div>
