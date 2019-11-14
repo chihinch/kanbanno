@@ -52,12 +52,13 @@ class ListItem extends React.Component {
       this.orderCards();
     }
 
+    // Detects a card drag-and-drop operation
     if (prevProps.cardDragResult !== this.props.cardDragResult && this.props.cardDragResult) {
-      // debugger
       const { destination, source, draggableId } = this.props.cardDragResult;
       const draggedCardId = draggableId.slice(draggableId.search('_') + 1);
       const draggedCard = this.props.cards[draggedCardId];
 
+      // Intra-list drag-and-drop
       if (source.droppableId === destination.droppableId && draggedCard.list_id === this.state.id) {
         const newCardOrder = Array.from(this.state.cardOrder);
         newCardOrder.splice(source.index, 1);
@@ -68,6 +69,12 @@ class ListItem extends React.Component {
         };
         this.setState(newState);
         this.persistNewOrderToDB(draggedCard, destination.index, newCardOrder);
+      }
+      // Inter-list drag-and-drop
+      else if (source.droppableId !== destination.droppableId) {
+        if (destination.droppableId === `list-${this.state.id}`) {
+          draggedCard.list_id = this.state.id;
+        }
       }
     }
   }
