@@ -28,6 +28,7 @@ class Api::CardsController < ApplicationController
   end
 
   def update
+    debugger
     card = Card.find(params[:id])
     if card
       if card_params[:prev_card_id] && card_params[:next_card_id]
@@ -44,7 +45,7 @@ class Api::CardsController < ApplicationController
 
   private
   def card_params
-    params.require(:card).permit(:title, :description, :prev_card_id, :next_card_id)
+    params.require(:card).permit(:title, :description, :list_id, :prev_card_id, :next_card_id)
   end
 
 end

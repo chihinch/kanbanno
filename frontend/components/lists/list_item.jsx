@@ -30,7 +30,8 @@ class ListItem extends React.Component {
     this.state = {
       id: props.list.id,
       title: props.list.title,
-      cardOrder: []
+      cardOrder: [],
+      cardDragResult: props.cardDragResult
     };
 
     this.update = this.update.bind(this);
@@ -73,7 +74,8 @@ class ListItem extends React.Component {
       }
       // Inter-list drag-and-drop
       else if (source.droppableId !== destination.droppableId) {
-        if (destination.droppableId === `list-${this.state.id}`) {
+        debugger
+        if (destination.droppableId === `list_${this.state.id}`) {
           draggedCard.list_id = this.state.id;
           newCardOrder.splice(destination.index, 0, draggedCardId);
           const newState = {
@@ -81,6 +83,7 @@ class ListItem extends React.Component {
             cardOrder: newCardOrder,
           };
           this.setState(newState);
+          debugger
           this.persistNewOrderToDB(draggedCard, destination, newCardOrder);
         }
       }
@@ -160,7 +163,7 @@ class ListItem extends React.Component {
       card.prev_card_id = newCardOrder[newIndex - 1];
       card.next_card_id = newCardOrder[newIndex + 1];
     }
-    // debugger
+    debugger
     this.props.updateCard(card);
   }
 
