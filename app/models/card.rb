@@ -19,11 +19,11 @@ class Card < ApplicationRecord
 
     new_prev_card = Card.find_by(id: prev_card_id)
     new_next_card = Card.find_by(id: next_card_id)
-    
+
     # Introduce the new neighbours to this card
     new_prev_card.next_card_id = self.id unless new_prev_card.nil?
     new_next_card.prev_card_id = self.id unless new_next_card.nil?
-    
+
     # Change the neighbours for this card
     self.prev_card_id = prev_card_id
     self.next_card_id = next_card_id

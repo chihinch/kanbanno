@@ -30,13 +30,15 @@ class Api::CardsController < ApplicationController
   def update
     debugger
     card = Card.find(params[:id])
+    old_list_id = card.list_id
     if card
-      card.update(card_params)
-      if card_params[:prev_card_id] && card_params[:next_card_id]
+      card.update_attribute(:list_id, card_params[:list_id])
+      # if card_params[:prev_card_id] && card_params[:next_card_id]
         card.updateNeighbours(card_params[:prev_card_id], card_params[:next_card_id])
-      end
+        debugger
+      # end
       debugger
-      @cards = Card.where(list_id: card.list_id, archived: false)
+      @cards = Card.where(list_id: [card.list_id, old_list_id], archived: false)
       render :index
     else
       render json: card.errors.full_messages, status: 404
