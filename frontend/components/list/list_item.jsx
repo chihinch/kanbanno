@@ -127,7 +127,7 @@ class ListItem extends React.Component {
   }
 
   orderCards() {
-    if (Object.entries(this.props.cards).length === 0 && obj.constructor === Object) return;
+    if (Object.keys(this.props.cards).length === 0) return;
 
     const cardsOnList = Object.values(this.props.cards).filter((card) => card.list_id === this.state.id);
     if (cardsOnList.length === 0) return;
