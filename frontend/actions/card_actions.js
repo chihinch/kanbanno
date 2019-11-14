@@ -55,8 +55,8 @@ export const fetchCard = (cardId) => (dispatch) => {
   );
 };
 
-export const createCard = (listId, list) => (dispatch) => {
-  return CardAPIUtil.createCard(listId, list).then((cards) => {
+export const createCard = (cardId, card) => (dispatch) => {
+  return CardAPIUtil.createCard(cardId, card).then((cards) => {
     dispatch(receiveCards(cards));
   },
     (errors) => {

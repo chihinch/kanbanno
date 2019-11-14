@@ -5,6 +5,7 @@ import { Droppable, Draggable } from 'react-beautiful-dnd';
 import { updateList } from '../../actions/list_actions';
 import { fetchCards, updateCard } from '../../actions/card_actions';
 import CardItem from '../card/card_item';
+import NewCardFormContainer from '../card/new_card_form';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -38,7 +39,6 @@ class ListItem extends React.Component {
     this.updateListTitle = this.updateListTitle.bind(this);
     this.setHeightOfTextarea = this.setHeightOfTextarea.bind(this);
     this.handleKeyEscaper = this.handleKeyEscaper.bind(this);
-    // this.moveCardAcrossList = this.moveCardAcrossList(this);
     this.orderCards = this.orderCards.bind(this);
     this.constructCards = this.constructCards.bind(this);
     this.persistNewOrderToDB = this.persistNewOrderToDB.bind(this);
@@ -218,15 +218,16 @@ class ListItem extends React.Component {
                   >
                     {this.constructCards()}
                     {provided.placeholder}
+                    <NewCardFormContainer listId={this.state.id} />
                   </div>
                 )}
               </Droppable>
-              <div className="new-card-container">
+              {/* <div className="new-card-container">
                 <a href="#" className="new-card-button">
                   <span id="card-plus-icon"><FontAwesomeIcon icon={faPlus} /></span>
                   <span id="card-plus-text">Add a card</span>
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         )}

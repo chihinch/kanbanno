@@ -10,7 +10,7 @@ class Api::CardsController < ApplicationController
 
   def create
     obtain_cards()
-    card = List.new(card_params)
+    card = Card.new(card_params)
     card.list_id = params[:list_id]
     if card.save
       if @cards.length > 1
