@@ -77,7 +77,6 @@ export default class ListIndex extends React.Component {
 
   onDragEnd(result) {
     const { destination, source, draggableId, type } = result;
-    debugger
 
     if (!destination) {
       return;

@@ -162,7 +162,6 @@ class ListItem extends React.Component {
     if (newIndex === 0) {
       card.prev_card_id = null;
       card.next_card_id = newCardOrder[1] ? newCardOrder[1] : null;
-      debugger
     }
     else if (newIndex === newCardOrder.length - 1) {
       card.prev_card_id = newCardOrder[newCardOrder.length - 2];
@@ -172,7 +171,6 @@ class ListItem extends React.Component {
       card.prev_card_id = newCardOrder[newIndex - 1];
       card.next_card_id = newCardOrder[newIndex + 1];
     }
-    debugger
     this.props.updateCard(card);
   }
 
