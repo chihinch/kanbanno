@@ -21,6 +21,7 @@ export const fetchCard = (cardId) => {
 }
 
 export const updateCard = (card) => {
+  debugger
   return $.ajax({
     method: 'PATCH',
     url: `/api/cards/${card.id}`,

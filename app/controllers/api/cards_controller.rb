@@ -31,11 +31,11 @@ class Api::CardsController < ApplicationController
     debugger
     card = Card.find(params[:id])
     if card
+      card.update(card_params)
       if card_params[:prev_card_id] && card_params[:next_card_id]
         card.updateNeighbours(card_params[:prev_card_id], card_params[:next_card_id])
-      else
-        card.update(card_params)
       end
+      debugger
       @cards = Card.where(list_id: card.list_id, archived: false)
       render :index
     else

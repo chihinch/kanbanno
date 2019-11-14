@@ -74,8 +74,17 @@ class ListItem extends React.Component {
       }
       // Inter-list drag-and-drop
       else if (source.droppableId !== destination.droppableId) {
-        debugger
-        if (destination.droppableId === `list_${this.state.id}`) {
+        // Remove the dragged card from its old list
+        if (source.droppableId === `list_${this.state.id}`) {
+          newCardOrder.splice(source.index, 1);
+          const newState = {
+            ...this.state,
+            cardOrder: newCardOrder,
+          };
+          this.setState(newState);
+        }
+        // And add that card to its new list
+        else if (destination.droppableId === `list_${this.state.id}`) {
           draggedCard.list_id = this.state.id;
           newCardOrder.splice(destination.index, 0, draggedCardId);
           const newState = {
@@ -83,8 +92,7 @@ class ListItem extends React.Component {
             cardOrder: newCardOrder,
           };
           this.setState(newState);
-          debugger
-          this.persistNewOrderToDB(draggedCard, destination, newCardOrder);
+          this.persistNewOrderToDB(draggedCard, destination.index, newCardOrder);
         }
       }
     }
@@ -153,7 +161,8 @@ class ListItem extends React.Component {
   persistNewOrderToDB(card, newIndex, newCardOrder) {
     if (newIndex === 0) {
       card.prev_card_id = null;
-      card.next_card_id = newCardOrder[1];
+      card.next_card_id = newCardOrder[1] ? newCardOrder[1] : null;
+      debugger
     }
     else if (newIndex === newCardOrder.length - 1) {
       card.prev_card_id = newCardOrder[newCardOrder.length - 2];
