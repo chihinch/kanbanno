@@ -118,3 +118,68 @@ b1_l1_lists = Card.create([b1_l1_c1, b1_l1_c2, b1_l1_c3])
 b1_l1_lists[0].updateNeighbours(nil, b1_l1_lists[1].id)
 b1_l1_lists[1].updateNeighbours(b1_l1_lists[0].id, b1_l1_lists[2].id)
 b1_l1_lists[2].updateNeighbours(b1_l1_lists[1].id, nil)
+
+b2_l1_c1 = {
+  title: "Visit Oziach in Edgeville",
+  list_id: b2_seed_lists.first.id
+}
+
+b2_l1_c2 = {
+  title: "Obtain Anti-dragon shield from the Duke of Lumbridge",
+  list_id: b2_seed_lists.first.id
+}
+
+b2_l1_c3 = {
+  title: "Obtain all map pieces",
+  list_id: b2_seed_lists.first.id
+}
+
+b2_l1_c4 = {
+  title: "Purchase a ship and find a captain",
+  list_id: b2_seed_lists.first.id
+}
+
+b2_l1_c5 = {
+  title: "Slay Elvarg and bring back the dragon head",
+  list_id: b2_seed_lists.first.id
+}
+
+b2_l1_lists = Card.create([b2_l1_c1, b2_l1_c2, b2_l1_c3, b2_l1_c4, b2_l1_c5])
+b2_l1_lists[0].updateNeighbours(nil, b2_l1_lists[1].id)
+b2_l1_lists[1].updateNeighbours(b2_l1_lists[0].id, b2_l1_lists[2].id)
+b2_l1_lists[2].updateNeighbours(b2_l1_lists[1].id, b2_l1_lists[3].id)
+b2_l1_lists[3].updateNeighbours(b2_l1_lists[2].id, b2_l1_lists[4].id)
+b2_l1_lists[4].updateNeighbours(b2_l1_lists[3].id, nil)
+
+b3_l1_c1 = {
+  title: "Complete Yanni Salika's favour",
+  list_id: b3_seed_lists.first.id
+}
+
+b3_l1_c2 = {
+  title: "Complete the forester's favour",
+  list_id: b3_seed_lists.first.id
+}
+
+b3_l1_c3 = {
+  title: "Complete Brian's favour",
+  list_id: b3_seed_lists.first.id
+}
+
+b3_l1_c4 = {
+  title: "Complete Aggie the Witch's favour",
+  list_id: b3_seed_lists.first.id
+}
+
+b3_l1_c5 = {
+  title: "Complete Johanhus Ulsbrecht's favour",
+  list_id: b3_seed_lists.first.id
+}
+
+b3_l1_lists = Card.create([b3_l1_c1, b3_l1_c2, b3_l1_c3, b3_l1_c4, b3_l1_c5])
+b3_l1_lists[0].updateNeighbours(nil, b3_l1_lists[1].id)
+b3_l1_lists[1].updateNeighbours(b3_l1_lists[0].id, b3_l1_lists[2].id)
+b3_l1_lists[2].updateNeighbours(b3_l1_lists[1].id, b3_l1_lists[3].id)
+b3_l1_lists[3].updateNeighbours(b3_l1_lists[2].id, b3_l1_lists[4].id)
+b3_l1_lists[4].updateNeighbours(b3_l1_lists[3].id, nil)
+
