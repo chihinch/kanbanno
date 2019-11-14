@@ -28,7 +28,7 @@ class Api::CardsController < ApplicationController
   end
 
   def update
-    card = List.find(params[:id])
+    card = Card.find(params[:id])
     if card
       if card_params[:prev_card_id] && card_params[:next_card_id]
         card.updateNeighbours(card_params[:prev_card_id], card_params[:next_card_id])

@@ -53,19 +53,22 @@ class ListItem extends React.Component {
     }
 
     if (prevProps.cardDragResult !== this.props.cardDragResult && this.props.cardDragResult) {
-      const { cardDragResult } = this.props;
-      const { destination, source, draggableId, type } = cardDragResult;
-
-      const newCardOrder = Array.from(this.state.cardOrder);
-      newCardOrder.splice(source.index, 1);
+      // debugger
+      const { destination, source, draggableId } = this.props.cardDragResult;
       const draggedCardId = draggableId.slice(draggableId.search('_') + 1);
-      newCardOrder.splice(destination.index, 0, draggedCardId);
-      const newState = {
-        ...this.state,
-        cardOrder: newCardOrder,
-      };
-      this.setState(newState);
-      this.persistNewOrderToDB(this.props.cards[draggedCardId], destination.index, newCardOrder);
+      const draggedCard = this.props.cards[draggedCardId];
+
+      if (source.droppableId === destination.droppableId && draggedCard.list_id === this.state.id) {
+        const newCardOrder = Array.from(this.state.cardOrder);
+        newCardOrder.splice(source.index, 1);
+        newCardOrder.splice(destination.index, 0, draggedCardId);
+        const newState = {
+          ...this.state,
+          cardOrder: newCardOrder,
+        };
+        this.setState(newState);
+        this.persistNewOrderToDB(draggedCard, destination.index, newCardOrder);
+      }
     }
   }
 
@@ -142,6 +145,7 @@ class ListItem extends React.Component {
       card.prev_card_id = newCardOrder[newIndex - 1];
       card.next_card_id = newCardOrder[newIndex + 1];
     }
+    // debugger
     this.props.updateCard(card);
   }
 
