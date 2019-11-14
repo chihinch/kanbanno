@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router';
 
 import BoardTitle from './board_title';
-import ListIndexContainer from '../lists/list_index_container';
+import ListIndexContainer from '../list/list_index_container';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
