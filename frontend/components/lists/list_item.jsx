@@ -3,21 +3,24 @@ import { connect } from 'react-redux';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 import { updateList } from '../../actions/list_actions';
-import { updateCard } from '../../actions/card_actions';
+import { fetchCards, updateCard } from '../../actions/card_actions';
 import CardItem from '../card/card_item';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+  const cards = state.entities.cards;
+  const cardsOnList = Object.values(cards).filter((card) => card.list_id === ownProps.listId);
   return {
-    cards: state.entities.cards
+    cardsOnList,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     updateList: (list) => dispatch(updateList(list)),
+    fetchCards: (listId) => dispatch(fetchCards(listId)),
     updateCard: (card) => dispatch(updateCard(card))
   }
 };
@@ -41,8 +44,8 @@ class ListItem extends React.Component {
   }
 
   componentDidMount() {
-    this.setHeightOfTextarea(this.textAreaRef);
     this.orderCards();
+    this.setHeightOfTextarea(this.textAreaRef);
   }
 
   componentDidUpdate(prevProps) {
@@ -79,16 +82,13 @@ class ListItem extends React.Component {
   }
 
   orderCards() {
-    if (Object.keys(this.props.cards).length === 0) return;
-
-    let cardsFromProps = Object.values(this.props.cards).filter((card) => card.list_id === this.props.list.id);
-    if (cardsFromProps.length === 0) return;
+    if (this.props.cardsOnList.length === 0) return;
 
     let orderedCards = [];
-    let currentCard = cardsFromProps.find((card) => card.prev_card_id === null);
+    let currentCard = this.props.cardsOnList.find((card) => card.prev_card_id === null);
     orderedCards.push(currentCard.id);
     while (currentCard.next_card_id !== null) {
-      currentCard = cardsFromProps.find((card) => card.id === currentCard.next_card_id);
+      currentCard = this.props.cardsOnList.find((card) => card.id === currentCard.next_card_id);
       orderedCards.push(currentCard.id);
     }
     this.setState({ cardOrder: orderedCards });
@@ -100,7 +100,7 @@ class ListItem extends React.Component {
     const cardItems = this.state.cardOrder.map((cardId, index) => {
       return (
         <CardItem
-          card={this.props.cards[cardId]}
+          card={this.props.cardsOnList[index]}
           key={`card-${cardId}`}
           dragIdx={index}
         />

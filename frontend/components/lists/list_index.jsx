@@ -48,6 +48,7 @@ export default class ListIndex extends React.Component {
       return (
         <ListItem 
           list={this.props.lists[listId]} 
+          listId={listId}
           key={`list-${listId}`} 
           dragIdx={index}
         />
