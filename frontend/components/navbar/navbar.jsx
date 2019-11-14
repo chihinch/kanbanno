@@ -33,10 +33,10 @@ export default class Navbar extends React.Component {
             <span id="navBoardMenu"><FontAwesomeIcon icon={faChalkboard} id="navBoardMenu"/></span>
             <span id="navBoardMenu">Boards</span>
           </button>
-          <div className="navbar-search">
+          {/* <div className="navbar-search">
             <input type="text" placeholder="Search" />
             <span><button className="navbar-button"><FontAwesomeIcon icon={faSearch} /></button></span>
-          </div>
+          </div> */}
         </div>
 
         <Link to="/" className="navbar logo">
