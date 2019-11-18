@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import NavAccountMenu from '../components/navbar/nav_account_menu';
-import NavBoardMenu from '../components/navbar/nav_board_menu';
-import { closeMenu } from '../actions/menu_actions';
+import NavAccountMenu from '../navbar/nav_account_menu';
+import NavBoardMenu from '../navbar/nav_board_menu';
+import { closeMenu } from '../../actions/menu_actions';
 
 function Menu({ menu, closeMenu }) {
   if (!menu) {

@@ -6,8 +6,8 @@ import NavbarContainer from './navbar/navbar_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import BoardIndexContainer from './board/board_index_container';
-import Modal from './modal';
-import Menu from './menu';
+import Modal from './ui/modal';
+import Menu from './ui/menu';
 import { AuthRoute, ProtectedRoute, AuthProtectedRoute } from '../util/route_util';
 import BoardShowContainer from './board/board_show_container';
 

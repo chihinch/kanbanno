@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import NewBoardFormContainer from './board/new_board_form_container';
-import UpdateBoardFormContainer from './board/update_board_form_container';
-import { closeModal } from '../actions/modal_actions';
+import NewBoardFormContainer from '../board/new_board_form_container';
+import UpdateBoardFormContainer from '../board/update_board_form_container';
+import { closeModal } from '../../actions/modal_actions';
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -11,13 +11,11 @@ function Modal({ modal, closeModal }) {
   }
 
   let component;
-  switch (modal.type) { // change this to modal.type
+  switch (modal.type) {
     case 'newBoard':
       component = <NewBoardFormContainer />;
       break;
     case 'updateBoard':
-      // can pass in boardid = modal.id
-      // msp will now have board id
       component = <UpdateBoardFormContainer boardId={modal.boardId}/>;
       break;
     default:
