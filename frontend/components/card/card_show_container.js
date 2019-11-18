@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 
 import CardShow from './card_show';
-import { updateCard } from '../../actions/card_actions'
+import { updateCard } from '../../actions/card_actions';
+import { closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const cardId = ownProps.cardId;
@@ -13,7 +14,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateCard: (card) => dispatch(updateCard(card))
+    updateCard: (card) => dispatch(updateCard(card)),
+    closeModal: () => dispatch(closeModal())
   }
 };
 

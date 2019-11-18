@@ -48,7 +48,7 @@ export default class CardShow extends React.Component {
     return (
       <div className="card-show-container">
         <div className="card-show-header">
-          <FontAwesomeIcon icon={faPencilAlt} />
+          <span><FontAwesomeIcon icon={faPencilAlt} /></span>
           <input type="text"
             className="card-title-editor" 
             onKeyDown={this.handleKeyEscaper}
@@ -57,11 +57,12 @@ export default class CardShow extends React.Component {
             value={this.state.title}
             >
           </input>
+          <span onClick={this.props.closeModal}><FontAwesomeIcon id="card-show-close" icon={faTimes} /></span>
         </div>
 
         <div className="card-show-main">
           <div className="card-description">
-            <FontAwesomeIcon icon={faAlignJustify} />
+            <span><FontAwesomeIcon icon={faAlignJustify} /></span>
             <textarea
               className="card-description-editor"
               onKeyDown={this.handleKeyEscaper}
@@ -69,7 +70,6 @@ export default class CardShow extends React.Component {
               onChange={this.update('description')}
               value={this.state.description}
             >
-
             </textarea>
           </div>
         </div>
