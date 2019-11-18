@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faPencilAlt, faAlignJustify } from '@fortawesome/free-solid-svg-icons';
 
 export default class CardShow extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ export default class CardShow extends React.Component {
     }
     this.update = this.update.bind(this);
     this.handleKeyEscaper = this.handleKeyEscaper.bind(this);
-    this.updateCardTitle = this.updateCardTitle.bind(this);
+    this.updateCard = this.updateCard.bind(this);
   }
 
   update(field) {
@@ -28,13 +28,16 @@ export default class CardShow extends React.Component {
     }
   }
 
-  updateCardTitle() {
-    if (!this.state.title) {
-      this.setState({ title: this.props.card.title });
+  updateCard() {
+    if (!this.state.title || !this.state.description) {
+      this.setState({ 
+        title: this.props.card.title,
+        description: this.props.card.description 
+      });
       return;
     }
 
-    if (this.state.title === this.props.card.title) {
+    if (this.state.title === this.props.card.title && this.state.description === this.props.card.description) {
       return;
     }
 
@@ -46,13 +49,29 @@ export default class CardShow extends React.Component {
       <div className="card-show-container">
         <div className="card-show-header">
           <FontAwesomeIcon icon={faPencilAlt} />
-          <input type="text" 
-            value={this.state.title}
-            onChange={this.update('title')}
+          <input type="text"
+            className="card-title-editor" 
             onKeyDown={this.handleKeyEscaper}
-            onBlur={this.updateCardTitle}
-          >
+            onBlur={this.updateCard}
+            onChange={this.update('title')}
+            value={this.state.title}
+            >
           </input>
+        </div>
+
+        <div className="card-show-main">
+          <div className="card-description">
+            <FontAwesomeIcon icon={faAlignJustify} />
+            <textarea
+              className="card-description-editor"
+              onKeyDown={this.handleKeyEscaper}
+              onBlur={this.updateCard}
+              onChange={this.update('description')}
+              value={this.state.description}
+            >
+
+            </textarea>
+          </div>
         </div>
       </div>
     )
