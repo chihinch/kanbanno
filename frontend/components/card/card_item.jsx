@@ -2,12 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Draggable } from 'react-beautiful-dnd';
 
-import { updateCard } from '../../actions/card_actions';
-
+import { openModal } from '../../actions/modal_actions';
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateCard: (card) => dispatch(updateCard(card))
+    openCardShowModal: (id) => dispatch(openModal('showCard', id))
   };
 };
 
@@ -17,7 +16,6 @@ class CardItem extends React.Component {
     this.state = {
       id: props.card.id,
       title: props.card.title,
-      description: props.card.description
     };
   }
 
@@ -35,7 +33,7 @@ class CardItem extends React.Component {
             {...provided.draggableProps}
             {...provided.dragHandleProps}
           >
-            <div>
+            <div onClick={() => this.props.openCardShowModal(this.state.id)}>
               <span>{this.state.title}</span>
             </div>
           </div>
