@@ -1,16 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Draggable } from 'react-beautiful-dnd';
 
-import { openModal } from '../../actions/modal_actions';
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    openCardShowModal: (id) => dispatch(openModal('showCard', id))
-  };
-};
-
-class CardItem extends React.Component {
+export default class CardItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,5 +33,3 @@ class CardItem extends React.Component {
     )
   }
 }
-
-export default connect(null, mapDispatchToProps)(CardItem);
