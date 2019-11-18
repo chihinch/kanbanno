@@ -4,7 +4,6 @@ import CardShow from './card_show';
 import { updateCard } from '../../actions/card_actions'
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   const cardId = ownProps.cardId;
   const card = state.entities.cards[cardId];
   return {

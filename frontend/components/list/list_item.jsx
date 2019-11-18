@@ -4,7 +4,7 @@ import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 import { updateList } from '../../actions/list_actions';
 import { fetchCards, updateCard } from '../../actions/card_actions';
-import CardItem from '../card/card_item';
+import CardItemContainer from '../card/card_item_container';
 import NewCardFormContainer from '../card/new_card_form';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -147,8 +147,9 @@ class ListItem extends React.Component {
 
     const cardItems = this.state.cardOrder.map((cardId, index) => {
       return (
-        <CardItem
-          card={this.props.cards[cardId]}
+        <CardItemContainer
+          // card={this.props.cards[cardId]}
+          cardId={cardId}
           key={`card-${cardId}`}
           dragIdx={index}
         />
