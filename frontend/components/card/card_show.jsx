@@ -48,21 +48,21 @@ export default class CardShow extends React.Component {
     return (
       <div className="card-show-container">
         <div className="card-show-header">
-          <span><FontAwesomeIcon icon={faPencilAlt} /></span>
-          <input type="text"
+          <span id="card-title-icon" className="card-large-icon"><FontAwesomeIcon icon={faPencilAlt} /></span>
+          <textarea
             className="card-title-editor" 
             onKeyDown={this.handleKeyEscaper}
             onBlur={this.updateCard}
             onChange={this.update('title')}
             value={this.state.title}
             >
-          </input>
-          <span onClick={this.props.closeModal}><FontAwesomeIcon id="card-show-close" icon={faTimes} /></span>
+          </textarea>
+          <span id="card-show-close" className="card-large-icon" onClick={this.props.closeModal}><FontAwesomeIcon icon={faTimes} /></span>
         </div>
 
         <div className="card-show-main">
           <div className="card-description">
-            <span><FontAwesomeIcon icon={faAlignJustify} /></span>
+            <span className="card-large-icon"><FontAwesomeIcon icon={faAlignJustify} /></span>
             <textarea
               className="card-description-editor"
               onKeyDown={this.handleKeyEscaper}
