@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import NewBoardFormContainer from '../board/new_board_form_container';
 import UpdateBoardFormContainer from '../board/update_board_form_container';
+import CardShowContainer from '../card/card_show_container';
 import { closeModal } from '../../actions/modal_actions';
 
 function Modal({ modal, closeModal }) {
@@ -16,7 +17,10 @@ function Modal({ modal, closeModal }) {
       component = <NewBoardFormContainer />;
       break;
     case 'updateBoard':
-      component = <UpdateBoardFormContainer boardId={modal.boardId}/>;
+      component = <UpdateBoardFormContainer boardId={modal.id} />;
+      break;
+    case 'showCard':
+      component = <CardShowContainer cardId={modal.id} />
       break;
     default:
       return null;

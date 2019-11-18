@@ -1,10 +1,9 @@
 import { connect } from 'react-redux';
 
-import { fetchCard } from '../../actions/card_actions';
 import CardShow from './card_show';
 
 const mapStateToProps = (state, ownProps) => {
-
+  debugger
 };
 
 const mapDispatchToProps = (dispatch) => {

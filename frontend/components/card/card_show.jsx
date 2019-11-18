@@ -6,6 +6,10 @@ export default class CardShow extends React.Component {
   }
 
   render() {
-
+    return (
+      <div>
+        CardShow
+      </div>
+    )
   }
 };
