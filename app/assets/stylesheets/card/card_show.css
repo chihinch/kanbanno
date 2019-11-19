@@ -8,33 +8,60 @@
   color: #172b4d;
 }
 
+.card-show-container h3 {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.card-show-container textarea {
+  padding: 4px 8px;
+  resize: none;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 3px;
+  border: none;
+  box-shadow: none;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: inherit;
+  line-height: 24px;
+}
+
+.card-show-container textarea:focus {
+  box-shadow: inset 0 0 0 2px #0079bf;
+  background-color: white;
+  cursor: text;
+}
+
 .card-large-icon {
   color: #42526e;
   height: 32px;
   line-height: 32px;
   width: 32px;
   font-size: 24px;
+  text-align: center;
 }
 
 .card-show-header {
-  margin: 12px 40px 8px 56px;
+  margin: 24px 8px 8px 16px;
   min-height: 32px;
-  position: relative;
+}
+
+#card-title-icon {
+  float: left;
+  margin-right: 4px;
 }
 
 .card-title-editor {
-  width: 90%;
-  background: transparent;
-  border-radius: 3px;
-  box-shadow: none;
-  font-size: 20px;
-  font-weight: 600;
-  font-family: inherit;
-  line-height: 24px;
+  width: 80%;
   margin: -4px -8px;
-  min-height: 24px;
-  padding: 4px 8px;
-  resize: none;
+}
+
+
+#card-show-close {
+  float: right;
+  margin-right: 10px;
+  font-size: 20px;
 }
 
 .card-show-main {
@@ -50,4 +77,25 @@
 
 #card-show-close {
   cursor: pointer;
+}
+
+.card-description {
+  margin-bottom: 24px;
+}
+
+.card-description-top {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  position: relative;
+}
+
+.card-description-top h3 {
+  display: inline-block;
+  margin: 0;
+  padding-left: 4px;
+}
+
+.card-description-editor {
+  margin-left: 36px;
 }

@@ -62,7 +62,10 @@ export default class CardShow extends React.Component {
 
         <div className="card-show-main">
           <div className="card-description">
-            <span className="card-large-icon"><FontAwesomeIcon icon={faAlignJustify} /></span>
+            <div className="card-description-top">
+              <span className="card-large-icon"><FontAwesomeIcon icon={faAlignJustify} /></span>
+              <h3>Description</h3>
+            </div>
             <textarea
               className="card-description-editor"
               onKeyDown={this.handleKeyEscaper}
