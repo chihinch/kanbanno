@@ -1,4 +1,4 @@
-class BoardMembership < ApplicationRecord do
+class BoardMembership < ApplicationRecord
   validates :member_id, :board_id, presence: true
   validates :member_id, uniqueness: {scope: :board_id}
 
