@@ -21,8 +21,6 @@
   border-radius: 3px;
   border: none;
   box-shadow: none;
-  font-size: 20px;
-  font-weight: 600;
   font-family: inherit;
   line-height: 24px;
 }
@@ -45,6 +43,11 @@
 .card-show-header {
   margin: 24px 8px 8px 16px;
   min-height: 32px;
+}
+
+.card-title-editor {
+  font-size: 20px;
+  font-weight: 600;
 }
 
 #card-title-icon {
@@ -70,6 +73,7 @@
 #card-show-header-listname p {
   font-size: 16px;
   line-height: 20px;
+  color: #5e6c84;
 }
 
 .card-show-main {
@@ -105,6 +109,7 @@
 }
 
 .card-description-editor {
-  margin-left: 36px;
+  margin-left: 30px;
   width: 500px;
+  font-size: 16px;
 }
