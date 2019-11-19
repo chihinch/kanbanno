@@ -6,18 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(name: "Demo User", email: "demo@kanbanno.com", password: "demodemo")
+u1 = { name: "Demo User", email: "demo@kanbanno.com", password: "demodemo" }
+u2 = { name: "King Lathas", email: "eastardy@kanbanno.com", password: "demodemo" }
+u3 = { name: "King Tyras", email: "westardy@kanbanno.com", password: "demodemo" }
+user_seeds = User.create([u1, u2, u3])
 
 b1 = {
   title: "Cook's Assistant", 
   description: "The Lumbridge Castle cook is in a mess. It is the Duke of Lumbridge's birthday and the cook is making the cake. He needs a lot of ingredients and doesn't have much time.", 
-  admin_id: 1
+  admin_id: user_seeds.first.id
 }
 
 b2 = {
   title: "Dragon Slayer", 
   description: "Prove yourself a true champion. Kill the mighty dragon Elvarg of Crandor and earn the right to buy and wear the Rune platebody.", 
-  admin_id: 1
+  admin_id: user_seeds.first.id
 }
 
 b3 = {
@@ -28,7 +31,7 @@ b3 = {
   1: - Perception of the word 'small' may be open to interpretation.\n
   2: - In a recent vote, Yanni Salika was only voted the second most demanding person in Shilo Village.\n
   3: - As everyone knows, time is relative.",
-  admin_id: 1
+  admin_id: user_seeds.first.id
 }
 
 seed_boards = Board.create([b1, b2, b3])
