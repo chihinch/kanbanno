@@ -46,7 +46,10 @@ class ListItem extends React.Component {
 
   componentDidMount() {
     this.orderCards();
-    this.setHeightOfTextarea(this.textAreaRef);
+    const textareas = document.getElementsByTagName('textarea');
+    for (let i = 0; i < textareas.length; i++) {
+      textareas[i].setAttribute('style', 'height:' + (textareas[i].scrollHeight) + 'px;');
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -115,7 +118,7 @@ class ListItem extends React.Component {
   }
 
   setHeightOfTextarea(element) {
-    element.style.height = 'inherit';
+    element.style.height = 'auto';
     element.style.height = element.scrollHeight + 'px';
   }
 
@@ -148,7 +151,6 @@ class ListItem extends React.Component {
     const cardItems = this.state.cardOrder.map((cardId, index) => {
       return (
         <CardItemContainer
-          // card={this.props.cards[cardId]}
           cardId={cardId}
           key={`card-${cardId}`}
           dragIdx={index}
