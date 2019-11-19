@@ -1,6 +1,6 @@
 .card-item-container {
   overflow: hidden;
-  padding: 6px 8px 2px;
+  padding: 8px;
   background-color: white;
   border-radius: 3px;
   box-shadow: 0 1px 0 rgba(9,30,66,.25);
@@ -11,7 +11,7 @@
 
 .card-item-container span {
     display: block;
-    margin: 0 0 4px;
+    padding: 2px 0px;
     overflow: hidden;
     text-decoration: none;
     word-wrap: break-word;

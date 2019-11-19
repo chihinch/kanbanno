@@ -14,11 +14,13 @@ export default class CardShow extends React.Component {
     this.update = this.update.bind(this);
     this.handleKeyEscaper = this.handleKeyEscaper.bind(this);
     this.updateCard = this.updateCard.bind(this);
+    this.setHeightOfTextarea = this.setHeightOfTextarea.bind(this);
   }
 
   update(field) {
     return (e) => {
       this.setState({ [field]: e.target.value });
+      this.setHeightOfTextarea(e.target);
     };
   }
 
@@ -42,6 +44,11 @@ export default class CardShow extends React.Component {
     }
 
     this.props.updateCard(this.state);
+  }
+
+  setHeightOfTextarea(element) {
+    element.style.height = 'inherit';
+    element.style.height = element.scrollHeight + 'px';
   }
 
   render() {

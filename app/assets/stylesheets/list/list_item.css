@@ -48,6 +48,7 @@
   resize: none;
   cursor: pointer;
   font: inherit;
+  box-sizing: border-box;
 }
 
 .list-name-editor:focus {

@@ -46,10 +46,7 @@ class ListItem extends React.Component {
 
   componentDidMount() {
     this.orderCards();
-    const textareas = document.getElementsByTagName('textarea');
-    for (let i = 0; i < textareas.length; i++) {
-      textareas[i].setAttribute('style', 'height:' + (textareas[i].scrollHeight) + 'px;');
-    }
+    this.setHeightOfTextarea(this.textAreaRef);
   }
 
   componentDidUpdate(prevProps) {
@@ -103,8 +100,8 @@ class ListItem extends React.Component {
 
   update(field) {
     return (e) => {
-      this.setHeightOfTextarea(e.target);
       this.setState({ [field]: e.target.value });
+      this.setHeightOfTextarea(e.target);
     };
   }
 
@@ -118,7 +115,7 @@ class ListItem extends React.Component {
   }
 
   setHeightOfTextarea(element) {
-    element.style.height = 'auto';
+    element.style.height = 'inherit';
     element.style.height = element.scrollHeight + 'px';
   }
 
