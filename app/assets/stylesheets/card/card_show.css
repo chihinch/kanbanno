@@ -38,7 +38,7 @@
   height: 32px;
   line-height: 32px;
   width: 32px;
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -57,11 +57,19 @@
   margin: -4px -8px;
 }
 
-
 #card-show-close {
   float: right;
   margin-right: 10px;
   font-size: 20px;
+}
+
+#card-show-header-listname {
+  margin-left: 36px;
+}
+
+#card-show-header-listname p {
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .card-show-main {
@@ -98,4 +106,5 @@
 
 .card-description-editor {
   margin-left: 36px;
+  width: 500px;
 }

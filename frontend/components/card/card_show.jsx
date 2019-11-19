@@ -58,6 +58,7 @@ export default class CardShow extends React.Component {
             >
           </textarea>
           <span id="card-show-close" className="card-large-icon" onClick={this.props.closeModal}><FontAwesomeIcon icon={faTimes} /></span>
+          <div id="card-show-header-listname"><p>in list {this.props.listTitle}</p></div>
         </div>
 
         <div className="card-show-main">
