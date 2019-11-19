@@ -101,16 +101,19 @@ b3_seed_lists[2].updateNeighbours(b3_seed_lists[1].id, nil)
 
 b1_l1_c1 = {
   title: "Fetch a bucket of milk",
+  description: "There are dairy cows in the field across the River Lum.",
   list_id: b1_seed_lists.first.id
 }
 
 b1_l1_c2 = {
   title: "Fetch an egg",
+  description: "There's a chicken coop across the field with the dairy cows.",
   list_id: b1_seed_lists.first.id
 }
 
 b1_l1_c3 = {
   title: "Fetch flour",
+  description: "The windmill is on the way to Draynor Village.",
   list_id: b1_seed_lists.first.id
 }
 
@@ -121,26 +124,31 @@ b1_l1_lists[2].updateNeighbours(b1_l1_lists[1].id, nil)
 
 b2_l1_c1 = {
   title: "Visit Oziach in Edgeville",
+  description: "He has a quest worthy of a champion.",
   list_id: b2_seed_lists.first.id
 }
 
 b2_l1_c2 = {
   title: "Obtain Anti-dragon shield from the Duke of Lumbridge",
+  description: "Without it you'll be burnt to a crisp by Elvarg.",
   list_id: b2_seed_lists.first.id
 }
 
 b2_l1_c3 = {
   title: "Obtain all map pieces",
+  description: "There are 3 map pieces: one is in Melzar's Maze, another one is in the Drawven Mine, and the last one is helf by a goblin.",
   list_id: b2_seed_lists.first.id
 }
 
 b2_l1_c4 = {
   title: "Purchase a ship and find a captain",
+  description: "Looks like there's ship for sale in Port Sarim. Maybe Ned in Draynor Village can help us sail the ship.",
   list_id: b2_seed_lists.first.id
 }
 
 b2_l1_c5 = {
   title: "Slay Elvarg and bring back the dragon head",
+  description: "Bring good food!",
   list_id: b2_seed_lists.first.id
 }
 
@@ -153,26 +161,31 @@ b2_l1_lists[4].updateNeighbours(b2_l1_lists[3].id, nil)
 
 b3_l1_c1 = {
   title: "Complete Yanni Salika's favour",
+  description: "He wants red mahogany logs from the forester south of Shilo Village.",
   list_id: b3_seed_lists.first.id
 }
 
 b3_l1_c2 = {
   title: "Complete the forester's favour",
+  description: "He wants his axe to be brought to Captain Shanks for sharpening.",
   list_id: b3_seed_lists.first.id
 }
 
 b3_l1_c3 = {
   title: "Complete Brian's favour",
+  description: "He wants us to save his friend, who is being convicted of a crime he didn't commit.",
   list_id: b3_seed_lists.first.id
 }
 
 b3_l1_c4 = {
   title: "Complete Aggie the Witch's favour",
+  description: "In exchange for her testimony, Aggie wants us to find her apprentice.",
   list_id: b3_seed_lists.first.id
 }
 
 b3_l1_c5 = {
   title: "Complete Johanhus Ulsbrecht's favour",
+  description: "He wants a month's supply of chickens as ransom for Aggie's apprentice.",
   list_id: b3_seed_lists.first.id
 }
 

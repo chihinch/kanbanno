@@ -73,6 +73,7 @@ export default class CardShow extends React.Component {
               onBlur={this.updateCard}
               onChange={this.update('description')}
               value={this.state.description}
+              placeholder="Click here to add a description..."
             >
             </textarea>
           </div>

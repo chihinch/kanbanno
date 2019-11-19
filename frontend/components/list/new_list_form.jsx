@@ -50,7 +50,7 @@ class NewListForm extends React.Component {
             value={this.state.title} 
             onChange={this.update('title')}
             className="list-input-title"
-            placeholder="Enter list title" 
+            placeholder="Enter list title..." 
           />
 
           <input type="submit" 
