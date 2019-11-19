@@ -7,9 +7,6 @@ import { fetchCards, updateCard } from '../../actions/card_actions';
 import CardItemContainer from '../card/card_item_container';
 import NewCardFormContainer from '../card/new_card_form';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-
 const mapStateToProps = (state) => {
   const cards = state.entities.cards;
   return {
@@ -218,16 +215,10 @@ class ListItem extends React.Component {
                   >
                     {this.constructCards()}
                     {provided.placeholder}
-                    <NewCardFormContainer listId={this.state.id} />
                   </div>
                 )}
               </Droppable>
-              {/* <div className="new-card-container">
-                <a href="#" className="new-card-button">
-                  <span id="card-plus-icon"><FontAwesomeIcon icon={faPlus} /></span>
-                  <span id="card-plus-text">Add a card</span>
-                </a>
-              </div> */}
+              <NewCardFormContainer listId={this.state.id} />
             </div>
           </div>
         )}
