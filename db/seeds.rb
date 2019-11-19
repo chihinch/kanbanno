@@ -6,44 +6,47 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-u1 = { name: "Demo User", email: "demo@kanbanno.com", password: "demodemo" }
-u2 = { name: "King Lathas", email: "eastardy@kanbanno.com", password: "demodemo" }
-u3 = { name: "King Tyras", email: "westardy@kanbanno.com", password: "demodemo" }
-seed_users = User.create([u1, u2, u3])
-
-
-b1 = {
-  title: "Cook's Assistant", 
-  description: "The Lumbridge Castle cook is in a mess. It is the Duke of Lumbridge's birthday and the cook is making the cake. He needs a lot of ingredients and doesn't have much time.", 
-  admin_id: seed_users.first.id
-}
-b2 = {
-  title: "Dragon Slayer", 
-  description: "Prove yourself a true champion. Kill the mighty dragon Elvarg of Crandor and earn the right to buy and wear the Rune platebody.", 
-  admin_id: seed_users.first.id
-}
-b3 = {
-  title: "One Small Favour", 
-  description: "If you're new to Shilo Village after solving the mystery (or even if you did it some time ago), you may like to check out Yanni Salika's antiques shop.\n
-  He's a busy chap, revamping antique items, checking out new stock from potential adventurers and maybe he'll have a small(1) favour to ask of you? Probably nothing particularly large, Yanni isn't a demanding(2) person, should hardly take you any time(3) at all really, something to do when you have a spare moment.\n
-  That's assuming there aren't any complications.\n
-  1: - Perception of the word 'small' may be open to interpretation.\n
-  2: - In a recent vote, Yanni Salika was only voted the second most demanding person in Shilo Village.\n
-  3: - As everyone knows, time is relative.",
-  admin_id: seed_users.first.id
-}
-seed_boards = Board.create([b1, b2, b3])
-
-
-seed_board_memberships = BoardMembership.create([
-  {member_id: seed_users.first.id, board_id: seed_boards.first.id},
-  # {member_id: seed_users[0].id, board_id: seed_boards[1].id},
-  # {member_id: seed_users[0].id, board_id: seed_boards[2].id},
-  # {member_id: seed_users[1].id, board_id: seed_boards[0].id},
-  # {member_id: seed_users[1].id, board_id: seed_boards[1].id},
-  # {member_id: seed_users[2].id, board_id: seed_boards[0].id},
-  # {member_id: seed_users[2].id, board_id: seed_boards[2].id},
+seed_users = User.create([
+  { name: "Demo User", email: "demo@kanbanno.com", password: "demodemo" },
+  { name: "King Lathas", email: "eastardy@kanbanno.com", password: "demodemo" },
+  { name: "King Tyras", email: "westardy@kanbanno.com", password: "demodemo" },
 ])
+
+
+seed_boards = Board.create([
+  {
+    title: "Cook's Assistant", 
+    description: "The Lumbridge Castle cook is in a mess. It is the Duke of Lumbridge's birthday and the cook is making the cake. He needs a lot of ingredients and doesn't have much time.", 
+    admin_id: seed_users.first.id
+  },
+  {
+    title: "Dragon Slayer", 
+    description: "Prove yourself a true champion. Kill the mighty dragon Elvarg of Crandor and earn the right to buy and wear the Rune platebody.", 
+    admin_id: seed_users.first.id
+  },
+  {
+    title: "One Small Favour", 
+    description: "If you're new to Shilo Village after solving the mystery (or even if you did it some time ago), you may like to check out Yanni Salika's antiques shop.\n
+    He's a busy chap, revamping antique items, checking out new stock from potential adventurers and maybe he'll have a small(1) favour to ask of you? Probably nothing particularly large, Yanni isn't a demanding(2) person, should hardly take you any time(3) at all really, something to do when you have a spare moment.\n
+    That's assuming there aren't any complications.\n
+    1: - Perception of the word 'small' may be open to interpretation.\n
+    2: - In a recent vote, Yanni Salika was only voted the second most demanding person in Shilo Village.\n
+    3: - As everyone knows, time is relative.",
+    admin_id: seed_users.first.id
+  }
+])
+
+
+seed_board_memberships = BoardMembership.create!([
+  {board_id: seed_boards.first.id, member_id: seed_users.first.id},
+  {board_id: seed_boards.second.id, member_id: seed_users.first.id},
+  {board_id: seed_boards.third.id, member_id: seed_users.first.id},
+  {board_id: seed_boards.first.id, member_id: seed_users.second.id},
+  {board_id: seed_boards.second.id, member_id: seed_users.second.id},
+  {board_id: seed_boards.first.id, member_id: seed_users.third.id},
+  {board_id: seed_boards.third.id, member_id: seed_users.third.id},
+])
+
 
 b1_l1 = {
   title: "To Do",
