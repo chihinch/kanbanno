@@ -9,6 +9,7 @@ class Board < ApplicationRecord
 
   has_many :lists, dependent: :destroy
   has_many :cards, through: :lists, source: :cards
+  has_many :members, through: :board_memberships
 
   def is_admin?(user)
     user.id == self.admin_id
