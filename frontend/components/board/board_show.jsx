@@ -6,12 +6,11 @@ import ListIndexContainer from '../list/list_index_container';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
-import { faBars, faLock, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faLock, faUsers, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 
 class BoardShow extends React.Component {
   constructor(props) {
     super(props);
-    this.listMembers = this.listMembers.bind(this);
   }
 
   componentDidMount() {
@@ -22,23 +21,6 @@ class BoardShow extends React.Component {
     if (prevProps.boardId !== this.props.boardId) {
       this.props.fetchBoard(this.props.boardId);
     }
-  }
-
-  listMembers() {
-    const memberList = this.props.members.map((member) => {
-      const adminText = this.props.currentUser.id === member.id ? ' (Admin)' : '';
-      return (
-      <li key={`user_${member.id}`}>
-          <p>{member.name}{adminText}</p>
-          <p>{member.email}</p>
-      </li>
-      )
-    });
-    return (
-      <ul>
-        {memberList}
-      </ul>
-    )
   }
   
   render() {
@@ -67,13 +49,7 @@ class BoardShow extends React.Component {
 
             <span className="board-header-divider"></span>
 
-            <a to="#" className="board-header-button" id="team">
-              Personal
-            </a>
-
-            <span className="board-header-divider"></span>
-
-            <a to="#" className="board-header-button" id="permission">
+            <a to="#" className="board-header-button" id="permission" onClick={this.props.openMembersMenu}>
               <span id="permission-icon"><FontAwesomeIcon icon={faLock} /></span>
               <span id="permission-text">Private</span>
             </a>
@@ -103,7 +79,6 @@ class BoardShow extends React.Component {
 
         <ListIndexContainer />
         <div>
-          {this.listMembers()}
         </div>
       </div>
     )
