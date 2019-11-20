@@ -38,19 +38,35 @@ seed_boards = Board.create([
     title: "Goblin Diplomacy", 
     description: "There's a disturbance in the Goblin Village. Help the goblins solve their dispute so the world doesn't have to worry about rioting goblins. Aim: to help the goblins decide which colour they will wear.", 
     admin_id: seed_users.first.id
+  },
+  {
+    title: "Regicide", 
+    description: "Continuing the Plague City series, the Regicide Quest takes you beyond the 'Well of Voyage' to a new realm.\n
+    King Lathas will employ you once again, this time for the grim task of disposing of his brother.\n
+    Upon travelling to the realm you will find yourself surrounded by new and strange plants, animals and even a new race.\n
+    Once there, you will see that everything is not as serene as it first appears.", 
+    admin_id: seed_users.second.id
+  },
+  {
+    title: "Underground Pass", 
+    description: "There are rumours of a secret passageway that can be used to get to the other side of the mountains west of Ardougne. Now it's just a matter of finding it.", 
+    admin_id: seed_users.third.id
   }
 ])
 
 
 seed_board_memberships = BoardMembership.create!([
-  {board_id: seed_boards.first.id, member_id: seed_users.first.id},
-  {board_id: seed_boards.second.id, member_id: seed_users.first.id},
-  {board_id: seed_boards.third.id, member_id: seed_users.first.id},
-  {board_id: seed_boards.first.id, member_id: seed_users.second.id},
-  {board_id: seed_boards.second.id, member_id: seed_users.second.id},
-  {board_id: seed_boards.first.id, member_id: seed_users.third.id},
-  {board_id: seed_boards.third.id, member_id: seed_users.third.id},
-  {board_id: seed_boards[3].id, member_id: seed_users.first.id},
+  {member_id: seed_users[0].id, board_id: seed_boards[0].id},
+  {member_id: seed_users[0].id, board_id: seed_boards[1].id},
+  {member_id: seed_users[0].id, board_id: seed_boards[2].id},
+  {member_id: seed_users[0].id, board_id: seed_boards[3].id},
+  {member_id: seed_users[0].id, board_id: seed_boards[4].id}, # End of first user
+  {member_id: seed_users[1].id, board_id: seed_boards[0].id},
+  {member_id: seed_users[1].id, board_id: seed_boards[1].id},
+  {member_id: seed_users[1].id, board_id: seed_boards[4].id}, # End of second user
+  {member_id: seed_users[2].id, board_id: seed_boards[0].id},
+  {member_id: seed_users[2].id, board_id: seed_boards[2].id},
+  {member_id: seed_users[2].id, board_id: seed_boards[5].id},
 ])
 
 
