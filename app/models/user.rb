@@ -11,12 +11,11 @@ class User < ApplicationRecord
     primary_key: :id,
     foreign_key: :admin_id
 
-  has_many :boards, through: :board_memberships
-
-  has_many :board_memberships,
+    has_many :board_memberships,
     class_name: :BoardMembership,
     primary_key: :id,
     foreign_key: :member_id
+    has_many :boards, through: :board_memberships
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

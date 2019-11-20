@@ -5,7 +5,7 @@ class Api::BoardsController < ApplicationController
   end
 
   def show
-    @board = Board.find_by(id: params[:id])
+    @board = current_user.boards.find_by(id: params[:id])
     if @board
       render :show
     else
