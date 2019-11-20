@@ -17,11 +17,16 @@ export default class BoardIndex extends React.Component {
   constructBoards(type) {
     let selectedBoards;
     if (type === 'personal') {
-      selectedBoards = this.props.boards.filter((board) => board.admin_id === this.props.currentUser);
+      selectedBoards = this.props.boards.filter((board) => board.members.length === 1);
     }
     else if (type === 'shared') {
-      selectedBoards = this.props.boards
+      selectedBoards = this.props.boards.filter((board) => board.members.length > 1)
     }
+
+    const newBoardTile = type === 'personal' ? 
+      <li className="board-list-item" key="create-board-li" id="create-board-li" onClick={this.props.openNewBoardModal}>
+        <div><span>Create new board</span></div>
+      </li> : null;
 
     const boardItems = selectedBoards.map((board) => {
       return (
@@ -34,9 +39,7 @@ export default class BoardIndex extends React.Component {
     return (
       <ul className="boards-list">
         {boardItems}
-        <li className="board-list-item" key="create-board-li" id="create-board-li" onClick={this.props.openNewBoardModal}>
-          <div><span>Create new board</span></div>
-        </li>
+        {newBoardTile}
       </ul>
     );
   }
