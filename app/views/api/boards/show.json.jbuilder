@@ -2,6 +2,14 @@ json.board do
   json.partial! '/api/boards/board', board: @board
 end
 
+json.users do
+  @board.members.each do |member|
+    json.set! member.id do
+      json.partial! '/api/users/user', user: member
+    end
+  end
+end
+
 json.lists do
   @board.lists.each do |list|
     json.set! list.id do
