@@ -27,6 +27,12 @@ class MembersMenu extends React.Component {
     this.listMembers = this.listMembers.bind(this);
   }
 
+  componentDidMount() {
+    const permissionButton = document.getElementById("permission");
+    this.divRef.style.left = permissionButton.offsetLeft;
+    debugger
+  }
+
   handleClickOutside(e) {
     this.props.closeMenu();
   }
@@ -50,9 +56,9 @@ class MembersMenu extends React.Component {
 
   render() {
     return (
-      <div className="board-members-container">
+      <div className="board-members-container" ref={divRef => this.divRef = divRef}>
         <div className="board-members-header">
-          <span className="board-members-header-title">Board Members</span>
+          <span className="board-members-title">Board Members</span>
           <button className="menu-close" onClick={this.props.closeMenu}><span><FontAwesomeIcon icon={faTimes} /></span></button>
         </div>
         <div className="board-members-list">

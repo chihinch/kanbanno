@@ -1,9 +1,9 @@
 .board-members-container {
   max-height: 400px;
-  width: 304px;
+  width: 280px;
   position: absolute;
   top: 88px;
-  left: 200px;
+  /* left: 307px; */
   z-index: 1;
   background-color: white;
   border-radius: 3px;
@@ -11,4 +11,21 @@
   box-sizing: border-box;
   outline: 0;
   overflow: hidden;
+}
+
+.board-members-header {
+  padding: 0 12px;
+  position: relative;
+  text-align: center;
+}
+
+.board-members-title {
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(9,30,66,.13);
+  color: #5e6c84;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 8px;
+  padding: 0 32px;
 }
