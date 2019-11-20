@@ -11,6 +11,7 @@ import { faBars, faLock, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 class BoardShow extends React.Component {
   constructor(props) {
     super(props);
+    this.listMembers = this.listMembers.bind(this);
   }
 
   componentDidMount() {
@@ -22,9 +23,26 @@ class BoardShow extends React.Component {
       this.props.fetchBoard(this.props.boardId);
     }
   }
+
+  listMembers() {
+    const memberList = this.props.members.map((member) => {
+      const adminText = this.props.currentUser.id === member.id ? ' (Admin)' : '';
+      return (
+      <li key={`user_${member.id}`}>
+          <p>{member.name}{adminText}</p>
+          <p>{member.email}</p>
+      </li>
+      )
+    });
+    return (
+      <ul>
+        {memberList}
+      </ul>
+    )
+  }
   
   render() {
-    if (this.props.board.id === null) {
+    if (!this.props.board) {
       return null;
     }
 
@@ -84,6 +102,9 @@ class BoardShow extends React.Component {
         </div>
 
         <ListIndexContainer />
+        <div>
+          {this.listMembers()}
+        </div>
       </div>
     )
   }

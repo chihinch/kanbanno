@@ -6,19 +6,13 @@ import BoardShow from './board_show';
 
 const mapStateToProps = (state, ownProps) => {
   const boardId = parseInt(ownProps.match.params.boardId);
-  const nullBoard = {
-    id: null,
-    title: '',
-    description: '',
-    admin_id: null,
-    archived: false,
-    member_ids: [],
-  }
-  const board = state.entities.boards[boardId] || nullBoard;
+  const board = state.entities.boards[boardId];
+  const members = board ? Object.values(state.users) : [];
   return {
     boardId,
     board,
-    currentUser: state.users[state.session.id]
+    currentUser: state.users[state.session.id],
+    members,
   };
 };
 
