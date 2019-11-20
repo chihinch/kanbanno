@@ -18,7 +18,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     openUpdateBoardModal: (id) => dispatch(openModal('updateBoard', id)),
-    openMembersMenu: () => dispatch(openMenu('membersMenu')),
+    openMembersMenu: (id) => dispatch(openMenu('membersMenu', id)),
     fetchBoard: (id) => dispatch(fetchBoard(id)),
   };
 };

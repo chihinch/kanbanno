@@ -1,10 +1,13 @@
 export const OPEN_MENU = 'OPEN_MENU';
 export const CLOSE_MENU = 'CLOSE_MENU';
 
-export const openMenu = (menu) => {
+export const openMenu = (type, id) => {
   return {
     type: OPEN_MENU,
-    menu
+    menu: {
+      type,
+      id
+    }
   };
 };
 

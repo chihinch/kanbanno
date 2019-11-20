@@ -7,9 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import onClickOutside from 'react-onclickoutside';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    users: state.users
+    members: Object.values(state.users),
+    currentUser: state.session.id,
+    adminId: state.entities.boards[ownProps.boardId].admin_id
   };
 };
 
@@ -22,36 +24,37 @@ const mapDispatchToProps = (dispatch) => {
 class MembersMenu extends React.Component {
   constructor(props) {
     super(props)
+    this.listMembers = this.listMembers.bind(this);
   }
 
   handleClickOutside() {
     this.props.closeMenu()
   }  
 
+  listMembers() {
+    const memberList = this.props.members.map((member) => {
+      const adminText = this.props.adminId === member.id ? ' (Admin)' : '';
+        return (
+          <li key={`user_${member.id}`}>
+            <p>{member.name}{adminText}</p>
+          </li>
+        );
+      });
+      
+    return (
+      <ul>
+        {memberList}
+      </ul>
+    );
+  }
+
   render() {
     return (
       <div className="board-members-container">
-        Hello
+        {this.listMembers()}
       </div>
     )
   }
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MembersMenu);
-
-// listMembers() {
-//   const memberList = this.props.members.map((member) => {
-//     const adminText = this.props.currentUser.id === member.id ? ' (Admin)' : '';
-//     return (
-//       <li key={`user_${member.id}`}>
-//         <p>{member.name}{adminText}</p>
-//         <p>{member.email}</p>
-//       </li>
-//     )
-//   });
-//   return (
-//     <ul>
-//       {memberList}
-//     </ul>
-//   )
-// }

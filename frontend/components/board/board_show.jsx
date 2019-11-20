@@ -51,7 +51,7 @@ class BoardShow extends React.Component {
 
             <span className="board-header-divider"></span>
 
-            <a to="#" className="board-header-button" id="permission" onClick={this.props.openMembersMenu}>
+            <a to="#" className="board-header-button" id="permission" onClick={() => this.props.openMembersMenu(this.props.boardId)}>
               <span id="permission-icon"><FontAwesomeIcon icon={permissionItems[0]} /></span>
               <span id="permission-text">{permissionItems[1]}</span>
             </a>

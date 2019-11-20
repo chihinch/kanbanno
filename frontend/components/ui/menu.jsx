@@ -12,7 +12,7 @@ function Menu({ menu, closeMenu }) {
   }
 
   let component;
-  switch (menu) {
+  switch (menu.type) {
     case 'navAccountMenu':
       component = <NavAccountMenu />;
       break;
@@ -20,7 +20,7 @@ function Menu({ menu, closeMenu }) {
       component = <NavBoardMenu />;
       break;
     case 'membersMenu':
-      component = <MembersMenu />;
+      component = <MembersMenu boardId={menu.id} />;
       break;
     default:
       return null;
