@@ -5,17 +5,18 @@ import { closeMenu } from '../../actions/menu_actions';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import onClickOutside from 'react-onclickoutside';
 
 const mapStateToProps = (state) => {
   return {
     users: state.users
-  }
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
-  }
+    closeMenu: () => dispatch(closeMenu())
+  };
 };
 
 class MembersMenu extends React.Component {
@@ -23,10 +24,16 @@ class MembersMenu extends React.Component {
     super(props)
   }
 
-  render() {
-    <div className="board-members-container">
+  handleClickOutside() {
+    this.props.closeMenu()
+  }  
 
-    </div>
+  render() {
+    return (
+      <div className="board-members-container">
+        Hello
+      </div>
+    )
   }
 };
 

@@ -33,6 +33,8 @@ class BoardShow extends React.Component {
     const lastInitial = nameToArray[nameToArray.length - 1].slice(0, 1);
     const initials = firstInitial + lastInitial;
 
+    const permissionItems = this.props.board.members.length > 1 ? [faUsers, "Shared"] : [faLock, "Private"];
+
     return (
       <div className="board-show-container">
         <div className="board-show-header">
@@ -50,8 +52,8 @@ class BoardShow extends React.Component {
             <span className="board-header-divider"></span>
 
             <a to="#" className="board-header-button" id="permission" onClick={this.props.openMembersMenu}>
-              <span id="permission-icon"><FontAwesomeIcon icon={faLock} /></span>
-              <span id="permission-text">Private</span>
+              <span id="permission-icon"><FontAwesomeIcon icon={permissionItems[0]} /></span>
+              <span id="permission-text">{permissionItems[1]}</span>
             </a>
           </div>
             
