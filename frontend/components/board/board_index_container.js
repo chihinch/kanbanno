@@ -6,6 +6,7 @@ import BoardIndex from './board_index';
 
 const mapStateToProps = (state) => {
   return {
+    currentUser: state.session.id,
     boards: Object.keys(state.entities.boards).map((id) => state.entities.boards[id])
   };
 };

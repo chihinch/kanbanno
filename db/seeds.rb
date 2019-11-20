@@ -33,6 +33,11 @@ seed_boards = Board.create([
     2: - In a recent vote, Yanni Salika was only voted the second most demanding person in Shilo Village.\n
     3: - As everyone knows, time is relative.",
     admin_id: seed_users.first.id
+  },
+  {
+    title: "Goblin Diplomacy", 
+    description: "There's a disturbance in the Goblin Village. Help the goblins solve their dispute so the world doesn't have to worry about rioting goblins. Aim: to help the goblins decide which colour they will wear.", 
+    admin_id: seed_users.first.id
   }
 ])
 
@@ -45,6 +50,7 @@ seed_board_memberships = BoardMembership.create!([
   {board_id: seed_boards.second.id, member_id: seed_users.second.id},
   {board_id: seed_boards.first.id, member_id: seed_users.third.id},
   {board_id: seed_boards.third.id, member_id: seed_users.third.id},
+  {board_id: seed_boards[3].id, member_id: seed_users.first.id},
 ])
 
 

@@ -7,37 +7,33 @@
 }
 
 .board-index-container {
-  margin: 64px auto 0 auto;
-  width: 1024px;
+  margin: 64px 20% 0 20%;
+  width: auto;
+  max-width: 832px;
 }
 
-.personal-boards-section {
+.boards-section {
   padding: 0 0 20px;
   margin: 0 auto;
 }
 
-.personal-boards-section-header {
-  margin: 0 0 0 40px;
-  padding: 0 0 11px;
+.boards-section-header {
+  margin: 0;
+  padding: 0 0 8px;
   position: relative;
   display: flex;
 }
 
-.personal-boards-section-header div {
-  left: -40px;
-  position: absolute;
-  top: 0;
-}
-
-.personal-boards-section-header span {
+.boards-section-icon {
   height: 32px;
   line-height: 32px;
   width: 32px;
   font-size: 24px;
   color: #42526e;
+  margin-right: 8px;
 }
 
-.personal-boards-section-header h3 {
+.boards-section-header h3 {
   display: inline-block;
   line-height: 24px;
   margin: 4px 0 0;
@@ -55,9 +51,9 @@
 }
 
 .board-list-item {
-  width: 23.5%;
+  width: 200px;
   padding: 0;
-  margin: 0 1.5% 8px 0;
+  margin: 0 8px 8px 0;
   box-sizing: border-box;
   position: relative;
   cursor: pointer;
@@ -91,10 +87,6 @@
   justify-content: center;
   align-items: center;
 }
-
-/* .board-list-item#create-board-li > div {
-  margin: auto;
-} */
 
 .board-list-item#create-board-li:hover {
   background-color: rgba(9,30,66,.08);
