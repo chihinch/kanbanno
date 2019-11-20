@@ -7,5 +7,8 @@ class BoardMembership < ApplicationRecord
     primary_key: :id,
     foreign_key: :member_id
 
-  belongs_to :board
+  belongs_to :board,
+    class_name: :Board,
+    primary_key: :id,
+    foreign_key: :board_id
 end

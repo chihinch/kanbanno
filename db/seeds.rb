@@ -140,7 +140,7 @@ b2_l1_c2 = {
 }
 b2_l1_c3 = {
   title: "Obtain all map pieces",
-  description: "There are 3 map pieces: one is in Melzar's Maze, another one is in the Drawven Mine, and the last one is helf by a goblin.",
+  description: "There are 3 map pieces: one is in Melzar's Maze, another one is in the Dwarven Mine, and the last one is held by a goblin.",
   list_id: b2_seed_lists.first.id
 }
 b2_l1_c4 = {
