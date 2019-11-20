@@ -1,7 +1,7 @@
 class Api::BoardsController < ApplicationController
   
   def index
-    @boards = current_user.boards
+    @boards =  Board.includes(:board_memberships).includes(:members).where(:board_memberships => {member_id: current_user.id})
   end
 
   def show
