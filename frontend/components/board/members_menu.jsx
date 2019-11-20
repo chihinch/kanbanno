@@ -27,9 +27,9 @@ class MembersMenu extends React.Component {
     this.listMembers = this.listMembers.bind(this);
   }
 
-  handleClickOutside() {
-    this.props.closeMenu()
-  }  
+  handleClickOutside(e) {
+    this.props.closeMenu();
+  }
 
   listMembers() {
     const memberList = this.props.members.map((member) => {
@@ -51,10 +51,16 @@ class MembersMenu extends React.Component {
   render() {
     return (
       <div className="board-members-container">
+        <div className="board-members-header">
+          <span className="board-members-header-title">Board Members</span>
+          <button className="menu-close" onClick={this.props.closeMenu}><span><FontAwesomeIcon icon={faTimes} /></span></button>
+        </div>
+        <div className="board-members-list">
         {this.listMembers()}
+        </div>
       </div>
     )
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MembersMenu);
+export default connect(mapStateToProps, mapDispatchToProps)(onClickOutside(MembersMenu));
