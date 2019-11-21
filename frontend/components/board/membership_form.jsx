@@ -2,19 +2,15 @@ import { connect } from 'react-redux';
 import React from 'react';
 
 import { closeMenu } from '../../actions/menu_actions';
+import { createMembership } from '../../actions/membership_actions';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import onClickOutside from 'react-onclickoutside';
 
-// const mapStateToProps = (ownProps) => {
-//   return {
-//     boardId: parseInt(ownProps.match.params.boardId)
-//   };
-// };
-
 const mapDispatchToProps = (dispatch) => {
   return {
+    createMembership: (membership) => dispatch(createMembership(membership)),
     closeMenu: () => dispatch(closeMenu())
   };
 };
@@ -26,6 +22,7 @@ class MembershipForm extends React.Component {
       email: ''
     };
     this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleClickOutside(e) {
@@ -36,6 +33,12 @@ class MembershipForm extends React.Component {
     return (e) => {
       this.setState({ [field]: e.currentTarget.value });
     };
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const membership = Object.assign({}, { email: this.state.email, board_id: this.props.boardId })
+    this.props.createMembership(membership);
   }
 
   render() {
@@ -50,7 +53,7 @@ class MembershipForm extends React.Component {
           <button className="menu-close" onClick={this.props.closeMenu}><span><FontAwesomeIcon icon={faTimes} /></span></button>
         </div>
         <div className="membership-form-content">
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <input 
               type="email"
               value={this.state.email}
