@@ -1,5 +1,5 @@
 .membership-form-container {
-  height: 200px;
+  height: 150px;
   width: 280px;
   position: absolute;
   top: 88px;
@@ -26,4 +26,53 @@
   line-height: 40px;
   margin-bottom: 8px;
   padding: 0 32px;
+}
+
+.membership-form-content form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 12px;
+}
+
+.membership-form-content input[type=email] {
+  border-radius: 3px;
+  line-height: 20px;
+  padding: 4px 8px;
+  font-size: 14px;
+  border: 2px solid #a5adba;
+}
+
+.membership-form-content input[type=email]:focus {
+  border: 2px solid #0079bf;
+}
+
+.membership-form-content input[type=email]:placeholder {
+  color: #0079bf;
+}
+
+.membership-form-content input[type=submit] {
+  background-color: #5aac44;
+  box-shadow: none;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  height: 32px;
+  margin-top: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  cursor: pointer;
+  line-height: 20px;
+  width: 100px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.membership-form-content input[type=submit]:hover {
+  background-color: #61bd4f;
+}
+
+.membership-form-content input[type=submit][disabled] {
+  cursor: not-allowed;
+  background-color: #f4f5f7;
+  color: #a5adba;
 }
