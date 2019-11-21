@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
+import { fetchBoard } from '../../actions/board_actions';
 import { closeMenu } from '../../actions/menu_actions';
 import { createMembership, clearMessages } from '../../actions/membership_actions';
 
@@ -18,6 +19,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     createMembership: (membership) => dispatch(createMembership(membership)),
     clearMessages: () => dispatch(clearMessages()),
+    fetchBoard: (id) => dispatch(fetchBoard(id)),
     closeMenu: () => dispatch(closeMenu())
   };
 };
@@ -65,7 +67,11 @@ class MembershipForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const membership = Object.assign({}, { email: this.state.email, board_id: this.props.boardId })
-    this.props.createMembership(membership);
+    this.props.createMembership(membership).then((message) => {
+      if (message.membershipMessage[0] === "Member successfully added.") {
+        this.props.fetchBoard(this.props.boardId);
+      }
+    });
     this.setState({email: ''});
   }
 

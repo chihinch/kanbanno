@@ -65,8 +65,8 @@
   border: 2px solid #0079bf;
 }
 
-.membership-form-content input[type=email]:placeholder {
-  color: #0079bf;
+.membership-form-content input[type=email]::placeholder {
+  color: #a5adba;
 }
 
 .membership-form-content input[type=submit] {
