@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import NavAccountMenu from '../navbar/nav_account_menu';
 import NavBoardMenu from '../navbar/nav_board_menu';
 import MembersMenu from '../board/members_menu';
+import MembershipFormMenu from '../board/membership_form';
 import { closeMenu } from '../../actions/menu_actions';
 
 function Menu({ menu, closeMenu }) {
@@ -21,6 +22,9 @@ function Menu({ menu, closeMenu }) {
       break;
     case 'membersMenu':
       component = <MembersMenu boardId={menu.id} />;
+      break;
+    case 'membershipFormMenu':
+      component = <MembershipFormMenu boardId={menu.id} />;
       break;
     default:
       return null;
