@@ -12,6 +12,9 @@ const mapStateToProps = (state, ownProps) => {
   const boardId = parseInt(ownProps.match.params.boardId);
   return {
     boardId,
+    members: Object.values(state.users),
+    currentUser: state.session.id,
+    adminId: state.entities.boards[boardId].admin_id
   };
 };
 
@@ -26,11 +29,29 @@ class BoardSidebar extends React.Component {
   constructor(props) {
     super(props);
     this.closeBoardSidebar = this.closeBoardSidebar.bind(this);
+    this.listMembers = this.listMembers.bind(this);
   }
 
   closeBoardSidebar() {
     document.getElementById("board-sidebar").style.width = "0";
     document.getElementById("board-show-container").style.width = "100%";
+  }
+
+  listMembers() {
+    const memberList = this.props.members.map((member) => {
+      const adminText = this.props.adminId === member.id ? ' (Admin)' : '';
+      return (
+        <li key={`user_${member.id}`}>
+          <p>{member.name}{adminText}</p>
+        </li>
+      );
+    });
+
+    return (
+      <ul>
+        {memberList}
+      </ul>
+    );
   }
 
   render() {
@@ -50,6 +71,10 @@ class BoardSidebar extends React.Component {
               <span><FontAwesomeIcon icon={faUserPlus} /></span>
               Add a Member
             </a>
+            <div className="board-sidebar-members">
+              <span className="board-members-title">Board Members</span>
+              {this.listMembers()}
+            </div>
           </div>
         </div>
       </div>
