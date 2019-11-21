@@ -7,3 +7,46 @@
   top: 40px;
   right: 0;
 }
+
+.board-sidebar-header {
+  padding: 0 12px;
+  position: relative;
+  text-align: center;
+}
+
+.board-sidebar-title {
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(9,30,66,.13);
+  font-size: 20px;
+  color: #5e6c84;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 8px;
+  padding: 0 32px;
+}
+
+.board-sidebar-content {
+  margin: 12px 12px 0;
+}
+
+.board-sidebar-option {
+  color: #172b4d;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 3px;
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.board-sidebar-option:hover {
+  background-color: rgba(9,30,66,.04);
+}
+
+.board-sidebar-option span {
+  margin-right: 8px;
+}
