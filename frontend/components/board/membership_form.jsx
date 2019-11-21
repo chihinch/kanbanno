@@ -25,10 +25,17 @@ class MembershipForm extends React.Component {
     this.state = {
       email: ''
     };
+    this.update = this.update.bind(this);
   }
 
   handleClickOutside(e) {
     this.props.closeMenu();
+  }
+
+  update(field) {
+    return (e) => {
+      this.setState({ [field]: e.currentTarget.value });
+    };
   }
 
   render() {
@@ -41,6 +48,26 @@ class MembershipForm extends React.Component {
         <div className="membership-form-header">
           <span className="membership-form-title">Add Member</span>
           <button className="menu-close" onClick={this.props.closeMenu}><span><FontAwesomeIcon icon={faTimes} /></span></button>
+        </div>
+        <div className="membership-form-content">
+          <form>
+            <input 
+              type="email"
+              value={this.state.email}
+              className="membership-input-email"
+              onChange={this.update('email')}
+              placeholder="Email address"
+            >
+            </input>
+
+            <input
+              type="submit"
+              value="Add Member"
+              className="membership-input-submit" 
+              disabled={!this.state.email}
+            >
+            </input>
+          </form>
         </div>
       </div>);
 
