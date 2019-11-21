@@ -27,15 +27,6 @@ class MembersMenu extends React.Component {
     this.listMembers = this.listMembers.bind(this);
   }
 
-  componentDidMount() {
-    // const permissionButton = document.getElementById("permission");
-    // debugger
-    // const permissionButtonLocation = permissionButton.getBoundingClientRect();
-    // debugger
-    // this.divRef.style.left = `${permissionButtonLocation.left}px;`;
-    // debugger
-  }
-
   handleClickOutside(e) {
     this.props.closeMenu();
   }
