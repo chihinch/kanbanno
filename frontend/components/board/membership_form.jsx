@@ -2,15 +2,22 @@ import { connect } from 'react-redux';
 import React from 'react';
 
 import { closeMenu } from '../../actions/menu_actions';
-import { createMembership } from '../../actions/membership_actions';
+import { createMembership, clearMessages } from '../../actions/membership_actions';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import onClickOutside from 'react-onclickoutside';
 
+const mapStateToPRops = (state) => {
+  return {
+    messages: state.ui.membership
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     createMembership: (membership) => dispatch(createMembership(membership)),
+    clearMessages: () => dispatch(clearMessages()),
     closeMenu: () => dispatch(closeMenu())
   };
 };
@@ -22,7 +29,12 @@ class MembershipForm extends React.Component {
       email: ''
     };
     this.update = this.update.bind(this);
+    this.renderMessages = this.renderMessages.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.clearMessages();
   }
 
   handleClickOutside(e) {
@@ -33,6 +45,21 @@ class MembershipForm extends React.Component {
     return (e) => {
       this.setState({ [field]: e.currentTarget.value });
     };
+  }
+
+  renderMessages() {
+    if (!this.props.messages) return null;
+    const messageList = this.props.messages.map((message, idx) => {
+      return (
+        <p key={`membership-msg-${idx}`}>{message}</p>
+      );
+    });
+
+    return (
+      <div className="membership-message-container">
+        {messageList}
+      </div>
+    );
   }
 
   handleSubmit(e) {
@@ -52,6 +79,7 @@ class MembershipForm extends React.Component {
           <span className="membership-form-title">Add Member</span>
           <button className="menu-close" onClick={this.props.closeMenu}><span><FontAwesomeIcon icon={faTimes} /></span></button>
         </div>
+        {this.renderMessages()}
         <div className="membership-form-content">
           <form onSubmit={this.handleSubmit}>
             <input 
@@ -78,4 +106,4 @@ class MembershipForm extends React.Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(onClickOutside(MembershipForm));
+export default connect(mapStateToPRops, mapDispatchToProps)(onClickOutside(MembershipForm));

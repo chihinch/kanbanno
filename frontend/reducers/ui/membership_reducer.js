@@ -1,4 +1,4 @@
-import { RECEIVE_MEMBERSHIP, REMOVE_MEMBERSHIP } from '../../actions/membership_actions';
+import { RECEIVE_MEMBERSHIP, REMOVE_MEMBERSHIP, CLEAR_MEMBERSHIP_MESSAGE } from '../../actions/membership_actions';
 
 const membershipReducer = (state = null, action) => {
   Object.freeze(state);
@@ -6,6 +6,8 @@ const membershipReducer = (state = null, action) => {
     case RECEIVE_MEMBERSHIP:
       return action.membershipMessage;
     case REMOVE_MEMBERSHIP:
+      return null;
+    case CLEAR_MEMBERSHIP_MESSAGE:
       return null;
     default:
       return state;

@@ -1,5 +1,5 @@
 .membership-form-container {
-  height: 150px;
+  height: auto;
   width: 280px;
   position: absolute;
   top: 88px;
@@ -28,10 +28,29 @@
   padding: 0 32px;
 }
 
+.membership-message-container {
+  margin: 0 12px 8px;
+  color: white;
+  background-color: darkblue;
+}
+
+.membership-message-container p {
+  font-size: 14px;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.membership-message-container p:last-of-type {
+  margin-bottom: 0;
+}
+
+.membership-form-content {
+  padding: 0 12px 12px;
+}
+
 .membership-form-content form {
   display: flex;
   flex-direction: column;
-  padding: 0 12px;
 }
 
 .membership-form-content input[type=email] {
