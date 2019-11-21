@@ -46,8 +46,8 @@ class BoardForm extends React.Component {
 
   render() {
     let deleteButton;
-    if (this.props.formType === 'updateBoard') {
-      deleteButton = <button className="board-delete-button" onClick={this.handleDelete} >Delete Board</button>
+    if (this.props.formType === 'updateBoard' && this.props.enableDelete) {
+      deleteButton = <button className="board-delete-button" onClick={this.handleDelete}>Delete Board</button>
     } else {
       deleteButton = null;
     }
