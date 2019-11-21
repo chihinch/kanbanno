@@ -3,6 +3,7 @@ import { withRouter } from 'react-router';
 
 import BoardTitle from './board_title';
 import ListIndexContainer from '../list/list_index_container';
+import BoardSidebar from './board_sidebar';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
@@ -11,6 +12,7 @@ import { faBars, faLock, faUsers, faEllipsisH } from '@fortawesome/free-solid-sv
 class BoardShow extends React.Component {
   constructor(props) {
     super(props);
+    this.openBoardSidebar = this.openBoardSidebar.bind(this);
   }
 
   componentDidMount() {
@@ -21,6 +23,11 @@ class BoardShow extends React.Component {
     if (prevProps.boardId !== this.props.boardId) {
       this.props.fetchBoard(this.props.boardId);
     }
+  }
+
+  openBoardSidebar() {
+    document.getElementById("board-sidebar").style.width = "250px";
+    document.getElementById("board-show-container").style.width = "calc(100% - 250px)";
   }
   
   render() {
@@ -35,8 +42,8 @@ class BoardShow extends React.Component {
 
     const permissionItems = this.props.board.members.length > 1 ? [faUsers, "Shared"] : [faLock, "Private"];
 
-    return (
-      <div className="board-show-container">
+    return (<>
+      <div className="board-show-container" id="board-show-container">
         <div className="board-show-header">
           <BoardTitle title={this.props.board.title} boardId={this.props.boardId} />
 
@@ -71,7 +78,8 @@ class BoardShow extends React.Component {
           </div>
 
           <div className="board-header-buttons right">
-            <a to="#" className="board-header-button" id="menu" onClick = {() => this.props.openUpdateBoardModal(this.props.boardId)}>
+            {/* <a to="#" className="board-header-button" id="menu" onClick = {() => this.props.openUpdateBoardModal(this.props.boardId)}> */}
+            <a to="#" className="board-header-button" id="menu" onClick = {this.openBoardSidebar}>
               <span id="menu-icon"><FontAwesomeIcon icon={faEllipsisH} /></span>
               <span id="menu-text">Show Menu</span>
             </a>
@@ -80,10 +88,9 @@ class BoardShow extends React.Component {
         </div>
 
         <ListIndexContainer />
-        <div>
-        </div>
       </div>
-    )
+      <BoardSidebar />
+    </>)
   }
 }
 

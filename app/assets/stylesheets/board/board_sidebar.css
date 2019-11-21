@@ -1,0 +1,9 @@
+.board-sidebar {
+  height: 100%;
+  width: 0;
+  background-color: white;
+  transition: 0.5s;
+  position: fixed;
+  top: 40px;
+  right: 0;
+}

@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import onClickOutside from 'react-onclickoutside';
 
-const mapStateToPRops = (state) => {
+const mapStateToProps = (state) => {
   return {
     messages: state.ui.membership
   };
@@ -113,4 +113,4 @@ class MembershipForm extends React.Component {
   }
 }
 
-export default connect(mapStateToPRops, mapDispatchToProps)(onClickOutside(MembershipForm));
+export default connect(mapStateToProps, mapDispatchToProps)(onClickOutside(MembershipForm));
