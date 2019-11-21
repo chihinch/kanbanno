@@ -10,7 +10,9 @@ class Board < ApplicationRecord
   has_many :board_memberships,
     class_name: :BoardMembership,
     primary_key: :id,
-    foreign_key: :board_id
+    foreign_key: :board_id,
+    dependent: :destroy
+    
   has_many :members, through: :board_memberships
 
   has_many :lists, dependent: :destroy

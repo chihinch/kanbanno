@@ -2,7 +2,6 @@ class Api::BoardMembershipsController < ApplicationController
 
   def create
     new_member = User.find_by(email: membership_params[:email])
-    debugger
     if new_member
       board_membership = BoardMembership.new(board_id: membership_params[:board_id], member_id: new_member.id)
       if board_membership.save

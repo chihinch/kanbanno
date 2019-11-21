@@ -66,6 +66,7 @@ class MembershipForm extends React.Component {
     e.preventDefault();
     const membership = Object.assign({}, { email: this.state.email, board_id: this.props.boardId })
     this.props.createMembership(membership);
+    this.setState({email: ''});
   }
 
   render() {
