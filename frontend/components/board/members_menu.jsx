@@ -28,9 +28,12 @@ class MembersMenu extends React.Component {
   }
 
   componentDidMount() {
-    const permissionButton = document.getElementById("permission");
-    this.divRef.style.left = permissionButton.offsetLeft;
-    debugger
+    // const permissionButton = document.getElementById("permission");
+    // debugger
+    // const permissionButtonLocation = permissionButton.getBoundingClientRect();
+    // debugger
+    // this.divRef.style.left = `${permissionButtonLocation.left}px;`;
+    // debugger
   }
 
   handleClickOutside(e) {
@@ -55,17 +58,22 @@ class MembersMenu extends React.Component {
   }
 
   render() {
-    return (
-      <div className="board-members-container" ref={divRef => this.divRef = divRef}>
+    const permissionButton = document.getElementById("permission");
+    const permissionButtonLocation = permissionButton.getBoundingClientRect();
+    const containerLeft = permissionButtonLocation.left;
+
+    const boardMembersContainer = 
+      (<div className="board-members-container" style={{left: containerLeft + 'px'}}>
         <div className="board-members-header">
           <span className="board-members-title">Board Members</span>
           <button className="menu-close" onClick={this.props.closeMenu}><span><FontAwesomeIcon icon={faTimes} /></span></button>
         </div>
         <div className="board-members-list">
-        {this.listMembers()}
+          {this.listMembers()}
         </div>
-      </div>
-    )
+      </div>);
+
+    return boardMembersContainer;
   }
 };
 
