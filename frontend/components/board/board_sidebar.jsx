@@ -3,9 +3,10 @@ import { withRouter } from 'react-router';
 import React from 'react';
 
 import { openModal } from '../../actions/modal_actions';
+import { openMenu } from '../../actions/menu_actions';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faBars, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 const mapStateToProps = (state, ownProps) => {
   const boardId = parseInt(ownProps.match.params.boardId);
@@ -17,6 +18,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     openUpdateBoardModal: (id) => dispatch(openModal('updateBoard', id)),
+    openMenu: (type, id) => dispatch(openMenu(type, id)),
   };
 };
 
@@ -43,6 +45,10 @@ class BoardSidebar extends React.Component {
             <a to="#" className="board-sidebar-option" id="sidebar-edit" onClick={() => this.props.openUpdateBoardModal(this.props.boardId)}>
               <span><FontAwesomeIcon icon={faBars} /></span>
               Edit Board
+            </a>
+            <a to="#" className="board-sidebar-option" id="sidebar-edit" onClick={() => this.props.openMenu('membershipFormMenu', this.props.boardId)}>
+              <span><FontAwesomeIcon icon={faUserPlus} /></span>
+              Add a Member
             </a>
           </div>
         </div>

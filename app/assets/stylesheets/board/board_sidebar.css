@@ -34,6 +34,7 @@
   color: #172b4d;
   cursor: pointer;
   font-size: 16px;
+  line-height: 24px;
   border-radius: 3px;
   border: none;
   width: 100%;
@@ -49,4 +50,7 @@
 
 .board-sidebar-option span {
   margin-right: 8px;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
 }
