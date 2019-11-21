@@ -6,7 +6,7 @@ import { openModal } from '../../actions/modal_actions';
 import { openMenu } from '../../actions/menu_actions';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faBars, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faBars, faUserPlus, faUserMinus } from '@fortawesome/free-solid-svg-icons';
 
 const mapStateToProps = (state, ownProps) => {
   const boardId = parseInt(ownProps.match.params.boardId);
@@ -40,9 +40,12 @@ class BoardSidebar extends React.Component {
   listMembers() {
     const memberList = this.props.members.map((member) => {
       const adminText = this.props.adminId === member.id ? ' (Admin)' : '';
+      const deleteIcon = this.props.currentUser === this.props.adminId && this.props.adminId !== member.id ? 
+        <FontAwesomeIcon icon={faUserMinus} /> : null;
       return (
         <li key={`user_${member.id}`}>
           <p>{member.name}{adminText}</p>
+          <span className="delete-member-icon">{deleteIcon}</span>
         </li>
       );
     });
@@ -59,7 +62,7 @@ class BoardSidebar extends React.Component {
       <div className="board-sidebar" id="board-sidebar">
         <div className="board-sidebar-header">
           <span className="board-sidebar-title">Menu</span>
-          <span className="menu-close" onClick={this.closeBoardSidebar}><FontAwesomeIcon icon={faTimes} /></span>
+          <span id="sidebar-menu-close" onClick={this.closeBoardSidebar}><FontAwesomeIcon icon={faTimes} /></span>
         </div>
         <div className="board-sidebar-content">
           <div className="board-sidebar-options">
