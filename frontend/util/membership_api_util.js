@@ -5,3 +5,10 @@ export const createMembership = (membership) => {
     data: { membership }
   });
 };
+
+export const deleteMembership = (membership) => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/boards_memberships/${id}`,
+  });
+};

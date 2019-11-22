@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
     resources :boards, only: [:index, :create, :show, :update, :destroy] do 
       resources :lists, only: [:index, :create]
+      # resources :board_memberships, only: [:destroy]
     end
 
     resources :lists, only: [:update] do
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
 
     resources :cards, only: [:show, :update]
 
-    resources :board_memberships, only: [:create, :destroy]
+    resources :board_memberships, only: [:create]
+    delete '/board_memberships', to: 'board_memberships#destroy'
   end
 end

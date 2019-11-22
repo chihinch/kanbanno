@@ -10,11 +10,20 @@ class Api::BoardMembershipsController < ApplicationController
         render json: ["User is already a member of this board."]
       end
     else
-      render json: ["This user does not exist."]
+      render json: ["This user does not exist."], status: 404
     end
   end
 
   def destroy
+    membership = BoardMembership.find(params[:id])
+    if membership
+      if membership.destroy
+        render json: ["User successfully removed from this board."]
+      else
+        render json: ["Something went wrong."], status: 404
+    else
+      render json: ["This isn't a member of the board."], status: 404
+    end
   end
 
   private

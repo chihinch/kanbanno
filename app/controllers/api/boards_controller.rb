@@ -33,7 +33,7 @@ class Api::BoardsController < ApplicationController
         render json: @board.errors.full_messages, status: 422
       end
     else
-      render json: ['You do not have access to this board.'], status: 403
+      render json: ['You do not have access to this board.'], status: 401
     end
   end
 
@@ -46,7 +46,7 @@ class Api::BoardsController < ApplicationController
         render json: ['Something went wrong.'], status: 404
       end
     else
-      render json: ['You are not the admin of this board'], status: 403
+      render json: ['You are not the admin of this board'], status: 401
     end
   end
 
