@@ -69,10 +69,10 @@ class MembershipForm extends React.Component {
     const membership = Object.assign({}, { email: this.state.email, board_id: this.props.boardId })
     this.props.createMembership(membership).then((message) => {
       if (message.membershipMessage[0] === "Member successfully added.") {
+        this.setState({ email: '' });
         this.props.fetchBoard(this.props.boardId);
       }
     });
-    this.setState({email: ''});
   }
 
   render() {
