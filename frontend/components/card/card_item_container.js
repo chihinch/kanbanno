@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
 import { openModal } from '../../actions/modal_actions';
+import { fetchComments } from '../../actions/comment_actions';
 import CardItem from './card_item';
 
 const mapStateToProps = (state, ownProps) => {
@@ -13,7 +14,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    openCardShowModal: (id) => dispatch(openModal('showCard', id))
+    openCardShowModal: (id) => dispatch(openModal('showCard', id)),
+    fetchComments: (id) => dispatch(fetchComments(id))
   };
 };
 

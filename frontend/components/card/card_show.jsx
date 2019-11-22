@@ -15,6 +15,7 @@ export default class CardShow extends React.Component {
     this.handleKeyEscaper = this.handleKeyEscaper.bind(this);
     this.updateCard = this.updateCard.bind(this);
     this.setHeightOfTextarea = this.setHeightOfTextarea.bind(this);
+    this.handleExit = this.handleExit.bind(this);
   }
 
   update(field) {
@@ -51,6 +52,11 @@ export default class CardShow extends React.Component {
     element.style.height = element.scrollHeight + 'px';
   }
 
+  handleExit() {
+    this.props.clearComments();
+    this.props.closeModal();
+  }
+
   render() {
     return (
       <div className="card-show-container">
@@ -64,7 +70,7 @@ export default class CardShow extends React.Component {
             value={this.state.title}
             >
           </textarea>
-          <span id="card-show-close" className="card-large-icon" onClick={this.props.closeModal}><FontAwesomeIcon icon={faTimes} /></span>
+          <span id="card-show-close" className="card-large-icon" onClick={this.handleExit}><FontAwesomeIcon icon={faTimes} /></span>
           <div id="card-show-header-listname"><p>in list {this.props.listTitle}</p></div>
         </div>
 

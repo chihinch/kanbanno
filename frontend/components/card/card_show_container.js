@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 import CardShow from './card_show';
 import { updateCard } from '../../actions/card_actions';
+import { clearComments } from '../../actions/comment_actions';
 import { closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -18,6 +19,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     updateCard: (card) => dispatch(updateCard(card)),
+    clearComments: () => dispatch(clearComments()),
     closeModal: () => dispatch(closeModal())
   }
 };

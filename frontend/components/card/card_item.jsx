@@ -8,6 +8,12 @@ export default class CardItem extends React.Component {
       id: props.card.id,
       title: props.card.title,
     };
+    this.handleCardClick = this.handleCardClick.bind(this);
+  }
+
+  handleCardClick() {
+    this.props.fetchComments(this.state.id);
+    this.props.openCardShowModal(this.state.id);
   }
 
   render() {
@@ -24,7 +30,8 @@ export default class CardItem extends React.Component {
             {...provided.draggableProps}
             {...provided.dragHandleProps}
           >
-            <div onClick={() => this.props.openCardShowModal(this.state.id)}>
+            {/* <div onClick={() => this.props.openCardShowModal(this.state.id)}> */}
+            <div onClick={this.handleCardClick}>
               <span>{this.state.title}</span>
             </div>
           </div>
