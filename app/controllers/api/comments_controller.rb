@@ -41,6 +41,7 @@ class CommentsController < ApplicationController
     if @card
       if @card.author_id == current_user.id
         if @card.destroy
+          render :show
         else
           render json: ['Something went wrong.'], status: 404
         end
