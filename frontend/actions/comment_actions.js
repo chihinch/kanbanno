@@ -4,6 +4,7 @@ import * as CommentAPIUtil from '../util/comment_api_util';
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
+export const CLEAR_COMMENTS = 'CLEAR_COMMENTS';
 export const RECEIVE_COMMENT_ERRORS = 'RECEIVE_COMMENT_ERRORS';
 export const CLEAR_COMMENT_ERRORS = 'CLEAR_COMMENT_ERRORS';
 
@@ -27,8 +28,8 @@ export const removeComment = (comment) => {
   return {
     type: REMOVE_COMMENT,
     comment,
-  }
-}
+  };
+};
 
 export const receiveErrors = (errors) => {
   return {
@@ -40,8 +41,14 @@ export const receiveErrors = (errors) => {
 export const clearErrors = () => {
   return {
     type: CLEAR_COMMENT_ERRORS
-  }
-}
+  };
+};
+
+export const clearComments = () => {
+  return {
+    type: CLEAR_COMMENTS
+  };
+};
 
 // Comment thunk action creators
 export const fetchComments = () => (dispatch) => {
