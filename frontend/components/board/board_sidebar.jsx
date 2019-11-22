@@ -33,7 +33,6 @@ class BoardSidebar extends React.Component {
   constructor(props) {
     super(props);
     this.closeBoardSidebar = this.closeBoardSidebar.bind(this);
-    // this.handleDeleteMembership = this.handleDeleteMembership.bind(this);
     this.listMembers = this.listMembers.bind(this);
   }
 
@@ -41,13 +40,6 @@ class BoardSidebar extends React.Component {
     document.getElementById("board-sidebar").style.width = "0";
     document.getElementById("board-show-container").style.width = "100%";
   }
-
-  // handleDeleteMembership(e) {
-  //   e.preventDefault();
-  //   const membership = { board_id: this.props.boardId, member_id: parseInt(e.target.dataset.member) };
-  //   // debugger
-  //   this.props.deleteMembership(membership);
-  // }
 
   listMembers() {
     const memberList = this.props.members.map((member) => {
