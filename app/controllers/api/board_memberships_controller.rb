@@ -10,7 +10,7 @@ class Api::BoardMembershipsController < ApplicationController
         render json: ["User is already a member of this board."]
       end
     else
-      render json: ["This user does not exist."], status: 404
+      render json: ["This user does not exist."]
     end
   end
 
