@@ -25,6 +25,11 @@ class BoardShow extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.clearLists();
+    this.props.clearCards();
+  }
+
   openBoardSidebar() {
     document.getElementById("board-sidebar").style.width = "250px";
     document.getElementById("board-show-container").style.width = "calc(100% - 250px)";
@@ -78,7 +83,6 @@ class BoardShow extends React.Component {
           </div>
 
           <div className="board-header-buttons right">
-            {/* <a to="#" className="board-header-button" id="menu" onClick = {() => this.props.openUpdateBoardModal(this.props.boardId)}> */}
             <a to="#" className="board-header-button" id="menu" onClick = {this.openBoardSidebar}>
               <span id="menu-icon"><FontAwesomeIcon icon={faEllipsisH} /></span>
               <span id="menu-text">Show Menu</span>

@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 
 import { fetchBoard } from '../../actions/board_actions';
+import { clearLists } from '../../actions/list_actions';
+import { clearCards } from '../../actions/card_actions';
 import { openModal } from '../../actions/modal_actions';
 import { openMenu } from '../../actions/menu_actions';
 import BoardShow from './board_show';
@@ -20,6 +22,8 @@ const mapDispatchToProps = (dispatch) => {
     openUpdateBoardModal: (id) => dispatch(openModal('updateBoard', id)),
     openMenu: (type, id) => dispatch(openMenu(type, id)),
     fetchBoard: (id) => dispatch(fetchBoard(id)),
+    clearLists: () => dispatch(clearLists()),
+    clearCards: () => dispatch(clearCards()),
   };
 };
 

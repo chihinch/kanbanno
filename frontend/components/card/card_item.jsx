@@ -30,7 +30,6 @@ export default class CardItem extends React.Component {
             {...provided.draggableProps}
             {...provided.dragHandleProps}
           >
-            {/* <div onClick={() => this.props.openCardShowModal(this.state.id)}> */}
             <div onClick={this.handleCardClick}>
               <span>{this.state.title}</span>
             </div>

@@ -1,4 +1,4 @@
-import { RECEIVE_CARDS, RECEIVE_CARD } from '../../actions/card_actions';
+import { RECEIVE_CARDS, RECEIVE_CARD, CLEAR_CARDS } from '../../actions/card_actions';
 import { RECEIVE_BOARD } from '../../actions/board_actions';
 import merge from 'lodash/merge';
 
@@ -12,6 +12,8 @@ const cardsReducer = (state = {}, action) => {
       return merge({}, action.cards);
     case RECEIVE_CARD:
       return merge({}, state, { [action.card.id]: action.card });
+    case CLEAR_CARDS:
+      return {};
     default:
       return state;
   }

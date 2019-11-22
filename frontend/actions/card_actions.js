@@ -3,6 +3,7 @@ import * as CardAPIUtil from '../util/card_api_util';
 // Card action type constants
 export const RECEIVE_CARDS = 'RECEIVE_CARDS';
 export const RECEIVE_CARD = 'RECEIVE_CARD';
+export const CLEAR_CARDS = 'CLEAR_CARDS';
 export const RECEIVE_CARD_ERRORS = 'RECEIVE_CARD_ERRORS';
 export const CLEAR_CARD_ERRORS = 'CLEAR_CARD_ERRORS';
 
@@ -21,6 +22,12 @@ export const receiveCard = (card) => {
   };
 };
 
+export const clearCards = () => {
+  return {
+    type: CLEAR_CARDS
+  };
+};
+
 export const receiveErrors = (errors) => {
   return {
     type: RECEIVE_CARD_ERRORS,
@@ -31,8 +38,8 @@ export const receiveErrors = (errors) => {
 export const clearErrors = () => {
   return {
     type: CLEAR_CARD_ERRORS
-  }
-}
+  };
+};
 
 // Card thunk action creators
 export const fetchCards = (listId) => (dispatch) => {
