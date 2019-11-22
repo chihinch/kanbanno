@@ -6,7 +6,7 @@ const membershipReducer = (state = null, action) => {
     case RECEIVE_MEMBERSHIP:
       return action.membershipMessage;
     case REMOVE_MEMBERSHIP:
-      return null;
+      return action.membershipMessage;
     case CLEAR_MEMBERSHIP_MESSAGE:
       return null;
     default:

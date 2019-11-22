@@ -9,6 +9,7 @@ export const createMembership = (membership) => {
 export const deleteMembership = (membership) => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/boards_memberships/${id}`,
+    url: `/api/board_memberships`,
+    data: { membership }
   });
 };

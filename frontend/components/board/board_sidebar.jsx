@@ -4,6 +4,8 @@ import React from 'react';
 
 import { openModal } from '../../actions/modal_actions';
 import { openMenu } from '../../actions/menu_actions';
+import { fetchBoard } from '../../actions/board_actions';
+import { deleteMembership } from '../../actions/membership_actions';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faBars, faUserPlus, faUserMinus } from '@fortawesome/free-solid-svg-icons';
@@ -22,6 +24,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     openUpdateBoardModal: (id) => dispatch(openModal('updateBoard', id)),
     openMenu: (type, id) => dispatch(openMenu(type, id)),
+    fetchBoard: (id) => dispatch(fetchBoard(id)),
+    deleteMembership: (membership) => dispatch(deleteMembership(membership))
   };
 };
 
@@ -29,6 +33,7 @@ class BoardSidebar extends React.Component {
   constructor(props) {
     super(props);
     this.closeBoardSidebar = this.closeBoardSidebar.bind(this);
+    // this.handleDeleteMembership = this.handleDeleteMembership.bind(this);
     this.listMembers = this.listMembers.bind(this);
   }
 
@@ -37,15 +42,32 @@ class BoardSidebar extends React.Component {
     document.getElementById("board-show-container").style.width = "100%";
   }
 
+  // handleDeleteMembership(e) {
+  //   e.preventDefault();
+  //   const membership = { board_id: this.props.boardId, member_id: parseInt(e.target.dataset.member) };
+  //   // debugger
+  //   this.props.deleteMembership(membership);
+  // }
+
   listMembers() {
     const memberList = this.props.members.map((member) => {
       const adminText = this.props.adminId === member.id ? ' (Admin)' : '';
+      const membership = { board_id: this.props.boardId, member_id: member.id };
       const deleteIcon = this.props.currentUser === this.props.adminId && this.props.adminId !== member.id ? 
         <FontAwesomeIcon icon={faUserMinus} /> : null;
       return (
         <li key={`user_${member.id}`}>
           <p>{member.name}{adminText}</p>
-          <span className="delete-member-icon">{deleteIcon}</span>
+          <span 
+            className="delete-member-icon" 
+            onClick={() => this.props.deleteMembership(membership).then((message) => {
+              if (message.membershipMessage[0] === "User successfully removed from this board.") {
+                this.props.fetchBoard(this.props.boardId);
+              }
+            })}
+          >
+            {deleteIcon}
+          </span>
         </li>
       );
     });

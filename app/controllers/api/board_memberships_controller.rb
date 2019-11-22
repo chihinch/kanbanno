@@ -15,12 +15,13 @@ class Api::BoardMembershipsController < ApplicationController
   end
 
   def destroy
-    membership = BoardMembership.find(params[:id])
+    membership = BoardMembership.find_by(board_id: membership_params[:board_id], member_id: membership_params[:member_id])
     if membership
       if membership.destroy
         render json: ["User successfully removed from this board."]
       else
         render json: ["Something went wrong."], status: 404
+      end
     else
       render json: ["This isn't a member of the board."], status: 404
     end
@@ -28,7 +29,7 @@ class Api::BoardMembershipsController < ApplicationController
 
   private
   def membership_params
-    params.require(:membership).permit(:email, :board_id);
+    params.require(:membership).permit(:email, :board_id, :member_id);
   end
 
 end

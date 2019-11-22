@@ -13,6 +13,13 @@ export const receiveMembership = (membershipMessage) => {
   };
 };
 
+export const removeMembership = (membershipMessage) => {
+  return {
+    type: REMOVE_MEMBERSHIP,
+    membershipMessage,
+  };
+};
+
 export const clearMessages = () => {
   return {
     type: CLEAR_MEMBERSHIP_MESSAGE,
@@ -23,5 +30,11 @@ export const clearMessages = () => {
 export const createMembership = (membership) => (dispatch) => {
   return MembershipAPIUtil.createMembership(membership).then((message) => {
     return dispatch(receiveMembership(message))
+  });
+};
+
+export const deleteMembership = (membership) => (dispatch) => {
+  return MembershipAPIUtil.deleteMembership(membership).then((message) => {
+    return dispatch(removeMembership(message));
   });
 };
