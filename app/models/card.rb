@@ -3,6 +3,7 @@ class Card < ApplicationRecord
   validates :archived, inclusion: { in: [true, false] }
 
   belongs_to :list
+  has_many :comments
 
   def prev_card
     Card.find_by(id: self.prev_card_id)

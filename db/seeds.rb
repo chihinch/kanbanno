@@ -150,6 +150,20 @@ b1_l1_lists[1].updateNeighbours(b1_l1_lists[0].id, b1_l1_lists[2].id)
 b1_l1_lists[2].updateNeighbours(b1_l1_lists[1].id, nil)
 
 
+
+b1_l1_c1_co1 = {
+  body: "Don't forget a bucket for the milk!",
+  author_id: seed_users.first.id,
+  card_id: b1_l1_lists.first.id
+}
+b1_l1_c3_co1 = {
+  body: "There's a wheat field in front of the windmill.",
+  author_id: seed_users.third.id,
+  card_id: b1_l1_lists.third.id
+}
+b1_comments = Comment.create([b1_l1_c1_co1, b1_l1_c3_co1])
+
+
 b2_l1_c1 = {
   title: "Visit Oziach in Edgeville",
   description: "He has a quest worthy of a champion.",
