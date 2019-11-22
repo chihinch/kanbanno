@@ -51,8 +51,8 @@ export const clearComments = () => {
 };
 
 // Comment thunk action creators
-export const fetchComments = () => (dispatch) => {
-  return CommentAPIUtil.fetchComments().then((comments) => {
+export const fetchComments = (cardId) => (dispatch) => {
+  return CommentAPIUtil.fetchComments(cardId).then((comments) => {
     dispatch(receiveComments(comments))
   },
     (errors) => {

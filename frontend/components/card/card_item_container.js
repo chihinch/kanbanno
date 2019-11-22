@@ -15,7 +15,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     openCardShowModal: (id) => dispatch(openModal('showCard', id)),
-    fetchComments: (id) => dispatch(fetchComments(id))
+    fetchComments: (cardId) => dispatch(fetchComments(cardId))
   };
 };
 
