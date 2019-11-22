@@ -6,14 +6,16 @@ const commentsReducer = (state = {}, action) => {
   let nextState = {};
 
   switch (action.type) {
-    case RECEIVE_BOARDS:
+    case RECEIVE_COMMENTS:
       return merge({}, action.comments);
-    case RECEIVE_BOARD:
+    case RECEIVE_COMMENT:
       return Object.assign({}, state, { [action.comment.id]: action.comment });
-    case REMOVE_BOARD:
+    case REMOVE_COMMENT:
       nextState = merge({}, state);
       delete nextState[action.comment.id];
       return nextState;
+    case CLEAR_COMMENTS:
+      return {};
     default:
       return state;
   }
