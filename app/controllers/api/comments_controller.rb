@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController 
+class Api::CommentsController < ApplicationController 
 
   def index
     @comments = Comment.where(card_id: params[:card_id])
