@@ -4,6 +4,7 @@ class List < ApplicationRecord
 
   belongs_to :board
   has_many :cards, dependent: :destroy
+  has_many :comments, through: :cards, source: :comments
 
   def prev_list
     List.find_by(id: self.prev_list_id)
