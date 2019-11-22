@@ -1,18 +1,24 @@
 class CommentsController < ApplicationController 
 
-  def obtain_cards
-    @cards = Comment.where(card_id: params[:card_id])
+  def index
+    @comments = Comment.where(card_id: params[:card_id])
   end
 
-  def index
-    obtain_cards()
+  def show
+    @comment = Comment.find(params[:id])
+    if @comment
+      render :show
+    else
+      render json: @comment.errors.full_messages, status: 404
+    end
   end
 
   def create
-    @card = Comment.new(comment_params)
-    if @card.save
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      render :show
     else
-      render json: @card.errors.full_messages, status: 422
+      render json: @comment.errors.full_messages, status: 422
     end
   end
 
@@ -21,6 +27,7 @@ class CommentsController < ApplicationController
     if @card
       if @card.author_id == current_user.id
         @card.update_attribute({body: comment_params[:body]})
+        render :show
       else
         render json: ["You are not the author of the card"], status: 401
       end
