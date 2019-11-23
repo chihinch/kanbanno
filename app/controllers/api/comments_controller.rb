@@ -1,7 +1,7 @@
 class Api::CommentsController < ApplicationController 
 
   def index
-    @comments = Comment.where(card_id: params[:card_id])
+    @comments = Comment.where(card_id: params[:card_id]).order(created_at: :desc)
   end
 
   def show

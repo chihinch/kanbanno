@@ -156,12 +156,17 @@ b1_l1_c1_co1 = {
   author_id: seed_users.first.id,
   card_id: b1_l1_lists.first.id
 }
+b1_l1_c1_co2 = {
+  body: "Don't spill the milk!",
+  author_id: seed_users.second.id,
+  card_id: b1_l1_lists.first.id
+}
 b1_l1_c3_co1 = {
   body: "There's a wheat field in front of the windmill.",
   author_id: seed_users.third.id,
   card_id: b1_l1_lists.third.id
 }
-b1_comments = Comment.create([b1_l1_c1_co1, b1_l1_c3_co1])
+b1_comments = Comment.create([b1_l1_c1_co1, b1_l1_c1_co2, b1_l1_c3_co1])
 
 
 b2_l1_c1 = {
