@@ -25,11 +25,15 @@ class CommentItem extends React.Component {
   }
 
   render() {
+    const updated = new Date(this.props.comment.updated_at);
+    const readableUpdated = updated.toLocaleString([], { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' });
+
     return (
       <li className="comment-list-item">
         <div className="comment-item-container">
           <div className="comment-item-header">
-            <span>{this.props.author}</span>
+            <span id="comment-item-author">{this.props.author}</span>
+            <span id="comment-item-updatedat">{readableUpdated}</span>
           </div>
           <div className="comment-item-body">
             <p>{this.state.body}</p>
