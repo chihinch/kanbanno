@@ -32,6 +32,7 @@ export default class CommentIndex extends React.Component {
           <span className="card-large-icon"><FontAwesomeIcon icon={faComments} /></span>
           <h3>Comments</h3>
         </div>
+        {this.renderComments()}
       </div>
     );
   }
