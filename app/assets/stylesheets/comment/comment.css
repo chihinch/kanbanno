@@ -1,0 +1,35 @@
+.card-comments-list {
+  margin-left: 32px;
+  padding-left: 4px;
+}
+
+.comment-item-header {
+  margin-bottom: 4px;
+}
+
+#comment-item-author {
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+#comment-item-updatedat {
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+.comment-list-item {
+  margin-bottom: 12px;
+}
+
+.comment-item-body {
+  background-color: white;
+  border-radius: 3px;
+  border: none;
+  padding: 8px 12px;
+}
+
+.comment-item-body p {
+  margin: 0;
+  font-size: 16px;
+}
