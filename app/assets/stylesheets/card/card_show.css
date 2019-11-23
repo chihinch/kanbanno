@@ -91,18 +91,18 @@
   cursor: pointer;
 }
 
-.card-description {
+.card-section-container {
   margin-bottom: 24px;
 }
 
-.card-description-top {
+.card-section-header {
   display: flex;
   align-items: center;
   padding: 8px 0;
   position: relative;
 }
 
-.card-description-top h3 {
+.card-section-header h3 {
   display: inline-block;
   margin: 0;
   padding-left: 4px;

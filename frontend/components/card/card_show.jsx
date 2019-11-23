@@ -1,5 +1,7 @@
 import React from 'react';
 
+import CommentIndexContainer from '../comment/comment_index_container';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faPencilAlt, faAlignJustify } from '@fortawesome/free-solid-svg-icons';
 
@@ -75,8 +77,8 @@ export default class CardShow extends React.Component {
         </div>
 
         <div className="card-show-main">
-          <div className="card-description">
-            <div className="card-description-top">
+          <div className="card-section-container">
+            <div className="card-section-header" id="card-description">
               <span className="card-large-icon"><FontAwesomeIcon icon={faAlignJustify} /></span>
               <h3>Description</h3>
             </div>
@@ -90,6 +92,8 @@ export default class CardShow extends React.Component {
             >
             </textarea>
           </div>
+
+          <CommentIndexContainer />
         </div>
       </div>
     )

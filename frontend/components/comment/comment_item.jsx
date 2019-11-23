@@ -16,10 +16,17 @@ const mapDispatchToProps = (dispatch) => {
 class CommentItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      body: props.comment.body,
+    };
   }
 
   render() {
-
+    return (
+      <li className="comment-item">
+        {this.state.body}
+      </li>
+    )
   }
 };
 
