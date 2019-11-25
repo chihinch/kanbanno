@@ -17,10 +17,45 @@ const mapDispatchToProps = (dispatch) => {
 class CommentForm extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      body: ''
+    };
+    this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  update(field) {
+    return (e) => {
+      this.setState({ [field]: e.currentTarget.value });
+    };
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    let comment;
+    card = Object.assign({}, this.state, { author_id: this.props.authorId, card_id: this.props.cardId });
+    // this.props.createCard(this.props.listId, card)
+    //   .then(() => this.setState({ title: "" }));
   }
 
   render() {
+    return (
+      <form className="comment-form">
+        <textarea 
+          className="comment-body-input"
+          value={this.state.title}
+          onChange={this.update('body')}
+          placeholder="Write a comment..."
+        >
+        </textarea>
 
+        <input type="submit"
+          value="Save"
+          disabled={!this.state.title}
+          className="comment-input-submit"
+        />
+      </form>
+    );
   }
 }
 

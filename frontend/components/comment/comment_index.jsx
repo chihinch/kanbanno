@@ -1,5 +1,6 @@
 import React from 'react';
 
+import CommentForm from './comment_form';
 import CommentItem from './comment_item';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -32,6 +33,7 @@ export default class CommentIndex extends React.Component {
           <span className="card-large-icon"><FontAwesomeIcon icon={faComments} /></span>
           <h3>Comments</h3>
         </div>
+        <CommentForm cardId={this.props.cardId} />
         {this.renderComments()}
       </div>
     );

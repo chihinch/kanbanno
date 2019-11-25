@@ -93,7 +93,7 @@ export default class CardShow extends React.Component {
             </textarea>
           </div>
 
-          <CommentIndexContainer />
+          <CommentIndexContainer  cardId={this.state.id}/>
         </div>
       </div>
     )
