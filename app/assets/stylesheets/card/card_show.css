@@ -108,6 +108,43 @@
   padding-left: 4px;
 }
 
+.duedate-form {
+  margin-left: 36px;
+}
+
+.duedate-form input[type=date] {
+  margin-bottom: 8px;
+  margin-right: 8px;
+  font-family: inherit;
+  border-radius: 3px;
+  border: none;
+  padding: 4px;
+  height: 32px;
+  width: 150px;
+  line-height: 20px;
+  font-size: 16px;
+}
+
+.duedate-form input[type=submit] {
+  background-color: #5aac44;
+  box-shadow: none;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  height: 32px;
+/*   margin-top: 4px; */
+  padding-top: 4px;
+  padding-bottom: 4px;
+  cursor: pointer;
+  line-height: 20px;
+  width: 72px;
+  font-size: 14px;
+}
+
+.duedate-form input[type=submit]:hover {
+  background-color: #61bd4f;
+}
+
 .card-description-editor {
   margin-left: 30px;
   width: 500px;

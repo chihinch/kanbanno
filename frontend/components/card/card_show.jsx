@@ -61,6 +61,12 @@ export default class CardShow extends React.Component {
   }
 
   render() {
+    const duedateForm = 
+      <form className="duedate-form" onSubmit={this.updateCard}>
+        <input type="date" value={this.state.duedate} onChange={this.update('duedate')} />
+        <input type="submit" value="Save"/>
+      </form>
+
     return (
       <div className="card-show-container">
         <div className="card-show-header">
@@ -83,9 +89,10 @@ export default class CardShow extends React.Component {
               <span className="card-large-icon"><FontAwesomeIcon icon={faCalendar} /></span>
               <h3>Due Date</h3>
             </div>
-            <form className="duedate-form">
+            {/* <form className="duedate-form">
               <input type="date" value={this.state.duedate} onChange={this.update('duedate')}/>
-            </form>
+            </form> */}
+            {duedateForm}
           </div>
           <div className="card-section-container">
             <div className="card-section-header" id="card-description">
