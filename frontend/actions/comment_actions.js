@@ -18,6 +18,7 @@ export const receiveComments = (comments) => {
 };
 
 export const receiveComment = (comment) => {
+  debugger
   return {
     type: RECEIVE_COMMENT,
     comment,
