@@ -23,6 +23,17 @@ export default class CardShow extends React.Component {
     this.handleExit = this.handleExit.bind(this);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      this.setState({
+        title: this.props.card.title,
+        description: this.props.card.description,
+        due_date: this.props.card.due_date,
+        editDuedate: false,
+      });
+    }
+  }
+
   toggleDuedateForm() {
     const duedate = this.state.due_date ? this.state.due_date : this.props.card.due_date;
     this.setState({ due_date: duedate, editDuedate: !this.state.editDuedate });
@@ -85,14 +96,15 @@ export default class CardShow extends React.Component {
   }
 
   render() {
+    const duedate = !this.state.due_date ? null : new Date(this.state.due_date);
+
     const duedateForm = 
       <form className="duedate-form" onSubmit={this.updateCard}>
-          <input type="date" value={this.state.due_date} onChange={this.update('due_date')} required/>
+          <input type="date" value={duedate ? duedate : ''} onChange={this.update('due_date')} required/>
           <input type="submit" value="Save"/>
           <span onClick={this.toggleDuedateForm}><FontAwesomeIcon icon={faTimes} />Cancel</span>
       </form>
 
-    const duedate = !this.state.due_date ? null : new Date(this.state.due_date);
     const todayDate = new Date();
     let dateProximityMsg = '';
     let dateProximityStyle = { background: 'transparent' }; 
