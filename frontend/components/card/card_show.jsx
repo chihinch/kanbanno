@@ -15,6 +15,7 @@ export default class CardShow extends React.Component {
       editDuedate: false,
     }
     this.toggleDuedateForm = this.toggleDuedateForm.bind(this);
+    this.exitDueDateForm = this.exitDueDateForm.bind(this);
     this.update = this.update.bind(this);
     this.removeDuedate = this.removeDuedate.bind(this);
     this.handleKeyEscaper = this.handleKeyEscaper.bind(this);
@@ -35,8 +36,12 @@ export default class CardShow extends React.Component {
   }
 
   toggleDuedateForm() {
-    const duedate = this.state.due_date ? this.state.due_date : this.props.card.due_date;
-    this.setState({ due_date: duedate, editDuedate: !this.state.editDuedate });
+    this.setState({ editDuedate: !this.state.editDuedate });
+  }
+
+  exitDueDateForm() {
+    this.setState({ due_date: this.props.card.due_date });
+    this.toggleDuedateForm();
   }
 
   update(field) {
@@ -104,7 +109,7 @@ export default class CardShow extends React.Component {
       <form className="duedate-form" onSubmit={this.updateCard}>
           <input type="date" value={this.state.due_date ? this.state.due_date : ''} onChange={this.update('due_date')} required/>
           <input type="submit" value="Save"/>
-          <span onClick={this.toggleDuedateForm}><FontAwesomeIcon icon={faTimes} />Cancel</span>
+          <span onClick={this.exitDueDateForm}><FontAwesomeIcon icon={faTimes} />Cancel</span>
       </form>
 
     const todayDate = new Date();
