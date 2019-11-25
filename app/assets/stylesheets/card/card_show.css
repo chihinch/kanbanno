@@ -136,12 +136,12 @@
   margin-right: 4px;
 }
 
-.duedate-display button:last-of-type {
+#remove-duedate-button {
   background-color: #a62b2b;
   color: white;
 }
 
-.duedate-display button:last-of-type:hover {
+#remove-duedate-button:hover {
   background-color: #bf3d3d;
 }
 

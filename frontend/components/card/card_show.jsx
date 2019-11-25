@@ -120,8 +120,8 @@ export default class CardShow extends React.Component {
     const duedateDisplay = 
       <div className="duedate-display">
         <span>{readableDuedate}</span>{dateProximitySpan}
-        <button onClick={this.toggleDuedateForm}>Change</button>
-        <button onClick={this.removeDuedate}>Remove</button>
+        <button onClick={this.toggleDuedateForm} id="change-duedate-button">Change</button>
+        {duedate? <button onClick={this.removeDuedate} id="remove-duedate-button">Remove</button> : null}
       </div>
 
     return (
