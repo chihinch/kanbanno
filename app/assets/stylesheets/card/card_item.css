@@ -10,10 +10,19 @@
 }
 
 .card-item-container span {
-    display: block;
-    padding: 2px 0px;
-    overflow: hidden;
-    text-decoration: none;
-    word-wrap: break-word;
-    color: #172b4d;
+  display: block;
+  padding: 2px 0px;
+  overflow: hidden;
+  text-decoration: none;
+  word-wrap: break-word;
+  color: #172b4d;
+}
+
+.card-item-container span#card-item-duedate {
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.card-item-container span#card-item-duedate svg {
+  margin-right: 4px;
 }

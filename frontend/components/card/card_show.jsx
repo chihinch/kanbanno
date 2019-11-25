@@ -11,7 +11,7 @@ export default class CardShow extends React.Component {
     this.state = {
       title: props.card.title,
       description: props.card.description,
-      due_date: props.card.due_date ? props.card.due_date : '',
+      due_date: props.card.due_date,
       editDuedate: false,
     }
     this.toggleDuedateForm = this.toggleDuedateForm.bind(this);
@@ -42,7 +42,9 @@ export default class CardShow extends React.Component {
   update(field) {
     return (e) => {
       this.setState({ [field]: e.target.value });
-      this.setHeightOfTextarea(e.target);
+      if (e.target.tagName === 'TEXTAREA') {
+        this.setHeightOfTextarea(e.target);
+      }
     };
   }
 
@@ -96,11 +98,11 @@ export default class CardShow extends React.Component {
   }
 
   render() {
-    const duedate = !this.state.due_date ? null : new Date(this.state.due_date);
+    const duedate = !this.state.due_date ? '' : new Date(this.state.due_date);
 
     const duedateForm = 
       <form className="duedate-form" onSubmit={this.updateCard}>
-          <input type="date" value={duedate ? duedate : ''} onChange={this.update('due_date')} required/>
+          <input type="date" value={this.state.due_date ? this.state.due_date : ''} onChange={this.update('due_date')} required/>
           <input type="submit" value="Save"/>
           <span onClick={this.toggleDuedateForm}><FontAwesomeIcon icon={faTimes} />Cancel</span>
       </form>
