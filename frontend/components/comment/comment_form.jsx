@@ -51,7 +51,7 @@ class CommentForm extends React.Component {
       <form className="comment-form" onSubmit={this.handleSubmit}>
         <textarea 
           className="comment-body-input"
-          value={this.state.title}
+          value={this.state.body}
           onChange={this.update('body')}
           placeholder="Write a comment..."
         >
