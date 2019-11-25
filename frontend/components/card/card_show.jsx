@@ -3,7 +3,7 @@ import React from 'react';
 import CommentIndexContainer from '../comment/comment_index_container';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faPencilAlt, faAlignJustify } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faPencilAlt, faAlignJustify, faCalendar } from '@fortawesome/free-solid-svg-icons';
 
 export default class CardShow extends React.Component {
   constructor(props) {
@@ -12,6 +12,7 @@ export default class CardShow extends React.Component {
       id: props.card.id,
       title: props.card.title,
       description: props.card.description,
+      duedate: props.card.due_date ? props.card.due_date : new Date(),
     }
     this.update = this.update.bind(this);
     this.handleKeyEscaper = this.handleKeyEscaper.bind(this);
@@ -77,6 +78,15 @@ export default class CardShow extends React.Component {
         </div>
 
         <div className="card-show-main">
+          <div className="card-section-container">
+            <div className="card-section-header" id="card-duedate">
+              <span className="card-large-icon"><FontAwesomeIcon icon={faCalendar} /></span>
+              <h3>Due Date</h3>
+            </div>
+            <form className="duedate-form">
+              <input type="date" value={this.state.duedate} onChange={this.update('duedate')}/>
+            </form>
+          </div>
           <div className="card-section-container">
             <div className="card-section-header" id="card-description">
               <span className="card-large-icon"><FontAwesomeIcon icon={faAlignJustify} /></span>
