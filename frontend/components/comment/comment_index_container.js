@@ -8,10 +8,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
+// const mapDispatchToProps = (dispatch) => {
+//   return {
 
-  };
-};
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CommentIndex);
+export default connect(mapStateToProps, null)(CommentIndex);
