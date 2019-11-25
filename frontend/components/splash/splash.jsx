@@ -117,7 +117,7 @@ export default class Splash extends React.Component {
           </div>
         </section>
 
-        <Footer demoLogin={this.props.demoLogin}/>
+        <Footer />
       </div>
     </>);
   }
