@@ -84,3 +84,18 @@
   margin: 0;
   font-size: 16px;
 }
+
+.comment-item-container span {
+  margin-top: 4px;
+}
+
+.comment-item-a {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #5e6c84;
+  font-size: 12px;
+}
+
+.comment-form-a:hover {
+  color: #172b4d;
+}

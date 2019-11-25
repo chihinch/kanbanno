@@ -23,33 +23,33 @@ class Api::CommentsController < ApplicationController
   end
 
   def update
-    @card = Comment.find(params[:id])
-    if @card
-      if @card.author_id == current_user.id
-        @card.update_attribute({body: comment_params[:body]})
+    @comment = Comment.find(params[:id])
+    if @comment
+      if @comment.author_id == current_user.id
+        @comment.update_attribute({body: comment_params[:body]})
         render :show
       else
-        render json: ["You are not the author of the card"], status: 401
+        render json: ["You are not the author of the comment"], status: 401
       end
     else
-      render @card.errors.full_messages, status: 404
+      render @comment.errors.full_messages, status: 404
     end
   end
 
   def destroy
-    @card = Comment.find(params[:id])
-    if @card
-      if @card.author_id == current_user.id
-        if @card.destroy
+    @comment = Comment.find(params[:id])
+    if @comment
+      if @comment.author_id == current_user.id
+        if @comment.destroy
           render :show
         else
           render json: ['Something went wrong.'], status: 404
         end
       else
-        render json: ["You are not the author of the card"], status: 401
+        render json: ["You are not the author of the comment"], status: 401
       end
     else
-      render @card.errors.full_messages, status: 404
+      render @comment.errors.full_messages, status: 404
     end
   end
 
