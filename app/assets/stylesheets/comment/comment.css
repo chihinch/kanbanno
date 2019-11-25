@@ -1,3 +1,54 @@
+.comment-form {
+  background-color: white;
+  margin-left: 36px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 8px -2px rgba(9,30,66,.25),0 0 0 1px rgba(9,30,66,.08);
+  border-radius: 3px;
+  padding: 4px 0;
+}
+
+.comment-body-input {
+  display: block;
+  margin: 4px 8px;
+  border: none;
+  width: 484px;
+}
+
+.comment-body-input:focus {
+  box-shadow: none;
+}
+
+.comment-body-input::placeholder {
+  color: #a5adba;;
+}
+
+.comment-input-submit {
+  background-color: #5aac44;
+  box-shadow: none;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  height: 32px;
+  margin: 4px 8px 0;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  cursor: pointer;
+  line-height: 20px;
+  width: 50px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.comment-input-submit:hover {
+  background-color: #61bd4f;
+}
+
+.comment-input-submit[disabled] {
+  cursor: not-allowed;
+  background-color: #f4f5f7;
+  color: #a5adba;
+}
+
 .card-comments-list {
   margin-left: 32px;
   padding-left: 4px;

@@ -21,13 +21,20 @@ class CommentForm extends React.Component {
       body: ''
     };
     this.update = this.update.bind(this);
+    this.setHeightOfTextarea = this.setHeightOfTextarea.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
     return (e) => {
       this.setState({ [field]: e.currentTarget.value });
+      this.setHeightOfTextarea(e.target);
     };
+  }
+
+  setHeightOfTextarea(element) {
+    element.style.height = 'inherit';
+    element.style.height = element.scrollHeight + 'px';
   }
 
   handleSubmit(e) {
