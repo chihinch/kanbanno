@@ -132,17 +132,20 @@ b3_seed_lists[2].updateNeighbours(b3_seed_lists[1].id, nil)
 b1_l1_c1 = {
   title: "Fetch a bucket of milk",
   description: "There are dairy cows in the field across the River Lum.",
-  list_id: b1_seed_lists.first.id
+  list_id: b1_seed_lists.first.id,
+  due_date: "2019-10-20"
 }
 b1_l1_c2 = {
   title: "Fetch an egg",
   description: "There's a chicken coop across the field with the dairy cows.",
-  list_id: b1_seed_lists.first.id
+  list_id: b1_seed_lists.first.id,
+  due_date: "2019-12-25"
 }
 b1_l1_c3 = {
   title: "Fetch flour",
   description: "The windmill is on the way to Draynor Village.",
-  list_id: b1_seed_lists.first.id
+  list_id: b1_seed_lists.first.id,
+  due_date: "2019-12-25"
 }
 b1_l1_lists = Card.create([b1_l1_c1, b1_l1_c2, b1_l1_c3])
 b1_l1_lists[0].updateNeighbours(nil, b1_l1_lists[1].id)
@@ -154,17 +157,17 @@ b1_l1_lists[2].updateNeighbours(b1_l1_lists[1].id, nil)
 b1_l1_c1_co1 = {
   body: "Don't forget a bucket for the milk!",
   author_id: seed_users.first.id,
-  card_id: b1_l1_lists.first.id
+  card_id: b1_l1_lists.first.id,
 }
 b1_l1_c1_co2 = {
   body: "Don't spill the milk!",
   author_id: seed_users.second.id,
-  card_id: b1_l1_lists.first.id
+  card_id: b1_l1_lists.first.id,
 }
 b1_l1_c3_co1 = {
   body: "There's a wheat field in front of the windmill.",
   author_id: seed_users.third.id,
-  card_id: b1_l1_lists.third.id
+  card_id: b1_l1_lists.third.id,
 }
 b1_comments = Comment.create([b1_l1_c1_co1, b1_l1_c1_co2, b1_l1_c3_co1])
 

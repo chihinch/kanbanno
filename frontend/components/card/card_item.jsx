@@ -1,6 +1,9 @@
 import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendar } from '@fortawesome/free-solid-svg-icons';
+
 export default class CardItem extends React.Component {
   constructor(props) {
     super(props);
@@ -17,6 +20,29 @@ export default class CardItem extends React.Component {
   }
 
   render() {
+    const duedate = !this.props.card.due_date ? '' : new Date(this.props.card.due_date);
+    const todayDate = new Date();
+
+    let dateProximityStyle = { background: 'transparent' }; 
+    let readableDuedate;
+    let duedateDisplay;
+
+    if (duedate) {
+      readableDuedate = duedate.toLocaleDateString([], { timeZone: 'UTC', month: 'short', day: 'numeric' });
+      if (duedate < todayDate) {
+        dateProximityStyle = { 'background-color': '#ec9488', padding: '2px', color: 'white' };
+      }
+      const timeDiff = Math.abs(duedate.getTime() - todayDate.getTime());
+      const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+      if (daysDiff <= 3) {
+        dateProximityStyle = { 'background-color': '#e6c60d', padding: '2px', color: 'black' };
+      }
+      duedateDisplay = <span id="card-item-duedate" style={dateProximityStyle}><FontAwesomeIcon icon={faCalendar} />{readableDuedate}</span>;
+    }
+    else {
+      duedateDisplay = null;
+    }
+
     return (
       <Draggable 
         draggableId={`card_${this.props.card.id}`}
@@ -32,6 +58,7 @@ export default class CardItem extends React.Component {
           >
             <div onClick={this.handleCardClick}>
               <span>{this.state.title}</span>
+              {duedateDisplay}
             </div>
           </div>
         )}

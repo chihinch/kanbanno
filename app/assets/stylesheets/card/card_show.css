@@ -2,10 +2,11 @@
   width: 768px;
   background-color: #f4f5f7;
   border-radius: 2px;
-  margin: 48px 0 80px;
-  overflow: hidden;
+  margin: 32px 0 80px;
+  overflow: auto;
   position: relative;
   color: #172b4d;
+  height: 512px;
 }
 
 .card-show-container h3 {
@@ -106,6 +107,87 @@
   display: inline-block;
   margin: 0;
   padding-left: 4px;
+}
+
+.duedate-display {
+  margin-left: 36px;
+}
+
+.duedate-display span {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.duedate-display button {
+  width: 72px;
+  border-radius: 3px;
+  display: inline-block;
+  text-align: center;
+  background-color: #eaecef;
+  color: #172b4d;
+}
+
+.duedate-display button:hover {
+  cursor: pointer;
+  background-color: rgba(9,30,66,.08);
+}
+
+.duedate-display button:first-of-type {
+  margin-right: 4px;
+}
+
+#remove-duedate-button {
+  background-color: #a62b2b;
+  color: white;
+}
+
+#remove-duedate-button:hover {
+  background-color: #bf3d3d;
+}
+
+.duedate-form {
+  margin-left: 36px;
+}
+
+.duedate-form input[type=date] {
+  margin-bottom: 8px;
+  margin-right: 8px;
+  font-family: inherit;
+  border-radius: 3px;
+  border: none;
+  padding: 4px;
+  height: 32px;
+  width: 150px;
+  line-height: 20px;
+  font-size: 16px;
+}
+
+.duedate-form input[type=submit] {
+  background-color: #5aac44;
+  box-shadow: none;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  height: 32px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  cursor: pointer;
+  line-height: 20px;
+  width: 72px;
+  font-size: 14px;
+}
+
+.duedate-form input[type=submit]:hover {
+  background-color: #61bd4f;
+}
+
+.duedate-form span {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.duedate-form svg {
+  margin-right: 4px;
 }
 
 .card-description-editor {
