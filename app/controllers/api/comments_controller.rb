@@ -26,7 +26,7 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     if @comment
       if @comment.author_id == current_user.id
-        @comment.update_attribute({body: comment_params[:body]})
+        @comment.update_attribute(:body, comment_params[:body])
         render :show
       else
         render json: ["You are not the author of the comment"], status: 401

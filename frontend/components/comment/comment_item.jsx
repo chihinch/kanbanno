@@ -19,6 +19,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    updateComment: (comment) => dispatch(updateComment(comment)),
     deleteComment: (commentId) => dispatch(deleteComment(commentId)),
   };
 };
@@ -33,6 +34,7 @@ class CommentItem extends React.Component {
     this.update = this.update.bind(this);
     this.setHeightOfTextarea = this.setHeightOfTextarea.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
@@ -52,6 +54,11 @@ class CommentItem extends React.Component {
     this.setState({ showComment: !this.state.showComment });
   }
 
+  handleUpdate() {
+    const comment = Object.assign({}, { body: this.state.body, id: this.props.comment.id });
+    this.props.updateComment(comment).then(() => this.toggleEdit());
+  }
+
   handleDelete() {
     this.props.deleteComment(this.props.comment.id);
   }
@@ -68,7 +75,7 @@ class CommentItem extends React.Component {
     const commentP = <div className="comment-item-body"><p>{this.state.body}</p></div>;
 
     const commentEdit =
-      <form className="comment-form" id="comment-editor">
+      <form className="comment-form" id="comment-editor" onSubmit={this.handleUpdate}>
         <textarea className="comment-body-input" value={this.state.body} onChange={this.update('body')}></textarea>
         <input type="submit" className="comment-input-submit" value="Save" disabled={!this.state.body} />
         <span onClick={this.toggleEdit}><FontAwesomeIcon icon={faTimes} /></span>
