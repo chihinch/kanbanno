@@ -124,11 +124,25 @@
   display: inline-block;
   text-align: center;
   background-color: #eaecef;
+  color: #172b4d;
 }
 
 .duedate-display button:hover {
   cursor: pointer;
   background-color: rgba(9,30,66,.08);
+}
+
+.duedate-display button:first-of-type {
+  margin-right: 4px;
+}
+
+.duedate-display button:last-of-type {
+  background-color: #a62b2b;
+  color: white;
+}
+
+.duedate-display button:last-of-type:hover {
+  background-color: #bf3d3d;
 }
 
 .duedate-form {

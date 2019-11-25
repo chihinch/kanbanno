@@ -16,6 +16,7 @@ export default class CardShow extends React.Component {
     }
     this.toggleDuedateForm = this.toggleDuedateForm.bind(this);
     this.update = this.update.bind(this);
+    this.removeDuedate = this.removeDuedate.bind(this);
     this.handleKeyEscaper = this.handleKeyEscaper.bind(this);
     this.updateCard = this.updateCard.bind(this);
     this.setHeightOfTextarea = this.setHeightOfTextarea.bind(this);
@@ -64,6 +65,15 @@ export default class CardShow extends React.Component {
     this.toggleDuedateForm();
   }
 
+  removeDuedate() {
+    this.props.updateCard({
+      id: this.props.card.id,
+      title: this.props.card.title,
+      description: this.props.card.description,
+      due_date: null,
+    });
+  }
+
   setHeightOfTextarea(element) {
     element.style.height = 'inherit';
     element.style.height = element.scrollHeight + 'px';
@@ -83,22 +93,35 @@ export default class CardShow extends React.Component {
       </form>
 
     const duedate = !this.state.due_date ? null : new Date(this.state.due_date);
-
+    const todayDate = new Date();
+    let dateProximityMsg = '';
+    let dateProximityStyle = { background: 'transparent' }; 
+    
     let readableDuedate;
     if (duedate) {
       readableDuedate = duedate.toLocaleDateString([], { timeZone: 'UTC', year: 'numeric', month: 'short', day: 'numeric' });
+      if (duedate < todayDate) {
+        dateProximityMsg = 'OVERDUE';
+        dateProximityStyle = { background: '#ec9488', padding: '2px', color: 'white'};
+      }
+      const timeDiff = Math.abs(duedate.getTime() - todayDate.getTime());
+      const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+      if (daysDiff <= 3) {
+        dateProximityMsg = 'DUE SOON';
+        dateProximityStyle = { background: '#e6c60d', padding: '2px', color: 'black'};
+      }
     }
     else {
       readableDuedate = "None!";
     }
 
-    const todayDate = new Date();
-    let dateProximityMsg;    
+    const dateProximitySpan = <span id="dateProximity" style={dateProximityStyle}>{dateProximityMsg}</span>;
 
     const duedateDisplay = 
       <div className="duedate-display">
-        <span>{readableDuedate}</span><span>{dateProximityMsg}</span>
+        <span>{readableDuedate}</span>{dateProximitySpan}
         <button onClick={this.toggleDuedateForm}>Change</button>
+        <button onClick={this.removeDuedate}>Remove</button>
       </div>
 
     return (
