@@ -108,6 +108,28 @@
   padding-left: 4px;
 }
 
+.duedate-display {
+  margin-left: 36px;
+}
+
+.duedate-display span {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.duedate-display button {
+  width: 72px;
+  border-radius: 3px;
+  display: inline-block;
+  text-align: center;
+  background-color: #eaecef;
+}
+
+.duedate-display button:hover {
+  cursor: pointer;
+  background-color: rgba(9,30,66,.08);
+}
+
 .duedate-form {
   margin-left: 36px;
 }

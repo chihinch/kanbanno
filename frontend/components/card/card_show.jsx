@@ -14,6 +14,7 @@ export default class CardShow extends React.Component {
       due_date: props.card.due_date ? props.card.due_date : new Date(),
       editDuedate: false,
     }
+    this.toggleDuedateForm = this.toggleDuedateForm.bind(this);
     this.update = this.update.bind(this);
     this.handleKeyEscaper = this.handleKeyEscaper.bind(this);
     this.updateCard = this.updateCard.bind(this);
@@ -57,6 +58,8 @@ export default class CardShow extends React.Component {
       description: this.state.description,
       due_date: this.state.due_date,
     });
+
+    this.toggleDuedateForm();
   }
 
   setHeightOfTextarea(element) {
@@ -75,6 +78,16 @@ export default class CardShow extends React.Component {
         <input type="date" value={this.state.duedate} onChange={this.update('due_date')} />
         <input type="submit" value="Save"/>
       </form>
+
+    const duedate = new Date(this.state.due_date);
+    const readableDuedate = duedate.toLocaleDateString([], { year: 'numeric', month: 'short', day: 'numeric' })
+    // debugger
+
+    const duedateDisplay = 
+      <div className="duedate-display">
+        <span>{readableDuedate}</span>
+        <button onClick={this.toggleDuedateForm}>Change</button>
+      </div>
 
     return (
       <div className="card-show-container">
@@ -98,10 +111,7 @@ export default class CardShow extends React.Component {
               <span className="card-large-icon"><FontAwesomeIcon icon={faCalendar} /></span>
               <h3>Due Date</h3>
             </div>
-            {/* <form className="duedate-form">
-              <input type="date" value={this.state.duedate} onChange={this.update('duedate')}/>
-            </form> */}
-            {duedateForm}
+            {this.state.editDuedate ? duedateForm : duedateDisplay}
           </div>
           <div className="card-section-container">
             <div className="card-section-header" id="card-description">
