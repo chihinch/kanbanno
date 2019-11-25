@@ -11,7 +11,7 @@ export default class CardShow extends React.Component {
     this.state = {
       title: props.card.title,
       description: props.card.description,
-      due_date: props.card.due_date ? props.card.due_date : new Date(),
+      due_date: props.card.due_date,
       editDuedate: false,
     }
     this.toggleDuedateForm = this.toggleDuedateForm.bind(this);
@@ -75,13 +75,16 @@ export default class CardShow extends React.Component {
   render() {
     const duedateForm = 
       <form className="duedate-form" onSubmit={this.updateCard}>
-        <input type="date" value={this.state.duedate} onChange={this.update('due_date')} />
+        <input type="date" value={this.state.due_date} onChange={this.update('due_date')} />
         <input type="submit" value="Save"/>
       </form>
 
     const duedate = new Date(this.state.due_date);
-    const readableDuedate = duedate.toLocaleDateString([], { year: 'numeric', month: 'short', day: 'numeric' })
-    // debugger
+    const readableDuedate = duedate.toLocaleDateString([], { year: 'numeric', month: 'short', day: 'numeric' });
+    debugger
+
+    const todayDate = new Date();
+
 
     const duedateDisplay = 
       <div className="duedate-display">

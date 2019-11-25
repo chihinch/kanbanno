@@ -36,7 +36,7 @@ class Api::CardsController < ApplicationController
         card.updateNeighbours(card_params[:prev_card_id], card_params[:next_card_id])
         @cards = Card.where(list_id: [card.list_id, old_list_id], archived: false)
       else
-        card.update_attributes({title: card_params[:title], description: card_params[:description]})
+        card.update_attributes({title: card_params[:title], description: card_params[:description], due_date: card_params[:due_date]})
         @cards = Card.where(list_id: card.list_id, archived: false)
       end
       render :index
