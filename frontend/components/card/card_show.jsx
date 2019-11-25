@@ -11,7 +11,7 @@ export default class CardShow extends React.Component {
     this.state = {
       title: props.card.title,
       description: props.card.description,
-      due_date: props.card.due_date,
+      due_date: props.card.due_date ? props.card.due_date : '',
       editDuedate: false,
     }
     this.toggleDuedateForm = this.toggleDuedateForm.bind(this);
@@ -91,13 +91,13 @@ export default class CardShow extends React.Component {
     else {
       readableDuedate = "None!";
     }
-    debugger
 
     const todayDate = new Date();
+    let dateProximityMsg;    
 
     const duedateDisplay = 
       <div className="duedate-display">
-        <span>{readableDuedate}</span>
+        <span>{readableDuedate}</span><span>{dateProximityMsg}</span>
         <button onClick={this.toggleDuedateForm}>Change</button>
       </div>
 

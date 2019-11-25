@@ -2,10 +2,11 @@
   width: 768px;
   background-color: #f4f5f7;
   border-radius: 2px;
-  margin: 48px 0 80px;
-  overflow: hidden;
+  margin: 32px 0 80px;
+  overflow: auto;
   position: relative;
   color: #172b4d;
+  height: 512px;
 }
 
 .card-show-container h3 {
