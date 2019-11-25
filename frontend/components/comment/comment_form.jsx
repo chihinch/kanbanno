@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
+import { createComment } from '../../actions/comment_actions';
+
 const mapStateToProps = (state, ownProps) => {
   const authorId = state.session.id;
   return {
@@ -10,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
+    createComment: (comment) => dispatch(createComment(comment)),
   };
 };
 
@@ -39,15 +41,14 @@ class CommentForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let comment;
-    card = Object.assign({}, this.state, { author_id: this.props.authorId, card_id: this.props.cardId });
-    // this.props.createCard(this.props.listId, card)
-    //   .then(() => this.setState({ title: "" }));
+    const comment = Object.assign({}, this.state, { author_id: this.props.authorId, card_id: this.props.cardId });
+    this.props.createComment(comment)
+      .then(() => this.setState({ body: "" }));
   }
 
   render() {
     return (
-      <form className="comment-form">
+      <form className="comment-form" onSubmit={this.handleSubmit}>
         <textarea 
           className="comment-body-input"
           value={this.state.title}
@@ -58,7 +59,7 @@ class CommentForm extends React.Component {
 
         <input type="submit"
           value="Save"
-          disabled={!this.state.title}
+          disabled={!this.state.body}
           className="comment-input-submit"
         />
       </form>
