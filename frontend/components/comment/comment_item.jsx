@@ -1,7 +1,10 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
-import { deleteComment } from '../../actions/comment_actions';
+import { updateComment, deleteComment } from '../../actions/comment_actions';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const mapStateToProps = (state, ownProps) => {
   const comment = state.entities.comments[ownProps.commentId];
@@ -29,7 +32,7 @@ class CommentItem extends React.Component {
     };
     this.update = this.update.bind(this);
     this.setHeightOfTextarea = this.setHeightOfTextarea.bind(this);
-    this.openEdit = this.openEdit.bind(this);
+    this.toggleEdit = this.toggleEdit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
@@ -45,7 +48,7 @@ class CommentItem extends React.Component {
     element.style.height = element.scrollHeight + 'px';
   }
 
-  openEdit() {
+  toggleEdit() {
     this.setState({ showComment: !this.state.showComment });
   }
 
@@ -62,15 +65,17 @@ class CommentItem extends React.Component {
     const edited = elapsed > 1000 ? "(edited)" : "";
     const dateShown = readableUpdated + edited;
 
-    const commentP = <p>{this.state.body}</p>
+    const commentP = <div className="comment-item-body"><p>{this.state.body}</p></div>;
+
     const commentEdit =
-      <form style={{ display: "none" }}>
-        <textarea value={this.state.body} onChange={this.update('body')}>
-        </textarea>
+      <form className="comment-form" id="comment-editor">
+        <textarea className="comment-body-input" value={this.state.body} onChange={this.update('body')}></textarea>
+        <input type="submit" className="comment-input-submit" value="Save" disabled={!this.state.body} />
+        <span onClick={this.toggleEdit}><FontAwesomeIcon icon={faTimes} /></span>
       </form>;
-      
+
     const editEl = (this.props.currentUserId === this.props.author.id) 
-      ? <a className="comment-item-a" id="comment-edit" onClick={this.openEdit}>Edit</a>
+      ? <a className="comment-item-a" id="comment-edit" onClick={this.toggleEdit}>Edit</a>
       : null;
 
     const deleteEl = (this.props.currentUserId === this.props.author.id) 
@@ -84,9 +89,7 @@ class CommentItem extends React.Component {
             <span id="comment-item-author">{this.props.author.name}</span>
             <span id="comment-item-updatedat">{dateShown}</span>
           </div>
-          <div className="comment-item-body">
-            {this.state.showComment ? commentP : commentEdit}
-          </div>
+          {this.state.showComment ? commentP : commentEdit}
           <div>
             {editEl}
             {deleteEl}
