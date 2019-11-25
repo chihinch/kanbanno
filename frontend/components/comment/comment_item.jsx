@@ -66,11 +66,10 @@ class CommentItem extends React.Component {
   render() {
     const created = new Date(this.props.comment.created_at);
     const updated = new Date(this.props.comment.updated_at);
-    const elapsed = created - updated;
-
+    const elapsed = updated - created;
     const readableUpdated = updated.toLocaleString([], { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' });
     const edited = elapsed > 1000 ? "(edited)" : "";
-    const dateShown = readableUpdated + edited;
+    const dateShown = readableUpdated + ' ' + edited;
 
     const commentP = <div className="comment-item-body"><p>{this.state.body}</p></div>;
 
