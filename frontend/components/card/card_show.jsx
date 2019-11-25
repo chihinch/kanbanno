@@ -9,16 +9,20 @@ export default class CardShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: props.card.id,
       title: props.card.title,
       description: props.card.description,
-      duedate: props.card.due_date ? props.card.due_date : new Date(),
+      due_date: props.card.due_date ? props.card.due_date : new Date(),
+      editDuedate: false,
     }
     this.update = this.update.bind(this);
     this.handleKeyEscaper = this.handleKeyEscaper.bind(this);
     this.updateCard = this.updateCard.bind(this);
     this.setHeightOfTextarea = this.setHeightOfTextarea.bind(this);
     this.handleExit = this.handleExit.bind(this);
+  }
+
+  toggleDuedateForm() {
+    this.setState({ editDuedate: !this.state.editDuedate });
   }
 
   update(field) {
@@ -43,11 +47,16 @@ export default class CardShow extends React.Component {
       return;
     }
 
-    if (this.state.title === this.props.card.title && this.state.description === this.props.card.description) {
+    if (this.state.title === this.props.card.title && this.state.description === this.props.card.description && this.state.due_date === this.props.card.due_date) {
       return;
     }
 
-    this.props.updateCard(this.state);
+    this.props.updateCard({
+      id: this.props.card.id,
+      title: this.state.title,
+      description: this.state.description,
+      due_date: this.state.due_date,
+    });
   }
 
   setHeightOfTextarea(element) {
@@ -63,7 +72,7 @@ export default class CardShow extends React.Component {
   render() {
     const duedateForm = 
       <form className="duedate-form" onSubmit={this.updateCard}>
-        <input type="date" value={this.state.duedate} onChange={this.update('duedate')} />
+        <input type="date" value={this.state.duedate} onChange={this.update('due_date')} />
         <input type="submit" value="Save"/>
       </form>
 
@@ -110,7 +119,7 @@ export default class CardShow extends React.Component {
             </textarea>
           </div>
 
-          <CommentIndexContainer  cardId={this.state.id}/>
+          <CommentIndexContainer  cardId={this.props.card.id}/>
         </div>
       </div>
     )
