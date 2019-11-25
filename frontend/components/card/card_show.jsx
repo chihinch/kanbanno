@@ -23,7 +23,8 @@ export default class CardShow extends React.Component {
   }
 
   toggleDuedateForm() {
-    this.setState({ editDuedate: !this.state.editDuedate });
+    const duedate = this.state.due_date ? this.state.due_date : this.props.card.due_date;
+    this.setState({ due_date: duedate, editDuedate: !this.state.editDuedate });
   }
 
   update(field) {
@@ -40,10 +41,11 @@ export default class CardShow extends React.Component {
   }
 
   updateCard() {
-    if (!this.state.title || !this.state.description) {
+    if (!this.state.title || !this.state.description || !this.state.due_date) {
       this.setState({ 
         title: this.props.card.title,
-        description: this.props.card.description 
+        description: this.props.card.description,
+        due_date: this.props.card.due_date
       });
       return;
     }
@@ -75,16 +77,23 @@ export default class CardShow extends React.Component {
   render() {
     const duedateForm = 
       <form className="duedate-form" onSubmit={this.updateCard}>
-        <input type="date" value={this.state.due_date} onChange={this.update('due_date')} />
-        <input type="submit" value="Save"/>
+          <input type="date" value={this.state.due_date} onChange={this.update('due_date')} required/>
+          <input type="submit" value="Save"/>
+          <span onClick={this.toggleDuedateForm}><FontAwesomeIcon icon={faTimes} />Cancel</span>
       </form>
 
-    const duedate = new Date(this.state.due_date);
-    const readableDuedate = duedate.toLocaleDateString([], { year: 'numeric', month: 'short', day: 'numeric' });
+    const duedate = !this.state.due_date ? null : new Date(this.state.due_date);
+
+    let readableDuedate;
+    if (duedate) {
+      readableDuedate = duedate.toLocaleDateString([], { timeZone: 'UTC', year: 'numeric', month: 'short', day: 'numeric' });
+    }
+    else {
+      readableDuedate = "None!";
+    }
     debugger
 
     const todayDate = new Date();
-
 
     const duedateDisplay = 
       <div className="duedate-display">

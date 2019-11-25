@@ -166,6 +166,15 @@
   background-color: #61bd4f;
 }
 
+.duedate-form span {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.duedate-form svg {
+  margin-right: 4px;
+}
+
 .card-description-editor {
   margin-left: 30px;
   width: 500px;
