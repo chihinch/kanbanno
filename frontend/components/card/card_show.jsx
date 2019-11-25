@@ -60,16 +60,17 @@ export default class CardShow extends React.Component {
   }
 
   updateCard() {
-    if (!this.state.title || !this.state.description || !this.state.due_date) {
-      this.setState({ 
-        title: this.props.card.title,
-        description: this.props.card.description,
-        due_date: this.props.card.due_date
-      });
+    let title = this.state.title;
+    let description = this.state.description;
+    let duedate = this.state.due_date;
+    
+    if (title === this.props.card.title && description === this.props.card.description && duedate === this.props.card.due_date) {
       return;
     }
 
-    if (this.state.title === this.props.card.title && this.state.description === this.props.card.description && this.state.due_date === this.props.card.due_date) {
+    // Card only requires a title; description & due_date are optional
+    if (!title) {
+      this.setState({ title: this.props.card.title });
       return;
     }
 
