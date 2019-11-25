@@ -25,8 +25,28 @@ class CommentItem extends React.Component {
     super(props);
     this.state = {
       body: props.comment.body,
+      showComment: true,
     };
+    this.update = this.update.bind(this);
+    this.setHeightOfTextarea = this.setHeightOfTextarea.bind(this);
+    this.openEdit = this.openEdit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  update(field) {
+    return (e) => {
+      this.setState({ [field]: e.currentTarget.value });
+      this.setHeightOfTextarea(e.target);
+    };
+  }
+
+  setHeightOfTextarea(element) {
+    element.style.height = 'inherit';
+    element.style.height = element.scrollHeight + 'px';
+  }
+
+  openEdit() {
+    this.setState({ showComment: !this.state.showComment });
   }
 
   handleDelete() {
@@ -42,6 +62,17 @@ class CommentItem extends React.Component {
     const edited = elapsed > 1000 ? "(edited)" : "";
     const dateShown = readableUpdated + edited;
 
+    const commentP = <p>{this.state.body}</p>
+    const commentEdit =
+      <form style={{ display: "none" }}>
+        <textarea value={this.state.body} onChange={this.update('body')}>
+        </textarea>
+      </form>;
+      
+    const editEl = (this.props.currentUserId === this.props.author.id) 
+      ? <a className="comment-item-a" id="comment-edit" onClick={this.openEdit}>Edit</a>
+      : null;
+
     const deleteEl = (this.props.currentUserId === this.props.author.id) 
       ? <a className="comment-item-a" id="comment-delete" onClick={this.handleDelete}>Delete</a> 
       : null;
@@ -54,11 +85,12 @@ class CommentItem extends React.Component {
             <span id="comment-item-updatedat">{dateShown}</span>
           </div>
           <div className="comment-item-body">
-            <p>{this.state.body}</p>
+            {this.state.showComment ? commentP : commentEdit}
           </div>
-          <span>
+          <div>
+            {editEl}
             {deleteEl}
-          </span>
+          </div>
         </div>
       </li>
     )

@@ -99,3 +99,7 @@
 .comment-form-a:hover {
   color: #172b4d;
 }
+
+#comment-edit {
+  margin-right: 8px;
+}

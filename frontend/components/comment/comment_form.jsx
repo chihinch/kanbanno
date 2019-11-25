@@ -3,7 +3,7 @@ import React from 'react';
 
 import { createComment } from '../../actions/comment_actions';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   const authorId = state.session.id;
   return {
     authorId,
