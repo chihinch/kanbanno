@@ -26,12 +26,13 @@ Visitors go through a simple, no-nonsense, yet visually appealing signup process
 
 Alternatively, visitors can feel free to demo the app to see if Kanbanno is the right fit for them.
 
-### Boards, Lists*, and Cards*
-\*Features under construction
+### Boards, Lists, and Cards
 
-The foundation of the app. Users can create boards for their projects and group the project's tasks (cards) in lists. Most often, users may want to group cards by their tasks' status (e.g. planning, not started, in progress, done).
+Dashboard
 
-Users will also be able to add details, such as descriptions and due dates, to cards to describe a task.
+![Kanbanno dashboard](https://drive.google.com/uc?id=1-Fz-O23mK93A4ImLUjHfgd3hOWbrQtux)
+
+Upon login, users will see the a dashboard displaying all the boards that they can access. These boards are categorized as personal or shared.
 
 ### Drag-and-Drop*
 
@@ -46,22 +47,3 @@ Users will be able to rearrange their lists and cards around a board by simply d
 Boards can be shared with a team so everyone can stay informed about the progression of their project. Team members can interact with lists and cards just like the board's owner.
 
 ## Future Updates
-
-* Boards
-  * Users can star boards to see them at the top of their dashboard
-  * Boards can be archived and reopened
-* Lists and Cards
-  * Lists can be added to cards, and cards can be added to lists
-  * Utilisation of Atlassian's react-beautiful-dnd library to implement drag-and-drop capability to lists and cards
-  * Lists and cards and be archived
-* Sharing
-  * Users can share boards with other Kanbanno users
-  * Board members can all edit the board, lists, and cards
-* Comments and Due Dates
-  * Users can comment and add due dates to cards
-  * Due dates can display a status based on proximity to deadlines
-
-
-## Acknowledgements
-
-Special thanks to the authors of Trello as well as Atlassian Corporation plc for creating a wonderful app for making project management pain-free.
