@@ -29,11 +29,25 @@ User passwords are secured with bcrypt. Sessions are tracked by storing randomly
 
 ### Boards, Lists, and Cards
 
-Dashboard
+#### Dashboard
 
 ![Kanbanno dashboard](https://drive.google.com/uc?id=1-Fz-O23mK93A4ImLUjHfgd3hOWbrQtux)
 
-Upon login, users will see the a dashboard displaying all the boards that they can access. These boards are categorized as personal or shared.
+Upon login, users will see the a dashboard displaying all the boards that they can access. 
+
+#### Main Interface
+
+![Kanbanno board](https://drive.google.com/uc?id=18efswQpF3zsi6rvom604ov4EOMnjWTUI)
+
+Selection of a board leads to the main interface. Users are free to create cards representing tasks and group them into lists. Cards can also be given due dates, which are colour-coded based on proximity to the current day: yellow indicates an approaching deadline, while red indicates a task that is past due.
+
+#### Card Interface
+
+![Kanbanno card](https://drive.google.com/uc?id=1dwXl20fCZj-C8ctr3wk7SQjOTBtm0jiW)
+
+![Kanbanno comment](https://drive.google.com/uc?id=1tCInA9RWqOoBpR4ZQvhV-yhD_HzuHV8U)
+
+Clicking a card reveals more details it. Users can change due dates, add descriptions, or submit comments.
 
 ### Drag-and-Drop*
 
