@@ -2,16 +2,17 @@
 
 ## Visit the Live App!
 
-[View Kanbanno Here](https://kanbanno.herokuapp.com "Kanbanno")
+[Click me to try Kanbanno](https://kanbanno.herokuapp.com "Kanbanno")
+![Kanbanno splash page](https://drive.google.com/uc?id=1CmE_6nU_QaqiZnbRnggLD57LEQoinbRS)
 
 ## Welcome to Kanbanno!
 
-Kanbanno is a single page appplication modelled after [Trello](https://trello.com "Trello"). It applies the [kanban](https://en.wikipedia.org/wiki/Kanban "Kanban") system developed by engineers at Toyota, which presents an intuitive, board-based interface for teams to stay informed on the progression of their projects and quickly update the status of tasks.
+Kanbanno is a single page appplication modelled after [Trello](https://trello.com "Trello"). It implements the [kanban](https://en.wikipedia.org/wiki/Kanban "Kanban") system developed by engineers at Toyota, which presents an intuitive, board-based interface for teams to stay informed on the progression of their projects and quickly update the status of tasks.
 
 ## Technologies
 
-* Backend: Ruby on Rails / PostgreSQL
-* Frontend: React.js / Redux
+* Backend: Ruby on Rails, PostgreSQL
+* Frontend: React.js, Redux
 * Hosting: Heroku
 * Other libraries: 
   * [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) for drag-and-drop capability
@@ -22,9 +23,9 @@ Kanbanno is a single page appplication modelled after [Trello](https://trello.co
 
 ### User Authentication
 
-Visitors go through a simple, no-nonsense, yet visually appealing signup process designed to get them set up with Kanbanno and let them focus on what matters more: getting their projects in shape.
+Visitors go through a simple, no-nonsense, yet visually appealing signup process designed to get them started with Kanbanno as soon as possible. 
 
-Alternatively, visitors can feel free to demo the app to see if Kanbanno is the right fit for them.
+User passwords are secured with bcrypt. Sessions are tracked by storing randomly generated session tokens in cookies.
 
 ### Boards, Lists*, and Cards*
 \*Features under construction
