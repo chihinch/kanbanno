@@ -49,16 +49,16 @@ Selection of a board leads to the main interface. Users are free to create cards
 
 Clicking a card reveals more details it. Users can change due dates, add descriptions, or submit comments.
 
-### Drag-and-Drop*
+### Drag-and-Drop
 
 ![Kanbanno dnd](https://drive.google.com/uc?id=1N5sdZhimyk4owDdOidoVYQK22U_-Ze0L)
 
 For maximum flexibility, users can rearrange their boards any way they want by dragging and dropping lists and cards thanks to Trello's react-beautiful-dnd library.
 
-### Sharing*
+### Sharing
 
-\* Feature under construction
+![Kanbanno sharing](https://drive.google.com/uc?id=1X3KZuMfSdE2vrQIM_-TYEoc75jri2zBA)
 
-Boards can be shared with a team so everyone can stay informed about the progression of their project. Team members can interact with lists and cards just like the board's owner.
+Kanbanno is all about collaboration, so it's easy to invite other Kanbanno users to join a board, who will then see the board on their dashboard. Board administrators also have the capability to remove members from the board.
 
 ## Future Updates
