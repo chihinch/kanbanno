@@ -29,12 +29,6 @@ User passwords are secured with bcrypt. Sessions are tracked by storing randomly
 
 ### Boards, Lists, and Cards
 
-#### Dashboard
-
-![Kanbanno dashboard](https://drive.google.com/uc?id=1-Fz-O23mK93A4ImLUjHfgd3hOWbrQtux)
-
-Upon login, users will see the a dashboard displaying all the boards that they can access. 
-
 #### Main Interface
 
 ![Kanbanno board](https://drive.google.com/uc?id=18efswQpF3zsi6rvom604ov4EOMnjWTUI)
@@ -62,3 +56,11 @@ For maximum flexibility, users can rearrange their boards any way they want by d
 Kanbanno is all about collaboration, so it's easy to invite other Kanbanno users to join a board, who will then see the board on their dashboard. Board administrators also have the capability to remove members from the board.
 
 ## Future Updates
+
+Kanbanno will eventually be able to do the following:
+
+* Archive and close/delete boards, lists, and cards
+* Star favourite boards
+* Search for boards
+* Store attachments uploaded by users to cards
+* Duplicate lists and cards
