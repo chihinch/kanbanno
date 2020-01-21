@@ -51,9 +51,9 @@ Clicking a card reveals more details it. Users can change due dates, add descrip
 
 ### Drag-and-Drop*
 
-\* Feature under construction
+![Kanbanno dnd](https://drive.google.com/uc?id=1N5sdZhimyk4owDdOidoVYQK22U_-Ze0L)
 
-Users will be able to rearrange their lists and cards around a board by simply dragging them around, just like an actual bulletin board.
+For maximum flexibility, users can rearrange their boards any way they want by dragging and dropping lists and cards thanks to Trello's react-beautiful-dnd library.
 
 ### Sharing*
 
